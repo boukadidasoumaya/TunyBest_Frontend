@@ -1,0 +1,177 @@
+.comment-section span {
+  font-size: 20px;
+  font-weight: 500;
+}
+.comments {
+  background-color: #21252F;
+  border-radius: 15px;
+  /* min-height: 335px; */
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px 8px 23px 23px;
+  padding: 5px;
+  box-shadow: 2px 2px 2px rgba(153, 153, 153, 0.9);
+  border: 1.5px solid #ccc;
+}
+
+.box-container textarea {
+  width: 98%;
+  resize: none;
+  border: 0;
+  border-radius: 6px;
+  padding-left: 12px;
+  font-size: 16px !important;
+  outline: none;
+  caret-color: #0a84ff;
+  line-height: 1.5;
+}
+
+.formatting {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+.formatting button {
+  cursor: pointer;
+  width: 33px;
+  height: 33px ;
+  border-radius: 50%;
+  border: 1px solid #fca5a5;
+  outline: none;
+  background: #fca5a5;
+}
+.formatting button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.formatting .send:hover {
+  border: 1px solid #fb6363;
+  background: #fb6363;
+  box-shadow: rgba(255, 255, 255, .2) 0 4px 15px inset, rgba(0, 0, 0, .1) 0 4px 5px, rgba(0, 0, 0, .1) 0 10px 15px;
+  transform: scale(1.04);
+  transition-duration: .3s;
+}
+.formatting button:active {
+  transform: translate(2px ,2px);
+}
+
+.all-comments.custom-scrollbar {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.all-comments.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.all-comments.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.all-comments.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #00071B;
+  border-radius: 100px;
+}
+
+.all-comments.custom-scrollbar {
+  overflow: auto;
+}
+
+.all-comments img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.date {
+  font-size: smaller;
+}
+
+.user-image{
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin-top: -5px;
+}
+.custom-hr {
+  border-width: 3px;
+}
+
+
+
+.like-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.like-button {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  transition: 100ms;
+  height: 34px;
+}
+
+.checkmark {
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  transition: 100ms;
+  animation: dislike_effect 400ms ease;
+}
+
+.like-button input:checked ~ .checkmark path {
+  fill: #FF5353;
+  stroke-width: 0;
+}
+
+.like-button input:checked ~ .checkmark {
+  animation: like_effect 400ms ease;
+}
+
+.checkmark:hover {
+  transform: scale(1.1);
+}
+
+@keyframes like_effect {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dislike_effect {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

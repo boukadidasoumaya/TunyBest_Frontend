@@ -4,7 +4,7 @@ const NavMenu = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={require("../assets/logo.png")} />
+        {/* <img src={require("../assets/logo.png")} /> */}
       </div>
       <ul className="navbar-menu">
         <li>

@@ -1,0 +1,10 @@
+.similar-section span {
+  font-size: 20px;
+  font-weight: 500;
+}
+.similar-section .similar {
+  background-color: rgb(0, 7, 27);
+  border-radius: 15px;
+  min-height: 335px;
+
+}
