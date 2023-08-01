@@ -37,16 +37,15 @@ const MediaStatistics = ({ chartData }) => {
       },
     },
 
-    barThickness: 20,
   };
 
   return (
     <div className="media-statistics">
       <span>Ratings</span>
       <hr className="custom-hr" />
-          <div className="d-flex flex-column justify-content-end">
-            <Bar data={chartData} options={options} />
-          </div>
+        <div className="chart-container d-flex justify-content-center">
+          <Bar className="bar" data={chartData} options={options} />
+        </div>
     </div>
   );
 };

@@ -46,11 +46,11 @@ const MediaDetails = () => {
   };
 
   const [chartData, setChartData] = useState({
-    labels: [1, 2, 3, 4, 5,6,7,8,9,10], // Numerical values representing the data points on the X-axis
+    labels: [10,9,8,7,6,5,4,3,2,1], // Numerical values representing the data points on the X-axis
     datasets: [
       {
-        label: 'Dataset 1',
-        data: [10, 20, 15, 30, 25,60,90,10,40,50], // Numerical values representing the data points on the Y-axis
+        // label: 'Dataset 1',
+        data: [10, 20, 15, 30, 25,60,10,10,40,50], // Numerical values representing the data points on the Y-axis
         backgroundColor: 'rgba(255,255,255,1)',
         borderColor: 'rgba(255,255,255,1)',
         borderWidth: 1,
@@ -123,10 +123,10 @@ const MediaDetails = () => {
 
             <div className="container">
               <div className="row">
-                <div className="col-5 infos">
+                <div className="col-lg-5 col-md-12 col-sm-12 infos">
                   <MediaInfos />
                 </div>
-                <div className="col-7 ">
+                <div className="col-lg-7 col-md-12 col-sm-12 ">
                     <MediaStatistics chartData={chartData}/>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const SimilarSection = () => {
       <span>
         Similar
       </span>
-      <hr />
+      <hr className='custom-hr'/>
       <div className="container similar p-4">
 
       </div>

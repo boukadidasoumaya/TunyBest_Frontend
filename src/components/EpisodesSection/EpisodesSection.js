@@ -47,7 +47,6 @@ const EpisodesSection = () => {
             <div className="custom-select d-flex flex-column align-items-start" onClick={toggleOptions} ref={selectRef}>
         <div
           className={`selected-option ${isOpen ? "open" : ""}`}
-          
         >
           {selectedOption}
         </div>

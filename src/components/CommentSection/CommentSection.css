@@ -1,7 +1,8 @@
-.comment-section span {
+.comment-section .span {
   font-size: 20px;
   font-weight: 500;
 }
+
 .comments {
   background-color: #21252F;
   border-radius: 15px;
@@ -32,18 +33,20 @@
 
 .formatting {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
+
 .formatting button {
   cursor: pointer;
   width: 33px;
-  height: 33px ;
+  height: 33px;
   border-radius: 50%;
   border: 1px solid #fca5a5;
   outline: none;
   background: #fca5a5;
 }
+
 .formatting button {
   position: relative;
   display: flex;
@@ -59,8 +62,9 @@
   transform: scale(1.04);
   transition-duration: .3s;
 }
+
 .formatting button:active {
-  transform: translate(2px ,2px);
+  transform: translate(2px, 2px);
 }
 
 .all-comments.custom-scrollbar {
@@ -86,7 +90,7 @@
   overflow: auto;
 }
 
-.all-comments img{
+.all-comments img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -96,12 +100,13 @@
   font-size: smaller;
 }
 
-.user-image{
+.user-image {
   border-radius: 50%;
   height: 55px;
   width: 55px;
   margin-top: -5px;
 }
+
 .custom-hr {
   border-width: 3px;
 }
@@ -135,12 +140,12 @@
   animation: dislike_effect 400ms ease;
 }
 
-.like-button input:checked ~ .checkmark path {
+.like-button input:checked~.checkmark path {
   fill: #FF5353;
   stroke-width: 0;
 }
 
-.like-button input:checked ~ .checkmark {
+.like-button input:checked~.checkmark {
   animation: like_effect 400ms ease;
 }
 
@@ -174,4 +179,21 @@
   100% {
     transform: scale(1);
   }
+}
+
+.reply-button i {
+  font-size: 1.5rem;
+}
+
+/* .reply-icon {
+  transform: rotate(190deg);
+}  */
+.reply-button img {
+  height: 24px;
+  width: 24px;
+}
+
+.reply-button span {
+  font-size: smaller;
+  margin-left: 10px;
 }
