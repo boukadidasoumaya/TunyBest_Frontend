@@ -1,32 +1,89 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./NavBarre.css";
-const NavMenu = () => {
-  return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-        <img src={require("../assets/logo.png")} />
-      </div>
-      <ul className="navbar-menu">
-        <li>
-          <a href="#">Home</a>
-        </li>
 
-        <li>
-          <a href="#">Movies</a>
-        </li>
-        <li>
-          <a href="#">Series</a>
-        </li>
-      </ul>
-      <div className="search-box">
-        <input type="search-txt" placeholder="Search" />
-        <button type="submit">
-          <i className="fas fa-search" />
-        </button>
+const NavBar = () => {
+  const [isSearchBoxActive, setSearchBoxActive] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const handleSearchButtonClick = () => {
+    setSearchBoxActive((prevState) => !prevState);
+  };
+
+  const handleToggleClick = () => {
+    setClicked((prevState) => !prevState);
+  };
+
+  return (
+    <nav>
+      <div className="container">
+        <div className="navbar">
+          <div className="navbar-logo">
+            <img src={require("../assets/logo.png")} alt="Logo" />
+          </div>
+          <ul className={`navbar-menu ${clicked ? "active" : ""}`}>
+            <li>
+              <div
+                className={`mobile-search ${
+                  isSearchBoxActive ? "active" : ""
+                } `}
+              >
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className={`search-txt`}
+                />
+                <a className="search-btn" onClick={handleSearchButtonClick}>
+                  <i className="fas fa-search" />
+                </a>
+              </div>
+            </li>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Movies</a>
+            </li>
+            <li>
+              <a href="#">Series</a>
+            </li>
+            <li>
+              <div
+                className={`search-box ${isSearchBoxActive ? "active" : ""}`}
+              >
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className={`search-txt`}
+                />
+                <a className="search-btn" onClick={handleSearchButtonClick}>
+                  <i className="fas fa-search" />
+                </a>
+              </div>
+            </li>
+            <li>
+              <div className="bell">
+                <i className="fas fa-bell" style={{ color: "#ffffff" }} />
+              </div>
+            </li>
+            <li>
+              <a className="profil" href="#">
+                Profil
+              </a>
+            </li>
+            <li>
+              <div className="bell-notif">
+                <i className="fas fa-bell" style={{ color: "#ffffff" }} />
+              </div>
+            </li>
+            <div id="toggle" className="toggle" onClick={handleToggleClick}>
+              <i
+                className={clicked ? "fas fa-times fa-lg" : "fas fa-bars fa-lg"}
+              />
+            </div>
+          </ul>
+        </div>
       </div>
     </nav>
   );
 };
 
-
-export default NavMenu;
+export default NavBar;
