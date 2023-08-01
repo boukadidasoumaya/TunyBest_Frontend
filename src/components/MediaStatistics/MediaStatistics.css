@@ -1,0 +1,16 @@
+.media-statistics{
+  height: 85%;
+}
+.media-statistics span {
+  font-size: 20px;
+  font-weight: 500;
+}
+.filtering{
+  text-align: center;
+}
+.chart-container{
+  height: 100%;
+}
+.bar {
+  height: 100% !important;
+}
