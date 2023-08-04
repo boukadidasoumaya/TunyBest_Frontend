@@ -1,152 +1,16 @@
-.episodes .nb-episodes {
-  font-size: 20px;
+.episodes-section .episodes .nb-episodes {
+  font-size: 24px;
   font-weight: 500;
 }
-
-details {
-	position: relative;
-	width: 120px;
-	margin-right: 1rem;
-}
-
-details[open] {
-	z-index: 1;
-}
-
-summary {
-	padding: 1rem;
-	cursor: pointer;
-	border-radius: 5px;
-	background-color: #ddd;
-	list-style: none;
-  height: 30px !important;
-
-}
-
-summary::-webkit-details-marker {
-	display: none;
-}
-
-details[open] summary:before {
-	content: '';
-	display: block;
-	width: 100vw;
-	height: 100vh;
-	background: transparent;
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-
-summary:after {
-	content: '';
-	display: inline-block;
-	float: right;
-	width: .5rem;
-	height: .5rem;
-	border-bottom: 1px solid currentColor;
-	border-left: 1px solid currentColor;
-	border-bottom-left-radius: 2px;
-	transform: rotate(45deg) translate(50%, 0%);
-	transform-origin: center center;
-	transition: transform ease-in-out 100ms
-}
-
-summary:focus {
-	outline: none;
-}
-
-details[open] summary:after {
-	transform: rotate(-45deg) translate(0%, 0%);
-}
-
-ul {
-	width: 100%;
-	background: #ddd;
-	position: absolute;
-	top: calc(100% + .5rem);
-	left: 0;
-	padding: 1rem;
-	margin: 0;
-	box-sizing: border-box;
-	border-radius: 5px;
-	max-height: 200px;
-	overflow-y: auto;
-}
-
-li {
-	margin: 0;
-	padding: 1rem 0;
-	border-bottom: 1px solid #ccc;
-}
-
-li:first-child {
-	padding-top: 0;
-}
-
-li:last-child {
-	padding-bottom: 0;
-	border-bottom: none;
-}
-
-/* FAKE SELECT */
-
-.episodes-section summary.radios {
-	counter-reset: radios;
-}
-
-.episodes-section summary.radios:before {
-	content: var(--selection);
-}
-
-.episodes-section input[type=radio] {
-  
-	counter-increment: radios;
-	appearance: none;
-	display: none;
-}
-
-.episodes-section input[type=radio]:checked {
-	display: inline;
-	--display: block;
-}
-
-.episodes-section input[type=radio]:after {
-	content: attr(title);
-	display: inline;
-	font-size: 1rem;
-}
-
-.episodes-section ul.list {
-	counter-reset: labels;
-}
-
-.episodes-section label {
-	width: 100%;
-	display: flex;
-	cursor: pointer;
-	justify-content: space-between;
-}
-
-.episodes-section label span {
-	--display: none;
-	display: var(--display);
-	width: 1rem;
-	height: 1rem;
-	border: 1px solid #727272;
-	border-radius: 3px;
-}
-
-
-
 
 /* Style for the custom select container */
 .custom-select {
   position: relative;
-  width: 120px; /* Set the width as needed */
+  width: 140px;
+  /* Set the width as needed */
   border: 1px solid #ccc;
   border-radius: 20px;
-  padding: 8px;
+  padding: 8px 20px;
   cursor: pointer;
   background-color: #f1f1f1;
 }
@@ -156,20 +20,6 @@ li:last-child {
   color: rgb(15, 19, 30);
 }
 
-/* Style the arrow  */
-.custom-select::after {
-  content: '';
-  position: absolute;
-  top: 54%;
-  right: 15px;
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 11px solid rgb(15, 19, 30); /* Adjust the color and size as needed */
-  transform: translateY(-50%);
-  pointer-events: none; /* Make the arrow non-clickable */
-}
 /* Style for the options container */
 .options {
   /* display: none; */
@@ -192,6 +42,7 @@ li:last-child {
   cursor: pointer;
   border-radius: 4px;
 }
+
 .option:hover {
   background-color: rgb(15, 19, 30);
   color: white;
@@ -200,4 +51,33 @@ li:last-child {
 /* Style for the options container when it's open */
 .custom-select.open .options {
   display: block;
+}
+
+.episodes-section .img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  /* margin: 0 10px; */
+}
+
+.episodes-section img {
+  height: 100%;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.slick-dots li button::before{
+  color: #ffffff !important;
+}
+.slider {
+  margin: 5vh 2vh 6vh;
+}
+.ep-number {
+  font-size: 18px;
+text-align: center;
 }

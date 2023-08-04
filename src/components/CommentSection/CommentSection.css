@@ -1,5 +1,5 @@
 .comment-section .span {
-  font-size: 20px;
+  font-size: 24px ;
   font-weight: 500;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .all-comments.custom-scrollbar {
-  max-height: 200px;
+  max-height: 426px;
   overflow-y: auto;
 }
 
@@ -90,6 +90,11 @@
   overflow: auto;
 }
 
+.user-image-reply, .img-reply {
+  height: 45px !important;
+  width: 45px !important;
+}
+
 .all-comments img {
   height: 50px;
   width: 50px;
@@ -106,6 +111,7 @@
   width: 55px;
   margin-top: -5px;
 }
+
 
 .custom-hr {
   border-width: 3px;
@@ -196,4 +202,9 @@
 .reply-button span {
   font-size: smaller;
   margin-left: 10px;
+}
+.first-section {
+  background-color: rgba(68, 73, 85, 0.595);
+  padding: 8px;
+  border-radius: 15px;
 }

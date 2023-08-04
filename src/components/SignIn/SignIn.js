@@ -7,30 +7,80 @@ const SignIn = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validateForm = () => {
+    let newErrors = {};
+    let isValid = true;
+
+    // Check for empty fields
+    for (const key in formData) {
+      if (formData[key].trim() === "") {
+        newErrors[key] = `${key} is required`;
+        isValid = false;
+      }
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (validateForm()) {
+      console.log("Form data:", formData);
+      setFormData({
+        email: "",
+        password: "",
+      });
+      setErrors({});
+    }
+  };
+
   return (
     <div className="sign-in d-flex flex-column align-items-center">
+      <div className="logo ">
+        <img src={require("../../assets/logo.png")} alt="" />
+      </div>
       <div className="content">
         <div className="texte">Login</div>
-        <form action="#">
+        <form onSubmit={handleSubmit}>
           <div className="field">
             <input
-              required
-              // type="email"
               type="text"
-              className="input"
+              value={formData.email}
+              className={`input ${errors.email ? "error" : ""}`}
               placeholder="Enter your email"
+              name="email"
+              onChange={handleInputChange}
             />
             <span className="span">
             <i className="fa-solid fa-envelope"></i>
             </span>
-            {/* <label className="label">Email or Phone</label> */}
           </div>
+          {errors.email && (
+                <div className="error-text m-4 mt-2 mb-2">
+                  {errors.email}
+                </div>
+              )}
           <div className="field">
             <input
-              required
               type={`${showPassword ? "text" : "password"}`}
-              className="input"
+              className={`input ${errors.password ? "error" : ""}`}
               placeholder="Enter your password"
+              value={formData.password}
+              name="password"
+              onChange={handleInputChange}
             />
             <span className="span">
             <i className="fa-solid fa-lock"></i>
@@ -43,14 +93,19 @@ const SignIn = () => {
               ></i>
             </span>
           </div>
+          {errors.password && (
+                <div className="error-text m-4 mt-2 mb-2">
+                  {errors.password}
+                </div>
+              )}
           <div className="forgot-pass">
             <a href="#">Forgot Password?</a>
           </div>
           <div className="d-flex flex-column align-items-center">
             <button className="button">
               Sign in
-              <div class="arrow-wrapper">
-                <div class="arrow"></div>
+              <div className="arrow-wrapper">
+                <div className="arrow"></div>
               </div>
             </button>
           </div>

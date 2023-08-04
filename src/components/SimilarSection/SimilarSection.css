@@ -1,10 +1,44 @@
-.similar-section span {
-  font-size: 20px;
-  font-weight: 500;
+.similar-section {
+  width: 100%;
+}
+#sim {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
 }
 .similar-section .similar {
   background-color: rgb(0, 7, 27);
   border-radius: 15px;
   min-height: 335px;
 
+}
+
+.similar-section .img {
+  height: 100%;
+  width: 100% !important;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 5px 0px;
+}
+
+.similar-section img {
+  height: 155px;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.similar-section li button::before{
+  color: #ffffff !important;
+  top:99% !important;
+}
+.similar-section .slider {
+  margin: 3vh 3vh 6vh;
+}
+.similar-section span {
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  margin-left: 5%;
 }

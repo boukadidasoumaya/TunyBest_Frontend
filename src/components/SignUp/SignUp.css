@@ -17,18 +17,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* transform: rotate(20deg);  */
   z-index: -1;
+}
+
+.sign-up .logo {
+  position: relative;
+  /* left: -40%; */
 }
 
 .sign-up .content {
   width: 450px;
-  padding: 40px 30px;
-  background: rgba(0, 6, 24,0.73);
+  padding: 30px 30px;
+  background: rgba(0, 6, 24, 0.73);
   border-radius: 10px;
   box-shadow: -3px -3px 7px #84848473,
     2px 2px 5px rgba(94, 104, 121, 0.288);
-  top: 15%;
+  top: 11%;
   position: fixed;
 }
 
@@ -46,7 +50,10 @@
   position: relative;
 }
 
-.field:nth-child(2), .field:nth-child(3), .field:nth-child(4) {
+.field:nth-child(2),
+.field:nth-child(3),
+.field:nth-child(4),
+.field:nth-child(5) {
   margin-top: 20px;
 }
 
@@ -65,12 +72,28 @@
   color: #434343;
   border-radius: 25px;
   box-shadow: inset 2px 2px 5px #838aa4,
-    inset -5px -5px 10px #5e5e5e73 ;
+    inset -5px -5px 10px #5e5e5e73;
+}
+
+.error-text {
+  color: rgb(210, 74, 74)
+}
+
+.sign-up .error {
+  border: 1px solid rgb(210, 74, 74);
+  box-shadow: 2px 2px 5px rgba(210, 74, 74, 0.489),
+    -3px -3px 5px rgba(210, 74, 74, 0.489);
 }
 
 .field .input:focus {
   box-shadow: inset 1px 1px 2px #BABECC,
     inset -1px -1px 2px #5e5e5e73;
+}
+
+.sign-up .empty {
+  border-color: rgb(210, 74, 74);
+  box-shadow: inset 2px 2px 5px rgb(210, 74, 74),
+    inset -5px -5px 10px rgb(210, 74, 74);
 }
 
 .field i {
@@ -81,20 +104,25 @@
   font-size: 20px;
 
 }
-.field .span i{
+
+.field .span i {
   left: 5%;
 }
-.field i.fa-eye-slash, i.fa-eye {
+
+.field i.fa-eye-slash,
+i.fa-eye {
   right: 5%;
 }
-.field i.fa-camera{
+
+.field i.fa-camera {
   top: 30%;
   color: white;
 
 }
+
 .file {
   position: relative;
-  left:15%;
+  left: 15%;
   color: #828282;
 }
 
@@ -110,7 +138,7 @@
   --arrow-width: 10px;
   --arrow-stroke: 2px;
   box-sizing: border-box;
-  border: 0 ;
+  border: 0;
   border-radius: 25px !important;
   color: var(--secondary-color);
   padding: .7em 0;
@@ -180,6 +208,7 @@
 .sign-up button:hover::before {
   width: 160%;
 }
+
 .sign-up button:hover .arrow {
   background: var(--secondary-color);
 }

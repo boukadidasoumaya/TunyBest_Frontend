@@ -1,28 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,500;1,600&display=swap');
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1b2430;
+  padding: 20px 80px;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+#navbar li {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle i {
+  color: #fff;
+  align-items: center;
+}
+
+@media screen and (max-width: 875px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 40px;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: #1b2430;
+    padding: 40px 0 0 10px;
+    transition: 0.4s ease-in-out;
+
+  }
+  #navbar.active{
+    right: 0px;
+  }
+  #navbar li{
+    margin-bottom: 50px;
+  }
+
+  #toggle {
+    display: block;
+    position:fixed;
+    margin-left: 500px;
+  }
+  #toggle i {
+    font-size: 24px;
+    cursor: pointer;
+  }
 
 
-.container1 {
-  max-width: 1200px !important;
-
-  padding-left: 25px !important;
 
 
 }
 
-.nav {
+
+/*mobile*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,500;1,600&display=swap');
+
+
+nav {
   position: fixed;
   width: 100%;
   z-index: 999;
   top: 0;
-  padding: 10px;
-  background-color: #0F131E !important;
-  box-shadow: 2px 2px 5px rgba(82, 91, 106, 0.288);
+padding: 10px;
+background-color: #0F131E; 
+
 }
 
-.navbarre {
+.navbar {
   background-color: #0F131E;
   color: #fff;
-  display: flex !important;
+  display: flex;
   align-items: center;
   padding: 10px;
   height: 50px;
@@ -40,17 +107,17 @@
 }
 
 .navbar-menu {
-  list-style: none !important;
-  display: flex !important ;
-  align-items: center !important;
-  margin: 50px 50px 50px 350px !important ;
-  transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out !important;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 50px 50px 50px 350px;
+  transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out;
 
 
 }
 
 .navbar-menu li {
-  margin-right: 20px !important;
+  margin-right: 20px;
 }
 
 
@@ -97,23 +164,23 @@
 
 .search-box.active .search-txt {
   width: 150px;
-  background-color:#fff ;
-
-}
-.search-box.active .search-btn i {
-  
-  color: #000000;
 
 }
 
+.search-box:hover .bell-notif {
+  width: 250px;
+  height: 30px;
+  background-color: #fff;
+  float: left;
+}
 
 .search-btn {
   cursor: pointer;
-  color: #000000;
+  color: #fff;
   float: left;
   width: 40px;
   height: 40px;
-  border-radius: 25%;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,34 +188,23 @@
   margin-left: -40px;
 
 }
-.search-btn i{
-  color: #ffffff;
-}
 
 .search-txt {
   border: none;
+  background: transparent;
   outline: none;
   float: right;
   font-weight: 500;
-  font-size: 16px;
   transition: 0.8s;
   width: 0px;
   background-color: #0F131E;
   height: 30px;
-  transition: width 0.4s ease-in-out;
-  transition: 0.8s;
-  padding: 8px 20px;
-  border-radius: 20px;
 
 }
 
-.mobile-search {
-  display: none;
-}
 
-.bell-notif1 {
-  display: none;
-}
+
+
 
 div#toggle {
   display: none;
@@ -221,117 +277,94 @@ div#toggle {
 /*mobile */
 @media screen and (max-width: 875px) {
   div#toggle {
-    display: block;
+    display:block;
     z-index: 1;
-    position: fixed;
-    right: 20px;
-    top: 20px;
-
+    position:fixed;
+  right: 20px;
+top: 20px;
+  
   }
 
   .navbar-menu {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     position: fixed;
-  
-    top: 20px;
-    right: -100px;
+    top: 25px;
+    right: -50px;
     width: 0px;
     height: 100vh;
     background: #0F131E;
     padding: 40px 0 0 10px;
     transition: 0.4s ease-in-out;
   }
-
-  .navbar-menu.active {
-    width: 350px;
+  .navbar-menu.active{
+    width: 300px;
   }
-
-  .navbarre li {
-    margin-bottom: 50px;
+  .navbar li{
+    margin-bottom: 40px;
   }
-
-  .profil {
+.profil{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    position: absolute;
-    top: -85px;
-  
-  }
-  .navbar-menu .search-box{
-    display: none;
-  }
-  .navbar-menu.active .search-box {
-    display: none;
-    transition: 0.8s;
-
-  }
-
-  .bell {
-    display: none;
-    transition: 0.8s;
-
-  }
-
-  .mobile-search {
-    display: flex;
     position: fixed;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-    border-radius: 40px;
-    padding: 10px 20px;
-    height: 40px;
-    transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+}
+  .navbar-menu.active .search-box{
+  display: none;
+}
+.bell-notif{
+  display: none;
+}
+
+.mobile-search{
+  display: flex;
+  position: fixed;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 40px;
+  padding: 10px 20px;
+  height: 40px;
+  transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out;
 
 
-  }
+}
 
-  .mobile-search.active .search-txt {
-    width: 150px;
-    background-color: #fff;
+.mobile-search.active .search-txt {
+  width: 150px;
 
-  }
-  .mobile-search.active  .search-btn i{
-    color: #000000;
-  }
-  .mobile-search .search-btn {
-    cursor: pointer;
-    color: #fff;
-    float: left;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    font-size: 18px;
+}
+.mobile-search .search-btn {
+  cursor: pointer;
+  color: #fff;
+  float: left;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
 
-  }
+  font-size: 18px;
+  margin-left: -40px;
+  margin-right: auto;
 
-  .mobile-search .search-txt {
-    border: none;
-    background: transparent;
-    outline: none;
-    float: right;
-    font-weight: 500;
-    transition: 0.8s;
-    width: 0px;
-    background-color: #0F131E;
-    height: 30px;
+}
 
-  }
+.mobile-search .search-txt {
+  border: none;
+  background: transparent;
+  outline: none;
+  float: right;
+  font-weight: 500;
+  transition: 0.8s;
+  width: 0px;
+  background-color: #0F131E;
+  height: 30px;
 
-
-  .bell-notif1 {
-    position: absolute;
-    top: 450px;
-    left: 165px;
-
-  }
-
+}
 
 
 

@@ -65,6 +65,11 @@
     inset -5px -5px 10px #5e5e5e73 ;
 }
 
+.sign-in .error {
+  border: 1px solid rgb(210, 74, 74) !important;
+  box-shadow: 2px 2px 5px rgba(210, 74, 74, 0.489),
+    -3px -3px 5px rgba(210, 74, 74, 0.489) !important;
+}
 .sign-in .field .input:focus {
   box-shadow: inset 1px 1px 2px #BABECC,
     inset -1px -1px 2px #5e5e5e73;

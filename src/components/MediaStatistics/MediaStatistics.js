@@ -44,7 +44,7 @@ const MediaStatistics = ({ chartData }) => {
       <span>Ratings</span>
       <hr className="custom-hr" />
         <div className="chart-container d-flex justify-content-center">
-          <Bar className="bar" data={chartData} options={options} />
+          <Bar className="bar" data={chartData} options={{ ...options, maintainAspectRatio: false }} />
         </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import "./App.css";
-import NavBar from "./components/NavBar";
+
 import Home from "./components/Home";
 import Movies from "./components/Home";
 import MediaDetails from "./components/MediaDetails/MediaDetails";
@@ -13,9 +13,9 @@ import Offer from "./components/Offers/Offer";
 function App() {
   return (
     <div className="App">
-      {/* <NavBar></NavBar>
-      <Home />
-      <Movies /> */}
+      {/* <NavBar></NavBar> */}
+      {/* <Home /> */}
+      {/* <Movies /> */}
       <MediaDetails />
       {/* <SignUp /> */}
       {/* <SignIn /> */}

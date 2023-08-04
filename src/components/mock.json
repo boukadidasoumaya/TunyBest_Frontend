@@ -1,0 +1,55 @@
+[
+  {
+    "img": "logo.png",
+    "title": "Peaky Blinders",
+    "description": "A gangster family epic set in 1919 Birmingham, England; centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.",
+    "rating": 8.8,
+    "id": 1,
+    "trailer": "https://www.youtube.com/embed/oVzVdvGIC7U",
+    "year": 2013,
+    "interval": 1500
+  },
+  {
+    "img": "outlander.jpeg",
+    "title": "Outlander",
+    "description": "An English combat nurse from 1945 is mysteriously swept back in time to 1743.",
+    "interval": 1500,
+    "id": 2
+  },
+  {
+    "img": "outlander.jpeg",
+    "title": "Outlander",
+    "description": "An English combat nurse from 1945 is mysteriously swept back in time to 1743.",
+    "interval": 1500,
+    "id": 3
+  },
+  {
+    "img": "outlander.jpeg",
+    "title": "Outlander",
+    "description": "An English combat nurse from 1945 is mysteriously swept back in time to 1743.",
+    "interval": 1500,
+    "id": 4
+  },
+  {
+    "img": "outlander.jpeg",
+    "title": "Outlander",
+    "description": "An English combat nurse from 1945 is mysteriously swept back in time to 1743.",
+    "interval": 1500,
+    "id": 5
+  },
+  {
+    "img": "outlander.jpeg",
+    "title": "Outlander",
+    "description": "An English combat nurse from 1945 is mysteriously swept back in time to 1743.",
+    "interval": 1500,
+    "id": 6
+  },
+  {
+    "img": "outlander.jpeg",
+    "title": "Outlander",
+    "description": "An English combat nurse from 1945 is mysteriously swept back in time to 1743.",
+    "interval": 1500,
+    "id": 7
+  }
+  
+]
