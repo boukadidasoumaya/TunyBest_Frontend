@@ -9,6 +9,7 @@ import MediaStatistics from "../MediaStatistics/MediaStatistics";
 import CommentSection from "../CommentSection/CommentSection";
 import SimilarSection from "../SimilarSection/SimilarSection";
 import Modal from "react-modal";
+import NavBar from "../NavBar";
 Chart.register(CategoryScale);
 const customStyles = {
   content: {
@@ -60,6 +61,8 @@ const MediaDetails = () => {
   });
 
   return (
+    <>
+    <NavBar />
     <div className="media-details">
       <div className="main-header">
         <div className="header-content">
@@ -187,6 +190,7 @@ const MediaDetails = () => {
         </div>
       </Modal>
     </div>
+    </>
   );
 };
 

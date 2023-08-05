@@ -1,0 +1,51 @@
+.custom-select {
+  position: relative;
+  width: 140px;
+  /* Set the width as needed */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 8px 20px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
+
+/* Style for the selected option */
+.selected-option {
+  color: rgb(15, 19, 30);
+}
+
+/* Style for the options container */
+.options {
+  /* display: none; */
+  position: absolute;
+  color: rgb(15, 19, 30);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 8px;
+  z-index: 1;
+   width: 250px;
+  columns: 2;
+  column-gap: 0px; 
+}
+
+/* Style for each option */
+.option {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.option:hover {
+  background-color: rgb(15, 19, 30);
+  color: white;
+}
+
+/* Style for the options container when it's open */
+.custom-select.open .options {
+  display: block;
+}

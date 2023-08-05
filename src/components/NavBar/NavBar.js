@@ -13,11 +13,11 @@ const NavBar = () => {
   };
 
   return (
-    <nav>
-      <div className="container">
-        <div className="navbar">
+    <nav className="nav">
+      <div className="container1">
+        <div className="navbarre">
           <div className="navbar-logo">
-            <img src={require("../assets/logo.png")} alt="Logo" />
+            <img src={require("../../assets/logo.png")} alt="Logo" />
           </div>
           <ul className={`navbar-menu ${clicked ? "active" : ""}`}>
             <li>
@@ -70,7 +70,7 @@ const NavBar = () => {
               </a>
             </li>
             <li>
-              <div className="bell-notif">
+              <div className="bell-notif1">
                 <i className="fas fa-bell" style={{ color: "#ffffff" }} />
               </div>
             </li>

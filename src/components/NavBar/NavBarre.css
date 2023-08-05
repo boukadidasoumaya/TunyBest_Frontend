@@ -1,34 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,500;1,600&display=swap');
 
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-}
 
-.container {
-  max-width: 1200px;
+.container1 {
+  max-width: 1200px !important;
 
-  padding-left: 25px;
+  padding-left: 25px !important;
 
 
 }
 
-nav {
+.nav {
   position: fixed;
   width: 100%;
   z-index: 999;
   top: 0;
   padding: 10px;
-  background-color: #0F131E;
+  background-color: rgb(15, 19, 30) !important;
+  box-shadow: 2px 2px 5px rgba(82, 91, 106, 0.288);
 
 }
 
-.navbar {
+.navbarre {
   background-color: #0F131E;
   color: #fff;
-  display: flex;
+  display: flex !important;
   align-items: center;
   padding: 10px;
   height: 50px;
@@ -46,17 +41,17 @@ nav {
 }
 
 .navbar-menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 50px 50px 50px 350px;
-  transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+  list-style: none !important;
+  display: flex !important ;
+  align-items: center !important;
+  margin: 50px 50px 50px 350px !important ;
+  transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out !important;
 
 
 }
 
 .navbar-menu li {
-  margin-right: 20px;
+  margin-right: 20px !important;
 }
 
 
@@ -103,17 +98,23 @@ nav {
 
 .search-box.active .search-txt {
   width: 150px;
+  background-color:#fff ;
+
+}
+.search-box.active .search-btn i {
+  
+  color: #000000;
 
 }
 
 
 .search-btn {
   cursor: pointer;
-  color: #fff;
+  color: #000000;
   float: left;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,10 +122,12 @@ nav {
   margin-left: -40px;
 
 }
+.search-btn i{
+  color: #ffffff;
+}
 
 .search-txt {
   border: none;
-  background: transparent;
   outline: none;
   float: right;
   font-weight: 500;
@@ -135,8 +138,8 @@ nav {
   height: 30px;
   transition: width 0.4s ease-in-out;
   transition: 0.8s;
-  padding: 8px 30px;
-  border-radius: 30px;
+  padding: 8px 20px;
+  border-radius: 20px;
 
 }
 
@@ -144,7 +147,7 @@ nav {
   display: none;
 }
 
-.bell-notif {
+.bell-notif1 {
   display: none;
 }
 
@@ -232,6 +235,7 @@ div#toggle {
     flex-direction: column;
     align-items: center;
     position: fixed;
+  
     top: 20px;
     right: -100px;
     width: 0px;
@@ -245,8 +249,8 @@ div#toggle {
     width: 350px;
   }
 
-  .navbar li {
-    margin-bottom: 40px;
+  .navbarre li {
+    margin-bottom: 50px;
   }
 
   .profil {
@@ -254,7 +258,9 @@ div#toggle {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    position: fixed;
+    position: absolute;
+    top: -85px;
+  
   }
   .navbar-menu .search-box{
     display: none;
@@ -287,9 +293,12 @@ div#toggle {
 
   .mobile-search.active .search-txt {
     width: 150px;
+    background-color: #fff;
 
   }
-
+  .mobile-search.active  .search-btn i{
+    color: #000000;
+  }
   .mobile-search .search-btn {
     cursor: pointer;
     color: #fff;
@@ -316,16 +325,10 @@ div#toggle {
 
   }
 
-  .profil {
+
+  .bell-notif1 {
     position: absolute;
-    top: -75px;
-
-
-  }
-
-  .bell-notif {
-    position: absolute;
-    top: 360px;
+    top: 450px;
     left: 165px;
 
   }

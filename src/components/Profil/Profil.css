@@ -1,0 +1,127 @@
+.profil-content {
+
+  background-color: rgb(15, 19, 30);
+  color: white;
+  margin-top: 70px;
+
+  .content {
+    position: relative;
+  top: 50px;
+    .profil-right {
+      padding-left: 5vw;
+    }
+  
+    .profileImage {
+  
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+  
+      box-shadow: 0 0 0 3px #000000, 0 0 0 10px #9EABCC
+    }
+  
+    .fa-pen-to-square {
+      position: relative;
+      left: 85%
+    }
+  
+    .container {
+      position: relative;
+      top: 10%;
+    }
+  
+    .cadre {
+      background-color: #21252F;
+      border-radius: 17px;
+      padding: 25px 30px 25px;
+      position: relative;
+      top: -8px;
+  
+    }
+  
+    .row {
+      width: 100%;
+    }
+  
+    .img {
+      width: 200px;
+    }
+  
+    .hr {
+      color: white !important;
+    }
+  
+    .details {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .username,
+    .birthday,
+    .address {
+      margin-left: 10px;
+      position: relative;
+      top: -10%;
+    }
+  
+    .birthday {
+      margin-left: 6px;
+    }
+  
+    .edit i {
+      position: relative;
+      top: -10%;
+    }
+  
+    .birth {
+      font-size: 11px;
+      text-align: center;
+    }
+  
+    .fa-cake-candles {
+      font-size: 20px;
+      position: relative;
+      top: 7px;
+      right: 2px;
+    }
+  
+    .fa-map-marker-alt {
+      font-size: 20px;
+      position: relative;
+      top: -2px;
+      right: 2px;
+    }
+  
+    .member {
+      position: relative;
+      top: 10px;
+      left: 20px;
+    }
+  
+    .custom-hr {
+      border-width: 3px;
+    }
+  
+    .plan,
+    .sub-bil {
+      padding: 9px 0 0px 80px;
+  
+    }
+  
+    .sub-bil ul li {
+      margin-top: 15px;
+      font-size: 17px;
+      font-weight: lighter;
+    }
+  
+    .plan .edit ,.sub-bil .edit {
+      text-align: right;
+      color: #D2DAEF;
+      font-size: 15px;
+    }
+  
+  
+  }
+}
+

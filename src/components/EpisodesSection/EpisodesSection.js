@@ -10,11 +10,11 @@ const EpisodesSection = () => {
 
   useEffect(() => {
     // Add a click event listener to the document
-    document.addEventListener('click', handleDocumentClick);
+    document.addEventListener("click", handleDocumentClick);
 
     // Clean up the event listener when the component unmounts
     return () => {
-      document.removeEventListener('click', handleDocumentClick);
+      document.removeEventListener("click", handleDocumentClick);
     };
   }, []);
 
@@ -34,9 +34,6 @@ const EpisodesSection = () => {
     }
   };
 
-
-
-
   return (
     <div className="episodes-section">
       <div className="row episodes">
@@ -44,31 +41,33 @@ const EpisodesSection = () => {
           Episodes (6)
         </div>
         <div className="col-9 d-flex flex-column justify-content-end align-items-end">
-            <div className="custom-select d-flex flex-column align-items-start" onClick={toggleOptions} ref={selectRef}>
-        <div
-          className={`selected-option ${isOpen ? "open" : ""}`}
-        >
-          {selectedOption}
-        </div>
-        {isOpen && (
-          <div className="options">
-            {options.map((option) => (
-              <div
-                key={option}
-                className="option"
-                onClick={() => handleOptionClick(option)}
-              >
-                {option}
+          <div
+            className="custom-select d-flex flex-column align-items-start"
+            onClick={toggleOptions}
+            ref={selectRef}
+          >
+            <div className={`selected-option ${isOpen ? "open" : ""}`}>
+              {selectedOption}
+            </div>
+            {isOpen && (
+              <div className="options">
+                {options.map((option) => (
+                  <div
+                    key={option}
+                    className="option"
+                    onClick={() => handleOptionClick(option)}
+                  >
+                    {option}
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
-        )}
-      </div>
         </div>
       </div>
 
       <hr className="custom-hr" />
-    
+
       <hr className="custom-hr" />
     </div>
   );
