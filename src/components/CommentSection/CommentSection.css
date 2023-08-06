@@ -3,13 +3,13 @@
   font-weight: 500;
 }
 
-.comments {
+.comment-section .comments {
   background-color: #21252F;
   border-radius: 15px;
   /* min-height: 335px; */
 }
 
-.box-container {
+.comment-section .box-container {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -19,7 +19,7 @@
   border: 1.5px solid #ccc;
 }
 
-.box-container textarea {
+.comment-section .box-container textarea {
   width: 98%;
   resize: none;
   border: 0;
@@ -31,13 +31,13 @@
   line-height: 1.5;
 }
 
-.formatting {
+.comment-section .formatting {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.formatting button {
+.comment-section .formatting button {
   cursor: pointer;
   width: 33px;
   height: 33px;
@@ -47,7 +47,7 @@
   background: #fca5a5;
 }
 
-.formatting button {
+.comment-section .formatting button {
   position: relative;
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@
 
 }
 
-.formatting .send:hover {
+.comment-section .formatting .send:hover {
   border: 1px solid #fb6363;
   background: #fb6363;
   box-shadow: rgba(255, 255, 255, .2) 0 4px 15px inset, rgba(0, 0, 0, .1) 0 4px 5px, rgba(0, 0, 0, .1) 0 10px 15px;
@@ -63,49 +63,49 @@
   transition-duration: .3s;
 }
 
-.formatting button:active {
+.comment-section .formatting button:active {
   transform: translate(2px, 2px);
 }
 
-.all-comments.custom-scrollbar {
-  max-height: 426px;
+.comment-section .all-comments.custom-scrollbar {
+  max-height: 61vh;
   overflow-y: auto;
 }
 
-.all-comments.custom-scrollbar::-webkit-scrollbar {
+.comment-section .all-comments.custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
 
-.all-comments.custom-scrollbar::-webkit-scrollbar-track {
+.comment-section .all-comments.custom-scrollbar::-webkit-scrollbar-track {
   background-color: #e4e4e4;
   border-radius: 100px;
 }
 
-.all-comments.custom-scrollbar::-webkit-scrollbar-thumb {
+.comment-section .all-comments.custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #00071B;
   border-radius: 100px;
 }
 
-.all-comments.custom-scrollbar {
+.comment-section .all-comments.custom-scrollbar {
   overflow: auto;
 }
 
-.user-image-reply, .img-reply {
+.comment-section .user-image-reply, .img-reply {
   height: 45px !important;
   width: 45px !important;
 }
 
-.all-comments img {
+.comment-section .all-comments img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
 
-.date {
+.comment-section .date {
   font-size: smaller;
 }
 
-.user-image {
+.comment-section .user-image {
   border-radius: 50%;
   height: 55px;
   width: 55px;
@@ -119,7 +119,7 @@
 
 
 
-.like-button input {
+.comment-section .like-button input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -127,7 +127,7 @@
   width: 0;
 }
 
-.like-button {
+.comment-section .like-button {
   display: block;
   position: relative;
   cursor: pointer;
@@ -137,7 +137,7 @@
   height: 34px;
 }
 
-.checkmark {
+.comment-section .checkmark {
   top: 0;
   left: 0;
   height: 1.3em;
@@ -146,16 +146,16 @@
   animation: dislike_effect 400ms ease;
 }
 
-.like-button input:checked~.checkmark path {
+.comment-section .like-button input:checked~.checkmark path {
   fill: #FF5353;
   stroke-width: 0;
 }
 
-.like-button input:checked~.checkmark {
+.comment-section .like-button input:checked~.checkmark {
   animation: like_effect 400ms ease;
 }
 
-.checkmark:hover {
+.comment-section .checkmark:hover {
   transform: scale(1.1);
 }
 
@@ -187,23 +187,23 @@
   }
 }
 
-.reply-button i {
+.comment-section .reply-button i {
   font-size: 1.5rem;
 }
 
 /* .reply-icon {
   transform: rotate(190deg);
 }  */
-.reply-button img {
+.comment-section .reply-button img {
   height: 24px;
   width: 24px;
 }
 
-.reply-button span {
+.comment-section .reply-button span {
   font-size: smaller;
   margin-left: 10px;
 }
-.first-section {
+.comment-section .first-section {
   background-color: rgba(68, 73, 85, 0.595);
   padding: 8px;
   border-radius: 15px;

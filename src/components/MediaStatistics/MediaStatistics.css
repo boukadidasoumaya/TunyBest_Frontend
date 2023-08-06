@@ -5,14 +5,11 @@
   font-size: 24px;
   font-weight: 500;
 }
-.filtering{
+.media-statistics .filtering{
   text-align: center;
 }
-.chart-container{
+.media-statistics .chart-container{
   height: 100%;
   width: 100%;
 }
-.bar {
-  height: 100% !important;
-  width: 100% !important;
-}
+

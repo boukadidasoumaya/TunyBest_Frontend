@@ -3,10 +3,7 @@
 
 .container1 {
   max-width: 1200px !important;
-
   padding-left: 25px !important;
-
-
 }
 
 .nav {
@@ -15,8 +12,9 @@
   z-index: 999;
   top: 0;
   padding: 10px;
-  background-color: #0F131E !important;
+  background-color: rgb(15, 19, 30) !important;
   box-shadow: 2px 2px 5px rgba(82, 91, 106, 0.288);
+
 }
 
 .navbarre {
@@ -26,17 +24,13 @@
   align-items: center;
   padding: 10px;
   height: 50px;
-
-
 }
-
 
 .navbar-logo {
   width: 200px;
   height: 80px;
   position: absolute;
   margin-left: 40px;
-
 }
 
 .navbar-menu {
@@ -45,15 +39,11 @@
   align-items: center !important;
   margin: 50px 50px 50px 350px !important ;
   transition: width 0.4s ease-in-out, margin-left 0.4s ease-in-out !important;
-
-
 }
 
 .navbar-menu li {
   margin-right: 20px !important;
 }
-
-
 
 .navbar-menu li a {
   position: relative;
@@ -78,7 +68,6 @@
   transform: scaleX(1);
 }
 
-
 .search-box {
   display: flex;
   position: fixed;
@@ -93,8 +82,6 @@
 
 }
 
-
-
 .search-box.active .search-txt {
   width: 150px;
   background-color:#fff ;
@@ -105,7 +92,6 @@
   color: #000000;
 
 }
-
 
 .search-btn {
   cursor: pointer;
@@ -119,8 +105,8 @@
   align-items: center;
   font-size: 18px;
   margin-left: -40px;
-
 }
+
 .search-btn i{
   color: #ffffff;
 }
@@ -139,7 +125,6 @@
   transition: 0.8s;
   padding: 8px 20px;
   border-radius: 20px;
-
 }
 
 .mobile-search {
@@ -331,9 +316,4 @@ div#toggle {
     left: 165px;
 
   }
-
-
-
-
-
 }

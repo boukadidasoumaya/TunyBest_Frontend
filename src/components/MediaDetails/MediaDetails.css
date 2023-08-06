@@ -5,7 +5,7 @@
   top: 50%
 }
 
-.main-header {
+.media-details .main-header {
   height: 100vh;
   margin: 0;
   color: #ffffff;
@@ -18,39 +18,39 @@
   margin-top: 70px;
 }
 
-.header-content {
+.media-details .header-content {
   position: absolute;
-  top: 4%;
+  top: 6%;
   left: 6%
 }
 
-.media-title {
+.media-details .media-title {
   margin: 0;
   font-size: 3rem;
 }
 
-.rating {
+.media-details .rating {
   margin: 20px;
 }
 
-.rating i {
+.media-details .rating i {
   color: #f1c40f;
   font-size: 1.5rem;
 }
 
-.date-seasons {
+.media-details .date-seasons {
   margin-bottom: 5px;
 }
 
-.num-seasons {
+.media-details .num-seasons {
   margin-left: 20px;
 }
 
-.genre {
+.media-details .genre {
   margin-bottom: 20px;
 }
 
-.synopsis p {
+.media-details .synopsis p {
   width: 100%;
   max-width: 32rem;
   margin: 0;
@@ -60,46 +60,53 @@
 }
 
 @media (max-width: 575.5px) {
-  .custom-scrollbar {
+  .media-details .custom-scrollbar {
     max-height: 150px;
     overflow-y: auto;
     padding: 10px;
   }
 
-  .custom-scrollbar::-webkit-scrollbar {
+  .media-details .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
   }
 
-  .custom-scrollbar::-webkit-scrollbar-track {
+  .media-details .custom-scrollbar::-webkit-scrollbar-track {
     background-color: #e4e4e4;
     border-radius: 100px;
   }
 
-  .custom-scrollbar::-webkit-scrollbar-thumb {
+  .media-details .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: rgba(59, 111, 198, 0.7);
     border-radius: 100px;
   }
 
-  .custom-scrollbar {
+  .media-details .custom-scrollbar {
     overflow: auto;
   }
+  .media-details .content {
+    margin-top: 50px !important;
+  }
 }
-
-.icon {
+@media (max-width: 348px) {
+  .media-details .content {
+    margin-top: 100px !important;
+  }
+}
+.media-details .icon {
   margin-top: 10px;
 }
 
-.icon span {
+.media-details .icon span {
   margin-left: 10px;
 }
 
-.our-rating,
-.your-rating,
-.add-list {
+.media-details .our-rating,
+.media-details .your-rating,
+.media-details .add-list {
   margin-bottom: 12px;
 }
 
-.Btn {
+.media-details .Btn {
   width: 45px;
   height: 45px;
   border-radius: calc(45px/2);
@@ -114,7 +121,7 @@
 }
 
 /* plus sign */
-.sign {
+.media-details .sign {
   width: 100%;
   font-size: 1.8em;
   color: white;
@@ -123,7 +130,7 @@
 }
 
 /* text */
-.text {
+.media-details .text {
   position: absolute;
   right: 0%;
   width: 0%;
@@ -134,20 +141,20 @@
 }
 
 /* hover effect on Btn width */
-.Btn:hover {
+.media-details .Btn:hover {
   width: 125px;
   transition-duration: .3s;
   background-color: #fb6363;
 }
 
-.Btn:hover .sign {
+.media-details .Btn:hover .sign {
   width: 30%;
   transition-duration: .3s;
   padding-left: 15px;
 }
 
 /* hover effect Btn's text */
-.Btn:hover .text {
+.media-details .Btn:hover .text {
   opacity: 1;
   width: 70%;
   transition-duration: .3s;
@@ -155,36 +162,36 @@
 }
 
 /* Btn click effect*/
-.Btn:active {
+.media-details .Btn:active {
   transform: translate(2px, 2px);
 }
-.main-content {
+.media-details .main-content {
   position: relative;
   top:-8vh
 }
 
-.infos, .comment {
+.media-details .infos, .media-details .comment {
   padding: 0 !important;
   padding-right: 20px !important;
 }
 
-.statistics, .similar {
+.media-details .statistics, .media-details .similar {
   padding: 0 !important;
   padding-left: 20px !important;
 }
 
-.modal-content {
+.media-details .modal-content {
   background-color: rgb(15, 19, 30) !important;
   border-radius: 10px !important;
   width: 35vw !important;
 }
 
-.star {
+.media-details .star {
   margin-top: -72px;
   font-size: 4.5rem;
 }
 
-.star span {
+.media-details .star span {
   font-size: .5em;
   font-weight: 500;
   color: rgb(15, 19, 30);
@@ -193,7 +200,7 @@
   top: -10px;
 }
 
-.rating-container {
+.media-details .rating-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -201,41 +208,41 @@
 
 }
 
-.rating-container:not(:checked)>input {
+.media-details .rating-container:not(:checked)>input {
   position: absolute;
   appearance: none;
 }
 
-.rating-container:not(:checked)>label {
+.media-details .rating-container:not(:checked)>label {
   float: right;
   cursor: pointer;
   font-size: 55px;
   color: #848484;
 }
 
-.rating-container:not(:checked)>label:before {
+.media-details .rating-container:not(:checked)>label:before {
   content: '★';
 }
 
-.rating-container>input:checked+label:hover,
-.rating-container>input:checked+label:hover~label,
-.rating-container>input:checked~label:hover,
-.rating-container>input:checked~label:hover~label,
-.rating-container>label:hover~input:checked~label {
+.media-details .rating-container>input:checked+label:hover,
+.media-details .rating-container>input:checked+label:hover~label,
+.media-details .rating-container>input:checked~label:hover,
+.media-details .rating-container>input:checked~label:hover~label,
+.media-details .rating-container>label:hover~input:checked~label {
   color: #c2a200;
 }
 
-.rating-container:not(:checked)>label:hover,
-.rating-container:not(:checked)>label:hover~label {
+.media-details .rating-container:not(:checked)>label:hover,
+.media-details .rating-container:not(:checked)>label:hover~label {
   color: #f1c40f;
 }
 
-.rating-container>input:checked~label {
+.media-details .rating-container>input:checked~label {
   color: #f1c40f;
 }
 
 
-.modal-content button {
+.media-details .modal-content button {
   --col1: honeydew;
   --col2: rgba(240, 128, 128, 0.603);
   --col3: #fb6363;
@@ -260,23 +267,23 @@
 
 }
 
-.modal-content button span {
+.media-details .modal-content button span {
   font-size: 18px;
 }
 
-.modal-content button:hover {
+.media-details .modal-content button:hover {
   box-shadow: rgba(255, 255, 255, .2) 0 4px 15px inset, rgba(0, 0, 0, .1) 0 4px 5px, rgba(0, 0, 0, .1) 0 10px 15px;
   transform: scale(1.04);
   transition-duration: .3s;
 }
 
-.modal-content button:active {
+.media-details .modal-content button:active {
   animation: offset 1s ease-in-out infinite;
   outline: 2px solid var(--col2);
   outline-offset: 0;
 }
 
-.modal-content button:hover>span {
+.media-details .modal-content button:hover>span {
   filter: contrast(150%);
 }
 
@@ -326,6 +333,3 @@
   }
 }
 
-.content {
-  margin-top: 100px !important;
-}

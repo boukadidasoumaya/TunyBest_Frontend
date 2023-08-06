@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./NavBarre.css";
+import {NavLink} from "react-router-dom";
 
 const NavBar = () => {
   const [isSearchBoxActive, setSearchBoxActive] = useState(false);
@@ -17,7 +18,9 @@ const NavBar = () => {
       <div className="container1">
         <div className="navbarre">
           <div className="navbar-logo">
-            <img src={require("../assets/logo.png")} alt="Logo" />
+            <NavLink to="/">
+              <img src={require("../../assets/logo.png")} alt="Logo" />
+            </NavLink>
           </div>
           <ul className={`navbar-menu ${clicked ? "active" : ""}`}>
             <li>
@@ -37,13 +40,13 @@ const NavBar = () => {
               </div>
             </li>
             <li>
-              <a href="#">Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a href="#">Movies</a>
+              <NavLink to="/movies">Movies</NavLink>
             </li>
             <li>
-              <a href="#">Series</a>
+              <NavLink to="/series">Series</NavLink>
             </li>
             <li>
               <div
@@ -65,9 +68,9 @@ const NavBar = () => {
               </div>
             </li>
             <li>
-              <a className="profil" href="#">
+              <NavLink className="profil" to="/profil/1">
                 Profil
-              </a>
+              </NavLink>
             </li>
             <li>
               <div className="bell-notif1">

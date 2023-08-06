@@ -9,13 +9,12 @@
 .similar-section .similar {
   background-color: rgb(0, 7, 27);
   border-radius: 15px;
-  min-height: 335px;
-
+  height: auto;
 }
 
 .similar-section .img {
   height: 100%;
-  width: 100% !important;
+  width: 100%;
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
@@ -25,8 +24,7 @@
 }
 
 .similar-section img {
-  height: 155px;
-  width: 40%;
+  width:50% !important;
   border-radius: 5px;
 }
 
@@ -40,5 +38,28 @@
 .similar-section span {
   font-size: 17px !important;
   font-weight: 400 !important;
-  margin-left: 5%;
+  margin-left: 20px !important;
+  width: auto;
+}
+
+@media (max-width: 1250px) and (min-width: 993px) {
+  .img {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .similar-section span {
+    margin-left: 0px !important;
+    font-size: smaller !important;
+  }
+  .title {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .similar-section img {
+    height: 100%;
+    width: 70%;
+    border-radius: 5px;
+  }
 }

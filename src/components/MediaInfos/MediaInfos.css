@@ -2,9 +2,9 @@
   font-size: 24px;
   font-weight: 500;
 }
-.info {
+.media-infos .info {
   text-align: right;
 }
-.container {
+.media-infos .container {
   font-size: 17px;
 }

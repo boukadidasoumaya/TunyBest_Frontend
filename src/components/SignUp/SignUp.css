@@ -50,18 +50,18 @@
   position: relative;
 }
 
-.field:nth-child(2),
-.field:nth-child(3),
-.field:nth-child(4),
-.field:nth-child(5) {
+.sign-up .field:nth-child(2),
+.sign-up .field:nth-child(3),
+.sign-up .field:nth-child(4),
+.sign-up .field:nth-child(5) {
   margin-top: 20px;
 }
 
-.input:nth-child(3) {
+.sign-up .input:nth-child(3) {
   margin-left: 10px;
 }
 
-.field .input {
+.sign-up .field .input {
   height: 100%;
   width: 100%;
   padding-left: 45px;
@@ -75,7 +75,7 @@
     inset -5px -5px 10px #5e5e5e73;
 }
 
-.error-text {
+.sign-up .error-text {
   color: rgb(210, 74, 74)
 }
 
@@ -85,7 +85,7 @@
     -3px -3px 5px rgba(210, 74, 74, 0.489);
 }
 
-.field .input:focus {
+.sign-up .field .input:focus {
   box-shadow: inset 1px 1px 2px #BABECC,
     inset -1px -1px 2px #5e5e5e73;
 }
@@ -96,7 +96,7 @@
     inset -5px -5px 10px rgb(210, 74, 74);
 }
 
-.field i {
+.sign-up .field i {
   position: absolute;
   color: #434343;
   top: 50%;
@@ -105,28 +105,28 @@
 
 }
 
-.field .span i {
+.sign-up .field .span i {
   left: 5%;
 }
 
-.field i.fa-eye-slash,
+.sign-up .field i.fa-eye-slash,
 i.fa-eye {
   right: 5%;
 }
 
-.field i.fa-camera {
+.sign-up .field i.fa-camera {
   top: 30%;
   color: white;
 
 }
 
-.file {
+.sign-up .file {
   position: relative;
   left: 15%;
   color: #828282;
 }
 
-.forgot-pass {
+.sign-up .forgot-pass {
   text-align: left;
   margin: 10px 0 10px 5px;
 }

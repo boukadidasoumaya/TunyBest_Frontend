@@ -1,0 +1,27 @@
+ .littleswiper .img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0 10px;
+}
+
+.littleswiper img {
+  height: 100%;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.littleswiper .slick-dots li button::before{
+  color: #ffffff !important;
+}
+.littleswiper .slider {
+  margin: 5vh 2vh 6vh;
+}
+.littleswiper .ep-number {
+  font-size: 18px;
+text-align: center;
+}

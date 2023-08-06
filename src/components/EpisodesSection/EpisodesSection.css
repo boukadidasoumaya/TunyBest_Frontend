@@ -4,7 +4,7 @@
 }
 
 /* Style for the custom select container */
-.custom-select {
+.episodes-section .custom-select {
   position: relative;
   width: 140px;
   /* Set the width as needed */
@@ -16,12 +16,12 @@
 }
 
 /* Style for the selected option */
-.selected-option {
+.episodes-section .selected-option {
   color: rgb(15, 19, 30);
 }
 
 /* Style for the options container */
-.options {
+.episodes-section .options {
   /* display: none; */
   position: absolute;
   color: rgb(15, 19, 30);
@@ -37,47 +37,18 @@
 }
 
 /* Style for each option */
-.option {
+.episodes-section .option {
   padding: 8px;
   cursor: pointer;
   border-radius: 4px;
 }
 
-.option:hover {
+.episodes-section .option:hover {
   background-color: rgb(15, 19, 30);
   color: white;
 }
 
 /* Style for the options container when it's open */
-.custom-select.open .options {
+.episodes-section .custom-select.open .options {
   display: block;
-}
-
-.episodes-section .img {
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-  object-position: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  height: 100%;
-  /* margin: 0 10px; */
-}
-
-.episodes-section img {
-  height: 100%;
-  width: 90%;
-  border-radius: 5px;
-}
-
-.slick-dots li button::before{
-  color: #ffffff !important;
-}
-.slider {
-  margin: 5vh 2vh 6vh;
-}
-.ep-number {
-  font-size: 18px;
-text-align: center;
 }

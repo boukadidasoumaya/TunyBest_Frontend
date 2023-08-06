@@ -1,25 +1,24 @@
 import "./App.css";
 
-import Home from "./components/Home";
-import Movies from "./components/Home";
+import Home from "./components/Home/Home";
 import MediaDetails from "./components/MediaDetails/MediaDetails";
-import Test from "./components/Test"
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
+import LittleSwiper from "./components/LittleSwiper/LittleSwiper";
+import Profil from "./components/Profil/Profil";
+import Movies from "./components/Movies/Movies";
 import Offer from "./components/Offers/Offer";
-
-
-
 function App() {
   return (
     <div className="App">
       {/* <NavBar></NavBar> */}
+      {/* <Profil /> */}
       {/* <Home /> */}
       {/* <Movies /> */}
-      <MediaDetails />
+      {/* <MediaDetails /> */}
       {/* <SignUp /> */}
       {/* <SignIn /> */}
-      {/* <Offer /> */}
+      <Offer />
     </div>
   );
 }

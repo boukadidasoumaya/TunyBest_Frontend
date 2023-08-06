@@ -9,7 +9,8 @@ import MediaStatistics from "../MediaStatistics/MediaStatistics";
 import CommentSection from "../CommentSection/CommentSection";
 import SimilarSection from "../SimilarSection/SimilarSection";
 import Modal from "react-modal";
-import NavBar from "../NavBar";
+import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
 Chart.register(CategoryScale);
 const customStyles = {
   content: {
@@ -122,7 +123,7 @@ const MediaDetails = () => {
         </div>
         <div className="container main-content mt-5">
           <div className="row  ">
-            <div className="content col-12 mt-lg-0 mt-md-0 mt-sm-0">
+            <div className="content col-12">
                 <EpisodesSection />
               <div className="mt-5">
                 <CastSection />
@@ -151,7 +152,7 @@ const MediaDetails = () => {
             </div>
           </div>
         </div>
-        footer
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -193,6 +194,7 @@ const MediaDetails = () => {
           </div>
         </Modal>
       </div>
+      <Footer />
     </>
   );
 };
