@@ -13,11 +13,20 @@ import MediaDetails from "./components/MediaDetails/MediaDetails";
 import Movies from "./components/Movies/Movies";
 import Profil from "./components/Profil/Profil";
 import Error404 from "./components/Error404/Error404";
+import NavBar from "./components/NavBar/NavBar";
+import Test2 from "./components/NavBar/Test2"
+import Offer from "./components/Offers/Offer";
+import SignIn from "./components/SignIn/SignIn";
+import Series from "./components/Series/Series";
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
     },
+    {
+      path: "/navbar",
+      element: <Test2/>,
+  },
     {
         path: "/details/:id",
         element: <MediaDetails />,
@@ -26,14 +35,22 @@ const router = createBrowserRouter([
         path: "/movies",
         element: <Movies />,
     },
-    // {
-    //     path: "/series",
-    //     element: <Series />,
-    // }
+    {
+        path: "/series",
+        element: <Series />,
+    },
+    {
+      path: "/offers",
+      element: <Offer />,
+  },
     {
         path: "profil/:id",
         element: <Profil />,
     },
+    {
+      path: "/login",
+      element: <SignIn />,
+  },
     {
         path: "*",
         element: <Error404 />,

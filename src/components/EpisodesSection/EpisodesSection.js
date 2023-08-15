@@ -2,9 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import "./EpisodesSection.css";
 import Slider from "react-slick";
 import SelectOptions from "../SelectOptions/SelectOptions";
-import LittleSwiper from "../LittleSwiper/LittleSwiper";
+import LittleSwiper from "../LittleSwiper/LittleSwiperDetails";
 const EpisodesSection = () => {
-  const options = ["Season 1", "Season 2", "Season 3", "Season 4", "Season 5", "Season 6", "Season 7"];
+  const options = [
+    "Season 1",
+    "Season 2",
+    "Season 3",
+    "Season 4",
+    "Season 5",
+    "Season 6",
+    "Season 7",
+  ];
 
   const numberOfImages = 8;
 
@@ -54,13 +62,17 @@ const EpisodesSection = () => {
         </div>
         <div className="col-7 d-flex flex-column justify-content-end align-items-end">
           {options.length > 0 ? (
-            <SelectOptions options={options} byDefault={"Season 1"} isCategories={false} />
+            <SelectOptions
+              options={options}
+              byDefault={"Season 1"}
+              isCategories={false}
+            />
           ) : null}
         </div>
       </div>
 
       <hr className="custom-hr" />
-<LittleSwiper inEpisodeSection={true} />
+      <LittleSwiper  />
       <hr className="custom-hr" />
     </div>
   );

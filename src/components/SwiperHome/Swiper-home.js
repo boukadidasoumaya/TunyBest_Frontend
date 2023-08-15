@@ -20,19 +20,23 @@ const SwiperHome = (inHome) => {
         >
           {imagelist.map((slide) => (
             <SwiperSlide key={slide.id} className="swipe-slide">
-              <div className="slide-content">
-                <div className="slide-info">
-                  <h2 className="slide-title">Suits</h2>
-                  <button class="learn-more">
+              <div className="slide-content ">
+                <div className="slide-info container">
+                  <h1 className="slide-title">Peaky Blinders</h1>
+                  <div className="details">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Natus, ducimus quasi tempore dolor odio ut non provident,
+                      pariatur quia ullam et at praesentium, consequatur
+                      sapiente facere saepe reprehenderit quas cupiditate!
+                    </p>
+                  </div>
+
+                  <button class=" learn-more">
                     <span class="circle" aria-hidden="true">
                       <span class="icon arrow"></span>
                     </span>
                     <span class="button-text">Learn More</span>
-                  </button>
-
-                  <button className="Btn d-flex justify-content-start align-items-center">
-                    <div className="sign">+</div>
-                    <div className="text">Add list</div>
                   </button>
                 </div>
               </div>
