@@ -1,14 +1,14 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
- import Footer from '../Footer/Footer';
- import LittleSwiper from '../LittleSwiper/LittleSwiper'
+import Footer from "../Footer/Footer";
+import LittleSwiper from "../LittleSwiper/LittleSwiper";
 import "./Profil.css";
 
 const Profil = () => {
   return (
     <div>
       <NavBar />
-    <div className="profil-content">
+      <div className="profil-content">
         <div className="content">
           <div className="container">
             <div className="row">
@@ -45,7 +45,7 @@ const Profil = () => {
                           className="fa-solid fa-cake-candles"
                           style={{ color: "#ffffff" }}
                         />
-      
+
                         <div className="birthday">
                           <p className="date mb-0">16/05/2002</p>
                           <p className="birth mb-3">Date Of Birth</p>
@@ -61,7 +61,7 @@ const Profil = () => {
                     <div className="col-12 d-flex details">
                       <div className="d-flex ">
                         <i className="fa-solid fa-map-marker-alt"></i>
-      
+
                         <p className="address">Tunisia</p>
                       </div>
                       <div className="edit ">
@@ -74,7 +74,7 @@ const Profil = () => {
                   </div>
                 </div>
               </div>
-      
+
               <div className="col-lg-9 col-md-8 col-sm-12 profil-right">
                 <div className="row">
                   <div className="col-12">
@@ -84,7 +84,7 @@ const Profil = () => {
                         Member since 2002
                       </span>
                     </div>
-      
+
                     <hr className="custom-hr" />
                   </div>
                   <div className="col-12">
@@ -94,7 +94,10 @@ const Profil = () => {
                     <ul>
                       <li>
                         <div className="row">
-                          <span className="col-9" style={{ wordBreak: "break-all" }}>
+                          <span
+                            className="col-9"
+                            style={{ wordBreak: "break-all" }}
+                          >
                             soumaya.boukadida@insat.ucar.tn
                           </span>
                           <span className="col-3 p-0 edit d-flex justify-content-end">
@@ -153,12 +156,12 @@ const Profil = () => {
                 <p className="fs-3 ">My List:</p>
               </div>
               <hr className="custom-hr" />
-              <LittleSwiper inHome={true}/>
+              <LittleSwiper inHome={true} />
             </div>
           </div>
         </div>
-    </div>
-      <Footer/>
+      </div>
+      <Footer />
     </div>
   );
 };

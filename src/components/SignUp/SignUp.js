@@ -9,6 +9,7 @@ const SignUp = () => {
     email: "",
     password: "",
     image: null,
+    date: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -32,7 +33,7 @@ const SignUp = () => {
 
     // Check for empty fields
     for (const key in formData) {
-      if (key === "image") continue;
+      if (key === "image" && key === "date") continue;
 
       if (formData[key].trim() === "") {
         newErrors[key] = `${key} is required`;
@@ -63,6 +64,7 @@ const SignUp = () => {
         email: "",
         password: "",
         image: null,
+
       });
       setErrors({});
     }
@@ -152,7 +154,7 @@ const SignUp = () => {
           {errors.password && (
             <div className="error-text m-4 mt-2 mb-3">{errors.password}</div>
           )}
-          <div className="field">
+          <div className="field d-flex justify-content-evenly ">
             <input
               type="file"
               className="file"
@@ -162,6 +164,17 @@ const SignUp = () => {
             />
             <span className="span">
               <i className="fa-solid fa-camera"></i>
+            </span>
+          </div>
+          <div className="field d-flex justify-content-between ">
+            <input
+                type="date"
+                className="date form-select-sm"
+                name="date"
+                onChange={handleInputChange}
+            />
+            <span className="span">
+              <i className="fa-sharp fa-solid fa-calendar-days"></i>
             </span>
           </div>
 

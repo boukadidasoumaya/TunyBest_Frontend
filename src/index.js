@@ -13,6 +13,9 @@ import MediaDetails from "./components/MediaDetails/MediaDetails";
 import Movies from "./components/Movies/Movies";
 import Profil from "./components/Profil/Profil";
 import Error404 from "./components/Error404/Error404";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
+import Offer from "./components/Offers/Offer";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -33,6 +36,19 @@ const router = createBrowserRouter([
     {
         path: "profil/:id",
         element: <Profil />,
+    },
+    {
+        path: "/login",
+        element: <SignIn />,
+    },
+    {
+        path: "/signup",
+        element: <SignUp />,
+
+    },
+    {
+        path: "/offers",
+        element: <Offer />,
     },
     {
         path: "*",
