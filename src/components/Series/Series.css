@@ -1,0 +1,10 @@
+.series {
+  background-color: rgb(15, 19, 30);
+  color: white;
+}
+.series .select-options{
+  position: absolute;
+  top: 14%;
+  left: 90px;
+  z-index: 99;
+}

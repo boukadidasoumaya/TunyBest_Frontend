@@ -4,9 +4,9 @@ import SwiperHome from "../SwiperHome/Swiper-home";
 import slides from "../mock.json";
 import Footer from "../Footer/Footer";
 import SelectOptions from "../SelectOptions/SelectOptions";
-import "./Movies.css";
 import List from "../List/List";
-const Movies = () => {
+import "./Series.css"
+const Series = () => {
   const options = [
     "adventure",
     "sci-fi",
@@ -24,7 +24,7 @@ const Movies = () => {
     "anime",
   ];
   return (
-    <div className="movies">
+    <div className="series">
       <NavBar />
 
       <SwiperHome slides={slides} inHome={false} />
@@ -46,6 +46,6 @@ const Movies = () => {
       <Footer />
     </div>
   );
-};
+}
 
-export default Movies;
+export default Series;

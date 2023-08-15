@@ -58,7 +58,7 @@ const Footer = () => {
                     />{" "}
                   </svg>{" "}
                 </a>
-                <a class="social-link3">
+                <a className="social-link3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="1em"

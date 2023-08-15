@@ -114,6 +114,28 @@
 .profil-content .plan .edit,
 .profil-content .sub-bil .edit {
     text-align: right;
-    color: #D2DAEF;
+    color: #D2DAEF !important;
     font-size: 15px;
+    cursor: pointer;
+}
+.profil-content .input-username{
+  margin-bottom: 10px;
+  margin-top: -7px;
+  width: 170px;
+}
+.profil-content .input-date{
+  margin-bottom: 30px;
+  width: 170px;
+}
+.profil-content .input-address{
+  margin-top: -8px;
+  width: 170px;
+}
+.profil-content .input-email{
+  width:80vh;
+  
+}
+.profil-content .done-account{
+  margin-top: 10px;
+  
 }
