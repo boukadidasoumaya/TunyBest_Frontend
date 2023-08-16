@@ -16,6 +16,8 @@ import Error404 from "./components/Error404/Error404";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import Offer from "./components/Offers/Offer";
+
+import Series from "./components/Series/Series";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -29,10 +31,14 @@ const router = createBrowserRouter([
         path: "/movies",
         element: <Movies />,
     },
-    // {
-    //     path: "/series",
-    //     element: <Series />,
-    // }
+    {
+        path: "/series",
+        element: <Series />,
+    },
+    {
+      path: "/offers",
+      element: <Offer />,
+  },
     {
         path: "profil/:id",
         element: <Profil />,
@@ -45,10 +51,6 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
 
-    },
-    {
-        path: "/offers",
-        element: <Offer />,
     },
     {
         path: "*",

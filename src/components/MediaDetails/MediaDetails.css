@@ -337,3 +337,60 @@
   }
 }
 
+
+
+/*------ Settings ------*/
+.play-button {
+  position: absolute;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 80px;
+  user-select: none;
+  fill: #b2b2c1;
+  z-index: 1;
+}
+
+.play-button .play {
+  position: absolute;
+  animation: keyframes-fill .5s;
+}
+
+.play-button .pause {
+  position: absolute;
+  display: none;
+  animation: keyframes-fill .5s;
+}
+
+/* ------ On check event ------ */
+.play-button input:checked ~ .play {
+  display: none;
+}
+
+.play-button input:checked ~ .pause {
+  display: block;
+}
+
+/* ------ Hide the default checkbox ------ */
+.play-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+  0% {
+    transform: rotate(-180deg) scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotate(-10deg) scale(1.2);
+  }
+}
