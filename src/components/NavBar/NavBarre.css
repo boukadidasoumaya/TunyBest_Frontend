@@ -436,10 +436,7 @@ div#toggle {
   transition-duration: .3s;
   padding-right: 10px;
 }
-/* button click effect*/
-.nav .navbarre .Btn:active {
-  transform: translate(2px ,2px);
-}
+
 .nav .navbarre .button {
   width: 40px;
   height: 40px;

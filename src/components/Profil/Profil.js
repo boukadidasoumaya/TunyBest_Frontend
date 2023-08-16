@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import LittleSwiper from "../LittleSwiper/LittleSwiper";
+import LittleSwiper from "../LittleSwiper/LittleSwiperProfil";
 import "./Profil.css";
 import { NavLink } from "react-router-dom";
 
@@ -86,6 +86,7 @@ const Profil = () => {
                           type="file"
                           accept="image/*"
                           onChange={handleImageUpload}
+                          className="mt-2"
                         />
                         {isEditingImage ? (
                           <i
@@ -120,7 +121,7 @@ const Profil = () => {
 
                   <div className="row">
                     <div className="col-12 d-flex details">
-                      <div className="d-flex ">
+                      <div className="d-flex" style={{width:"100%"}}>
                         <i
                           className="fa-solid fa-user"
                           style={{ color: "#ffffff" }}
@@ -157,7 +158,7 @@ const Profil = () => {
                   </div>
                   <div className="row">
                     <div className="col-12 d-flex details">
-                      <div className="d-flex ">
+                      <div className="d-flex " style={{width:"100%"}}>
                         <i
                           className="fa-solid fa-cake-candles"
                           style={{ color: "#ffffff" }}
@@ -184,7 +185,7 @@ const Profil = () => {
                         {isEditing[1] ? (
                           <i
                             className="fas fa-check"
-                            style={{ color: "#ffffff" }}
+                            style={{ color: "#ffffff", top:"10%" }}
                           />
                         ) : (
                           <i
@@ -197,7 +198,7 @@ const Profil = () => {
                   </div>
                   <div className="row">
                     <div className="col-12 d-flex details">
-                      <div className="d-flex ">
+                      <div className="d-flex " style={{width:"100%"}}>
                         <i className="fa-solid fa-map-marker-alt"></i>
 
                         {isEditing[2] ? (
@@ -252,13 +253,14 @@ const Profil = () => {
                       <li>
                         <div className="row">
                           {isEditing[3] ? (
-                            <input
-                              type="text"
-                              className="col-10 input-email"
-                              value={email}
-                              onChange={(e) => setEmail(e.target.value)}
-                              onBlur={() => handleBlur(3)}
-                            />
+
+                              <input
+                                type="text"
+                                className="col-9 input-email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                onBlur={() => handleBlur(3)}
+                              />
                           ) : (
                             <span
                               className="col-10"
@@ -281,13 +283,13 @@ const Profil = () => {
                             <React.Fragment>
                               <label className="col-3">Actual Password</label>
                               <input
-                                type="text"
+                                type="password"
                                 className="col-9"
                                 onChange={(e) => setPassword(e.target.value)}
                               />
                               <label className="col-3">New Password</label>
                               <input
-                                type="text"
+                                type="password"
                                 className="col-9"
                                 onChange={(e) => setPassword(e.target.value)}
                               />
@@ -295,29 +297,35 @@ const Profil = () => {
                                 Confirm New Password
                               </label>
                               <input
-                                type="text"
+                                type="password"
                                 className="col-9"
                                 onChange={(e) => setPassword(e.target.value)}
                               />
                             </React.Fragment>
                           ) : (
                             <span
-                              className="col-9"
+                              className="col-10"
                               style={{ wordBreak: "break-all" }}
                             >
                               Password : {password}
                             </span>
                           )}
-                          <span
-                            className="col-12 p-0 edit d-flex justify-content-end"
-                            onClick={() => handleConfirmClick(4)}
-                          >
-                            {isEditing[4] ? (
-                              <p className="done-account">Done </p>
-                            ) : (
-                              "Update Password"
-                            )}
-                          </span>
+
+                          {isEditing[4] ? (
+                            <p
+                              className="done-account edit p-0"
+                              onClick={() => handleConfirmClick(4)}
+                            >
+                              Done{" "}
+                            </p>
+                          ) : (
+                            <span
+                              className="col-2 p-0 edit d-flex justify-content-end"
+                              onClick={() => handleConfirmClick(4)}
+                            >
+                              Update Password
+                            </span>
+                          )}
                         </div>
                       </li>
                       <li>

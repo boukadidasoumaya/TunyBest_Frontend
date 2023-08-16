@@ -16,8 +16,7 @@ import Error404 from "./components/Error404/Error404";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import Offer from "./components/Offers/Offer";
-import NavBar from "./components/NavBar/NavBar";
-import Test2 from "./components/NavBar/Test2"
+
 import Series from "./components/Series/Series";
 const router = createBrowserRouter([
     {
