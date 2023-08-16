@@ -1,5 +1,7 @@
 import React from "react";
 import "./Error404.css";
+import {NavLink} from "react-router-dom";
+
 const Error404 = () => {
     return (
         <div id="notfound">
@@ -9,7 +11,7 @@ const Error404 = () => {
                 </div>
                 <h2>404 - Page not found</h2>
                 <p>Sorry, the page you're looking for cannot be accessed.</p>
-                <a href="#">Go To Homepage</a>
+                <NavLink to="/">Go To Homepage</NavLink>
             </div>
         </div>
     );

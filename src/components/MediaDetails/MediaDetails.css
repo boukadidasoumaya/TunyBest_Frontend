@@ -1,6 +1,11 @@
 .media-details {
   color: #ffffff;
   background-color: rgb(15, 19, 30);
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  /*background-position: center;*/
+  /*background-image: linear-gradient(to bottom, rgba(15, 19, 30, 1), rgba(15, 19, 30, 1),rgba(15, 19, 30, 0.7)),*/
+  /*url("../../assets/back.jpg");*/
   position: relative;
   top: 50%
 }
@@ -180,18 +185,18 @@
   padding-left: 20px !important;
 }
 
-.media-details .modal-content {
+.modal-content {
   background-color: rgb(15, 19, 30) !important;
   border-radius: 10px !important;
   width: 35vw !important;
 }
 
-.media-details .star {
+.star {
   margin-top: -72px;
-  font-size: 4.5rem;
+  font-size: 4.5rem ;
 }
 
-.media-details .star span {
+.star span {
   font-size: .5em;
   font-weight: 500;
   color: rgb(15, 19, 30);
@@ -200,7 +205,7 @@
   top: -10px;
 }
 
-.media-details .rating-container {
+.rating-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -208,41 +213,40 @@
 
 }
 
-.media-details .rating-container:not(:checked)>input {
+.rating-container:not(:checked)>input {
   position: absolute;
   appearance: none;
 }
 
-.media-details .rating-container:not(:checked)>label {
+.rating-container:not(:checked)>label {
   float: right;
   cursor: pointer;
   font-size: 55px;
   color: #848484;
 }
 
-.media-details .rating-container:not(:checked)>label:before {
+.rating-container:not(:checked)>label:before {
   content: '★';
 }
 
-.media-details .rating-container>input:checked+label:hover,
-.media-details .rating-container>input:checked+label:hover~label,
-.media-details .rating-container>input:checked~label:hover,
-.media-details .rating-container>input:checked~label:hover~label,
-.media-details .rating-container>label:hover~input:checked~label {
+.rating-container>input:checked+label:hover,
+.rating-container>input:checked+label:hover~label,
+.rating-container>input:checked~label:hover,
+.rating-container>input:checked~label:hover~label,
+.rating-container>label:hover~input:checked~label {
   color: #c2a200;
 }
 
-.media-details .rating-container:not(:checked)>label:hover,
-.media-details .rating-container:not(:checked)>label:hover~label {
+.rating-container:not(:checked)>label:hover,
+.rating-container:not(:checked)>label:hover~label {
   color: #f1c40f;
 }
 
-.media-details .rating-container>input:checked~label {
+.rating-container>input:checked~label {
   color: #f1c40f;
 }
 
-
-.media-details .modal-content button {
+.modal-content button {
   --col1: honeydew;
   --col2: rgba(240, 128, 128, 0.603);
   --col3: #fb6363;
@@ -267,23 +271,23 @@
 
 }
 
-.media-details .modal-content button span {
+.modal-content button span {
   font-size: 18px;
 }
 
-.media-details .modal-content button:hover {
+.modal-content button:hover {
   box-shadow: rgba(255, 255, 255, .2) 0 4px 15px inset, rgba(0, 0, 0, .1) 0 4px 5px, rgba(0, 0, 0, .1) 0 10px 15px;
   transform: scale(1.04);
   transition-duration: .3s;
 }
 
-.media-details .modal-content button:active {
+.modal-content button:active {
   animation: offset 1s ease-in-out infinite;
   outline: 2px solid var(--col2);
   outline-offset: 0;
 }
 
-.media-details .modal-content button:hover>span {
+.modal-content button:hover>span {
   filter: contrast(150%);
 }
 
