@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import "./NavBarre.css";
 import { NavLink } from "react-router-dom";
+import {authContext} from "../../helpers/authContext";
 
 const NavBar = () => {
+  const { user, setUser } = useContext(authContext);
   const [isSearchBoxActive, setSearchBoxActive] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [clicked, setClicked] = useState(false);
   const handleSearchButtonClick = () => {
     setSearchBoxActive((prevState) => !prevState);
@@ -13,9 +14,13 @@ const NavBar = () => {
   const handleToggleClick = () => {
     setClicked((prevState) => !prevState);
   };
-
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+  }
   return (
     <nav className="nav">
+
       <div className="container1">
         <div className="navbarre">
           <div className="navbar-logo">
@@ -63,7 +68,7 @@ const NavBar = () => {
                 </a>
               </div>
             </li>
-            {isLoggedIn ? (
+            {user ? (
               <li className="snpl">
                 <button className="button">
                   <svg viewBox="0 0 448 512" className="bell">
@@ -72,15 +77,15 @@ const NavBar = () => {
                 </button>
               </li>
             ) : null}
-            {isLoggedIn ? (
+            {user ? (
               <li className="snpl">
                 <NavLink className="profil" to="/profil/1">
                   Profil
                 </NavLink>
               </li>
             ) : null}
-            {isLoggedIn ? (
-              <li className="snpl">
+            {user ? (
+              <li className="snpl" onClick={logout}>
                 <button className="Btn">
                   <div className="sign">
                     <svg viewBox="0 0 512 512">
@@ -91,7 +96,7 @@ const NavBar = () => {
                 </button>
               </li>
             ) : null}
-            {isLoggedIn ? (
+            {user ? (
               <li className=" bell-notif1">
                 <button className="button">
                   <svg viewBox="0 0 448 512" className="bell">
@@ -100,7 +105,7 @@ const NavBar = () => {
                 </button>
               </li>
             ) : null}
-            {!isLoggedIn ? (
+            {!user ? (
               <li className="snpl">
                 <NavLink className="login" to="/login">
                   Login
