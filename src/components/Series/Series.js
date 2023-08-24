@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
-import NavBar from "../components/NavBar/NavBar";
-import SwiperHome from "../components/SwiperHome/Swiper-home";
-import slides from "../components/mock.json";
-import Footer from "../components/Footer/Footer";
-import SelectOptions from "../components/SelectOptions/SelectOptions";
-import List from "../components/List/List";
-import "./Series.css";
+import NavBar from "../NavBar/NavBar";
+import SwiperHome from "../SwiperHome/Swiper-home";
+import slides from "../mock.json";
+import Footer from "../Footer/Footer";
+import SelectOptions from "../SelectOptions/SelectOptions";
+import List from "../List/List";
 const Series = () => {
   const options = [
     "adventure",
