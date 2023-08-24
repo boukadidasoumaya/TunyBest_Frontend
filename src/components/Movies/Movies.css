@@ -2,9 +2,49 @@
   background-color: rgb(15, 19, 30);
   color: white;
 }
-.movies .select-options{
+
+.movies .select-options {
   position: absolute;
   top: 14%;
   left: 90px;
   z-index: 99;
 }
+
+.pagination {
+
+  z-index: 99;
+
+  width: fit-content !important;
+  background-color: rgb(15, 19, 30) !important;
+  padding: 10px;
+  border-radius: 8px;
+
+}
+
+.page-item {
+  margin: 0 5px;
+  cursor: pointer;
+
+}
+.page-item.active .page-link {
+  background-color: white !important;
+  color: rgb(15, 19, 30) !important;
+  border-color: white !important;
+}
+
+
+.page-link {
+  color: white !important;
+  background-color: rgb(15, 19, 30) !important;
+  border-color: white !important;
+
+}
+
+.page-link:hover {
+  background-color: white !important;
+  color: rgb(15, 19, 30) !important;
+  border-color: white !important;
+
+}
+
+

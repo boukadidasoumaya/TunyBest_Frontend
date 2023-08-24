@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import SelectOptions from "../SelectOptions/SelectOptions";
 import "./Movies.css";
 import List from "../List/List";
+import PaginatedItems from "../PaginatedItems/PaginatedItems";
 const Movies = () => {
   const options = [
     "adventure",
@@ -36,13 +37,47 @@ const Movies = () => {
         />{" "}
       </div>
 
-  <div className="container">
-      <div className="row">
-        <div className="col-12"> 
+      <div className="container d-flex flex-column align-items-center">
+        <div className="row">
+          <div className="col-12">
             <List />
+          </div>
         </div>
+        <nav aria-label="Page navigation example">
+          <ul className="pagination ">
+            <li className="page-item">
+              <a className="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+                <span className="sr-only">Previous</span>
+              </a>
+            </li>
+            <li className="page-item active" aria-current="page">
+              <a className="page-link" href="#">
+                1
+              </a>
+            </li>
+            <li className="page-item">
+              <a className="page-link" href="#">
+                2
+              </a>
+            </li>
+            <li className="page-item">
+              <a className="page-link" href="#">
+                3
+              </a>
+            </li>
+            <li className="page-item">
+              <a className="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">»</span>
+                <span className="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      <PaginatedItems itemsPerPage={4}/>
+
       </div>
-  </div>
+
       <Footer />
     </div>
   );

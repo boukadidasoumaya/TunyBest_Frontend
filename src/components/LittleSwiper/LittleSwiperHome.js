@@ -55,6 +55,30 @@ const LittleSwiper = () => {
           onMouseLeave={() => setHoveredSlide(null)}
         >
           <NavLink to="/details/1">
+          <div className="details d-flex flex-column justify-content-end">
+                    <div className="details-content row d-flex">
+                      <div className="left col-8 ">
+                        <div className="date_quality">
+                          <p className="quality">HD</p>
+                          <p className="date">2021</p>
+                        </div>
+                        <p className="category">thriller</p>
+                        <div className="info">
+                          <div className="rate">
+                            <i className="fa-solid fa-star" />
+                            <p>9.2</p>
+                          </div>
+                          <div className="time">
+                            <i className="fa-regular fa-clock" />
+                            <p>180min</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="right col-4 p-0 ">
+                        <i className="mt-4 fa-solid fa-play" />
+                      </div>
+                    </div>
+                  </div>
             <img
               src={require("../../assets/peakyblinderssmall.jpg")}
               alt={`${index + 1}`}
