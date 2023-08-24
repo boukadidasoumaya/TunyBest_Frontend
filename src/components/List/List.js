@@ -79,33 +79,34 @@ const List = () => {
 
   return (
     <div className="list">
-      <div className="list-container">
+      <div className="list-container row ">
         {listData.map((item, index) => (
-          <div className="latest" key={index}>
+          <div className="latest col-lg-2 col-md-3 col-sm-6" key={index}>
             <div className="box">
               <NavLink to="/details/1">
                 <div className="card">
-                  <div className="details">
-                    <div className="left">
-                      <p className="name">{item.name}</p>
-                      <div className="date_quality">
-                        <p className="quality">{item.quality}</p>
-                        <p className="date">{item.date}</p>
-                      </div>
-                      <p className="category">{item.category}</p>
-                      <div className="info">
-                        <div className="rate">
-                          <i className="fa-solid fa-star" />
-                          <p>{item.rate}</p>
+                  <div className="details d-flex flex-column justify-content-end">
+                    <div className="details-content row d-flex">
+                      <div className="left col-8 ">
+                        <div className="date_quality">
+                          <p className="quality">{item.quality}</p>
+                          <p className="date">{item.date}</p>
                         </div>
-                        <div className="time">
-                          <i className="fa-regular fa-clock" />
-                          <p>{item.time}</p>
+                        <p className="category">{item.category}</p>
+                        <div className="info">
+                          <div className="rate">
+                            <i className="fa-solid fa-star" />
+                            <p>{item.rate}</p>
+                          </div>
+                          <div className="time">
+                            <i className="fa-regular fa-clock" />
+                            <p>{item.time}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="right">
-                      <i className="fa-solid fa-play" />
+                      <div className="right col-4 p-0 ">
+                        <i className="mt-4 fa-solid fa-play" />
+                      </div>
                     </div>
                   </div>
                   <img src={item.imageUrl} alt={`Item ${index + 1}`} />
