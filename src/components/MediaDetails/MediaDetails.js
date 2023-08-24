@@ -67,7 +67,7 @@ const MediaDetails = () => {
       <div className="media-details">
         <div className="main-header">
         <label className="play-button">
-              <input defaultChecked="checked" type="checkbox" />
+              <input type="checkbox" />
               <svg
                 viewBox="0 0 384 512"
                 height="1em"

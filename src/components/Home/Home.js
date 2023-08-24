@@ -5,7 +5,9 @@ import slides from "../mock.json";
 import LittleSwiper from "../LittleSwiper/LittleSwiperHome";
 import Footer from "../Footer/Footer";
 import "./Home.css";
-import { useParams } from "react-router-dom";
+import {useParams} from "react-router-dom";
+
+
 const Home = () => {
   return (
     <div className="home">

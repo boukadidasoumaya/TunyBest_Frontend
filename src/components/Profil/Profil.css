@@ -118,33 +118,39 @@
     font-size: 15px;
     cursor: pointer;
 }
-.profil-content .input-username{
-  margin-bottom: 10px;
-  margin-top: -7px;
-  width: 85%;
+
+.profil-content .input-username {
+    margin-bottom: 10px;
+    margin-top: -7px;
+    width: 85%;
 }
-.profil-content .input-date{
-  margin-bottom: 30px;
-  width: 85%;
+
+.profil-content .input-date {
+    margin-bottom: 30px;
+    width: 85%;
 }
-.profil-content .input-address{
-  margin-top: -8px;
-  width: 85%;
+
+.profil-content .input-address {
+    margin-top: -8px;
+    width: 85%;
 }
-.profil-content .input-email{
-  width:83% ;
-  
+
+.profil-content .input-email {
+    width: 80%;
+
 }
-.profil-content .done-account{
-  margin-top: 10px;
-  
+
+.profil-content .done-account {
+    margin-top: 10px;
+
 }
-.profil-content input:not([type="file"]){
-  background-color: #21252F;
-  border: none;
-  border-radius: 5px;
-  border-bottom: 1px solid #D2DAEF;
-  color: #D2DAEF;
-  padding: 5px;
-  margin-bottom: 10px;
+
+.profil-content input:not([type="file"]) {
+    background-color: #21252F;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 1px solid #D2DAEF;
+    color: #D2DAEF;
+    padding: 5px;
+    margin-bottom: 10px;
 }

@@ -1,208 +1,222 @@
 .sign-in {
 
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .sign-in::before {
-  content: "";
-  position: fixed;
-  /* top: -33vh;
-  left: -12vh; */
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to top, rgba(15, 19, 30, 0.9), rgba(15, 19, 30, 0.2)),
+    content: "";
+    position: fixed;
+    /* top: -33vh;
+    left: -12vh; */
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(15, 19, 30, 0.9), rgba(15, 19, 30, 0.2)),
     linear-gradient(to bottom, rgba(15, 19, 30, 0.9), rgba(15, 19, 30, 0.2)),
     url("../../assets/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* transform: rotate(20deg);  */
-  z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* transform: rotate(20deg);  */
+    z-index: -1;
+}
+
+.sign-in .logo img {
+    position: relative;
+    top: 15px;
+    width: 300px;
 }
 
 .sign-in .content {
-  width: 450px !important;
-  padding: 40px 30px;
-  background: rgba(0, 6, 24,0.73);
-  border-radius: 10px;
-  box-shadow: -3px -3px 7px #84848473,
+    width: 450px !important;
+    padding: 40px 30px;
+    background: rgba(0, 6, 24, 0.73);
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px #84848473,
     2px 2px 5px rgba(94, 104, 121, 0.288);
-  top: 15%;
-  position: fixed;
+    top: 20%;
+    position: fixed;
 }
 
 .sign-in .content .texte {
-  font-size: 33px;
-  font-weight: 600;
-  margin-bottom: 35px;
-  color: white;
+    font-size: 33px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    color: white;
 }
 
 .sign-in .field {
-  height: 50px;
-  width: 100%;
-  display: flex;
-  position: relative;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    position: relative;
 }
 
 .sign-in .field:nth-child(2) {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .sign-in .field .input {
-  height: 100%;
-  width: 100%;
-  padding-left: 45px;
-  outline: none;
-  border: none;
-  font-size: 15px;
-  background: #dde1e7;
-  color: #434343;
-  border-radius: 25px;
-  box-shadow: inset 2px 2px 5px #838aa4,
-    inset -5px -5px 10px #5e5e5e73 ;
+    height: 100%;
+    width: 100%;
+    padding-left: 45px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background: #dde1e7;
+    color: #434343;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #838aa4,
+    inset -5px -5px 10px #5e5e5e73;
 }
 
 .sign-in .error {
-  border: 1px solid rgb(210, 74, 74) !important;
-  box-shadow: 2px 2px 5px rgba(210, 74, 74, 0.489),
+    border: 1px solid rgb(210, 74, 74) !important;
+    box-shadow: 2px 2px 5px rgba(210, 74, 74, 0.489),
     -3px -3px 5px rgba(210, 74, 74, 0.489) !important;
 }
+
 .sign-in .field .input:focus {
-  box-shadow: inset 1px 1px 2px #BABECC,
+    box-shadow: inset 1px 1px 2px #BABECC,
     inset -1px -1px 2px #5e5e5e73;
 }
 
 .sign-in .field i {
-  position: absolute;
-  color: #434343;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
+    position: absolute;
+    color: #434343;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 
 }
-.sign-in .field .span i{
-  left: 5%;
+
+.sign-in .field .span i {
+    left: 5%;
 }
+
 .sign-in .field i.fa-eye-slash, i.fa-eye {
-  right: 5%;
+    right: 5%;
 }
 
 .sign-in .forgot-pass {
-  text-align: left;
-  margin: 10px 0 10px 5px;
+    text-align: left;
+    margin: 10px 0 10px 5px;
 }
 
 .sign-in .forgot-pass a {
-  font-size: 16px;
-  color: #828282;
-  text-decoration: none;
+    font-size: 16px;
+    color: #828282;
+    text-decoration: none;
 }
 
 .sign-in .forgot-pass:hover a {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .sign-in button {
-  --primary-color: #fca5a5;
-  --secondary-color: #fff;
-  --hover-color: #111;
-  --arrow-width: 10px;
-  --arrow-stroke: 2px;
-  box-sizing: border-box;
-  border: 0 ;
-  border-radius: 25px !important;
-  color: var(--secondary-color);
-  padding: .7em 0;
-  background: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6em;
-  font-weight: bold;
-  width: 60% !important;
-  margin: 30px 0 15px;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: all .8s;
+    --primary-color: #fca5a5;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 25px !important;
+    color: var(--secondary-color);
+    padding: .7em 0;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    font-weight: bold;
+    width: 60% !important;
+    margin: 30px 0 15px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all .8s;
 }
 
 .sign-in button .arrow-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-in button .arrow {
-  margin-top: 2px;
-  width: var(--arrow-width);
-  background: var(--primary-color);
-  height: var(--arrow-stroke);
-  position: relative;
-  transition: 0.2s;
+    margin-top: 2px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
 }
 
 .sign-in button .arrow::before {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  border: solid var(--secondary-color);
-  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
-  display: inline-block;
-  top: -3px;
-  right: 3px;
-  transition: 0.2s;
-  padding: 3px;
-  transform: rotate(-45deg);
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
 }
 
 .sign-in button:hover {
-  color: white;
-  transform: scale(1.04);
-  box-shadow: 2px 2px 10px rgba(213, 213, 213, 0.3);
+    color: white;
+    transform: scale(1.04);
+    box-shadow: 2px 2px 10px rgba(213, 213, 213, 0.3);
 }
 
 .sign-in button::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 0%;
-  top: 0;
-  left: -40px;
-  transform: skewX(45deg);
-  background-color: #fb6363;
-  z-index: -1;
-  transition: all 1s;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: -40px;
+    transform: skewX(45deg);
+    background-color: #fb6363;
+    z-index: -1;
+    transition: all 1s;
 }
 
 .sign-in button:hover::before {
-  width: 160%;
+    width: 160%;
 }
+
 .sign-in button:hover .arrow {
-  background: var(--secondary-color);
+    background: var(--secondary-color);
 }
 
 .sign-in button:hover .arrow:before {
-  right: 0;
+    right: 0;
 }
 
 
 .signing-up {
-  margin: 10px 0;
-  color: #828282;
-  font-size: 16px;
-  text-align: center;
+    margin: 10px 0;
+    color: #828282;
+    font-size: 16px;
+    text-align: center;
 }
 
 .signing-up a {
-  color: #fca5a5;
-  text-decoration: none;
+    color: #fca5a5;
+    text-decoration: none;
 }
 
 .signing-up a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+}
+
+.sign-in .error-text {
+    color: rgb(210, 74, 74)
 }

@@ -68,7 +68,7 @@ const LittleSwiper = () => {
               onClick={() => handleRemoveClick(index)}
               className={`r ${hoveredSlide === index ? "remove" : ""}`}
             >
-              <i class="fa-solid fa-minus" style={{ color: "#fafafa" }}></i>
+              <i className="fa-solid fa-minus" style={{ color: "#fafafa" }}></i>
               Remove From List
             </p>
           </div>

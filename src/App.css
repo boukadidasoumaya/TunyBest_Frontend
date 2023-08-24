@@ -1,5 +1,10 @@
-/* .App {
-  text-align: center;
+.App {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to bottom, rgba(15, 19, 30, 1), rgba(15, 19, 30, 0.9), rgba(15, 19, 30, 0.8),rgba(15, 19, 30, 1)),
+    url("assets/background1.jpg");
+    position: relative;
 }
 /*
 .App-logo {
