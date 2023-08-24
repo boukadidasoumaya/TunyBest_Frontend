@@ -17,7 +17,10 @@ const Footer = () => {
           <div className="col-lg-4 col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center ">
           <div className="footer-center d-flex flex-column justify-content-center align-items-center">
               <div className="fw-lighter get-in-touch">Get In Touch With Us</div>
-              <div className="email">Tunybest@gmail.com</div>
+              <div className="email"><a
+                                        href="https://mail.google.com/mail/?view=cm&to=Tunybest@gmail.com"
+                                        target="_blank">Tunybest@gmail.com</a></div>
+
           </div>
           </div>
           <div className="col-lg-4 col-md-3 col-sm-12 d-flex flex-column justify-content-end align-items-center">

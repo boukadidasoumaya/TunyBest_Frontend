@@ -202,7 +202,7 @@ const Profil = () => {
                                                     />
                                                 ) : (
                                                     <div className="birthday">
-                                                        <p className="date mb-0">{birthDate}</p>
+                                                        <p className={`date ${birthDate ? 'mb-0' : 'mt-4'}`}>{birthDate}</p>
                                                         <p className="birth mb-3">Date Of Birth</p>
                                                     </div>
                                                 )}
@@ -218,7 +218,7 @@ const Profil = () => {
                                                     />
                                                 ) : (
                                                     <i
-                                                        className="fas fa-pencil-alt"
+                                                        className={`fas fa-pencil-alt ${birthDate ? '' : 'mt-3'}`}
                                                         style={{color: "#ffffff"}}
                                                     />
                                                 )}

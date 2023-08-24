@@ -1,7 +1,15 @@
+.sign-up-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 114vh;
+}
+
 .sign-up {
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 0;
+    height: 100%;
+    flex: 1;
 }
 
 .sign-up::before {
@@ -33,8 +41,7 @@
     border-radius: 10px;
     box-shadow: -3px -3px 7px #84848473,
     2px 2px 5px rgba(94, 104, 121, 0.288);
-    top: 13%;
-    position: fixed;
+    /*position: absolute;*/
 }
 
 .sign-up .content .texte {
@@ -45,19 +52,21 @@
 }
 
 .field {
-    height: 50px;
+    height: 45px;
     width: 100%;
     display: flex;
     position: relative;
 }
 
 .sign-up .field:nth-child(2),
-.sign-up .field:nth-child(3),
+
 .sign-up .field:nth-child(4),
 .sign-up .field:nth-child(5) {
     margin-top: 20px;
 }
-
+.sign-up .field:nth-child(3){
+    margin-top: 12px;
+}
 .sign-up .input:nth-child(3) {
     margin-left: 10px;
 }
@@ -103,15 +112,18 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-
 }
 
 .sign-up .date {
     position: relative;
-    left: 23%;
-    height: 30px;
+    height: 35px;
     width: 135px;
-    background-color: #e6e6e6;
+    border: none;
+    background: #dde1e7;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #838aa4,
+    inset -5px -5px 10px #5e5e5e73;
+    padding: 0 15px;
 }
 
 .sign-up .field .span i {
@@ -124,12 +136,16 @@ i.fa-eye {
 }
 
 .sign-up .field i.fa-camera, .sign-up .field i.fa-calendar-days {
-    top: 30%;
-    left: 10%;
     color: white;
-
 }
-
+.sign-up .field i.fa-calendar-days{
+    left: 18%;
+    top: 37%;
+}
+.sign-up .field i.fa-camera {
+    left: 11%;
+    top: 85%;
+}
 .sign-up .file {
     position: relative;
     left: 15%;
@@ -242,3 +258,45 @@ i.fa-eye {
 .signing-in a:hover {
     text-decoration: underline;
 }
+
+.fa-earth-americas {
+    position: absolute;
+    color: #434343;
+    margin-left: 20px;
+    top: 62.5%;
+    font-size: 20px;
+}
+
+
+.custom-input {
+    display: none;
+}
+
+
+.custom-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 165px;
+    height: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+    background: #dde1e7;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #838aa4,
+    inset -5px -5px 10px #5e5e5e73;
+    margin-top: 20px;
+    position: relative;
+    left: 21%;
+}
+
+.custom-label:hover {
+    box-shadow: inset 1px 1px 2px #BABECC,
+    inset -1px -1px 2px #5e5e5e73;
+}
+/*.custom-icon {*/
+/*    margin-right: 10px;*/
+/*}*/
