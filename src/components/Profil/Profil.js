@@ -11,7 +11,8 @@ const Profil = () => {
 
     const [profileImage, setProfileImage] = useState(''); // State for profile image
     const [imageUrl, setImageUrl] = useState(require("../../assets/avatar.png"));
-    const [username, setUsername] = useState("");
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
     const [birthDate, setBirthDate] = useState("");
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
@@ -34,7 +35,8 @@ const Profil = () => {
                 : require("../../assets/avatar.png")
         );
         setEmail(user ? user.email : "");
-        setUsername(user ? user.firstname + " " + user.lastname : "");
+        setFirstname(user ? user.firstname : "");
+        setLastname(user ? user.lastname : "");
         const date = user ? formatDate(user.birthdate) : "";
         setBirthDate(date);
         setAddress(user ? user.country : "");
@@ -79,7 +81,9 @@ const Profil = () => {
     };
     const handleEditClick = (index) => {
         const updatedIsEditing = [...isEditing];
+        console.log(updatedIsEditing[index]);
         updatedIsEditing[index] = !updatedIsEditing[index];
+        console.log(updatedIsEditing[index]);
         setIsEditing(updatedIsEditing);
     };
 
@@ -155,20 +159,27 @@ const Profil = () => {
                                                     style={{color: "#ffffff"}}
                                                 />
                                                 {isEditing[0] ? (
-                                                    <input
+                                                    <div className="d-flex flex-column"><input
                                                         className="input-username ms-2 me-2"
                                                         type="text"
-                                                        value={username}
-                                                        onChange={(e) => setUsername(e.target.value)}
+                                                        value={firstname}
+                                                        onChange={(e) => setFirstname(e.target.value)}
                                                         onBlur={() => handleBlur(0)}
                                                     />
+                                                        <input
+                                                            className="input-username ms-2 me-2 mb-3"
+                                                            type="text"
+                                                            value={lastname}
+                                                            onChange={(e) => setLastname(e.target.value)}
+                                                            onBlur={() => handleBlur(0)}
+                                                        /></div>
                                                 ) : (
-                                                    <p className="username">{username}</p>
+                                                    <p className="username">{firstname + " " + lastname}</p>
                                                 )}
                                             </div>
                                             <div
                                                 className="edit"
-                                                onClick={() => handleConfirmClick(0)}
+                                                onClick={() => handleEditClick(0)}
                                             >
                                                 {isEditing[0] ? (
                                                     <i
