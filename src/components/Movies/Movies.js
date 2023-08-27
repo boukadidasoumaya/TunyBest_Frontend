@@ -1,13 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import SwiperHome from "../SwiperHome/Swiper-home";
-import slides from "../mock.json";
 import Footer from "../Footer/Footer";
 import SelectOptions from "../SelectOptions/SelectOptions";
 import "./Movies.css";
 import List from "../List/List";
-import PaginatedItems from "../PaginatedItems/PaginatedItems";
+import axios from "axios";
+
 const Movies = () => {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/movies").then((response) => {
+      setSlides(response.data);
+      
+    
+    });
+  }, []);
+
   const options = [
     "adventure",
     "sci-fi",
@@ -28,7 +38,7 @@ const Movies = () => {
     <div className="movies">
       <NavBar />
 
-      <SwiperHome slides={slides} inHome={false} />
+      <SwiperHome slides={slides} inmovies={true} inseries={false} inHome={false} />
       <div className="select-options">
         <SelectOptions
           options={options}
@@ -74,8 +84,6 @@ const Movies = () => {
             </li>
           </ul>
         </nav>
-      <PaginatedItems itemsPerPage={4}/>
-
       </div>
 
       <Footer />

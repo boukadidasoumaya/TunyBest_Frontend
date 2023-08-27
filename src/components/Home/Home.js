@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import SwiperHome from "../SwiperHome/Swiper-home";
 import slides from "../mock.json";
@@ -6,17 +6,28 @@ import LittleSwiper from "../LittleSwiper/LittleSwiperHome";
 import Footer from "../Footer/Footer";
 import "./Home.css";
 import {useParams} from "react-router-dom";
+import axios from "axios";
 
 
 const Home = () => {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000").then((response) => {
+      setSlides(response.data);
+      
+    
+    });
+  }, []);
+
   return (
     <div className="home">
       <NavBar />
-      <SwiperHome slides={slides} />
+      <SwiperHome slides={slides} inHome={true}  />
       <div className="container">
         <div className="container">
           <div className="d-flex">
-            <h1>Trending</h1>
+            <h3>Trending</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -70,7 +81,7 @@ const Home = () => {
         </div>
         <div className="container">
         <div className="d-flex">
-            <h1>Popular</h1>
+            <h3>Popular</h3>
           
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -124,7 +135,7 @@ const Home = () => {
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>New Movies</h1>
+            <h3>New Movies</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -178,7 +189,7 @@ const Home = () => {
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>New Series</h1>
+            <h3>New Series</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -231,7 +242,7 @@ const Home = () => {
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>Anime</h1>
+            <h3>Anime</h3>
             <span className="btn-container">
               <a className="btn-content" href="#">
                 <span className="btn-title">Explore More</span>
@@ -283,7 +294,7 @@ const Home = () => {
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>K-Drama</h1>
+            <h3>K-Drama</h3>
             <span className="btn-container">
               <a className="btn-content" href="#">
                 <span className="btn-title">Explore More</span>

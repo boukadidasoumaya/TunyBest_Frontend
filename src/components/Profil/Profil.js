@@ -45,7 +45,7 @@ const Profil = () => {
 
 
 
-    const [isEditingImage, setIsEditingImage] = useState(false);
+    
     const [isEditing, setIsEditing] = useState([
         false,
         false,
@@ -54,17 +54,9 @@ const Profil = () => {
         false,
         false,
         false,
-        false,
+      
     ]);
-    const handleEditClickImage = (index) => {
-        if (index === 6) {
-            setIsEditingImage(!isEditingImage);
-        } else {
-            const updatedIsEditing = [...isEditing];
-            updatedIsEditing[index] = !updatedIsEditing[index];
-            setIsEditing(updatedIsEditing);
-        }
-    };
+    
     const handleImageUpload = (e) => {
         const file = e.target.files[0]; // Get the selected image file
         const reader = new FileReader(); // Create a FileReader to read the image
@@ -73,17 +65,17 @@ const Profil = () => {
             const imageDataURL = event.target.result; // Get the data URL of the image
             // Update the profile image with the selected image data
             setProfileImage(imageDataURL);
-            handleEditClick(6); // Automatically switch out of editing mode after image upload
         };
         if (file) {
-            reader.readAsDataURL(file); // Read the selected image as a data URL
+            reader.readAsDataURL(file); 
         }
     };
     const handleEditClick = (index) => {
+      
         const updatedIsEditing = [...isEditing];
-        console.log(updatedIsEditing[index]);
+    
         updatedIsEditing[index] = !updatedIsEditing[index];
-        console.log(updatedIsEditing[index]);
+      
         setIsEditing(updatedIsEditing);
     };
 
@@ -107,11 +99,11 @@ const Profil = () => {
                             <div className="col-lg-3 col-md-4 col-sm-12 ">
                                 <div className="cadre d-flex flex-column align-items-center justify-content-center">
                                     <div className="row d-flex justify-content-center">
-                                        {isEditingImage ? (
+                                        {isEditing[6] ? (
                                             <React.Fragment>
                                                 <img
                                                     className="profileImage p-0 m-2"
-                                                    src={profileImage || require("../../assets/rym.jpg")}
+                                                    src={profileImage}
                                                     alt="Profile"
                                                 />
                                                 <input
@@ -120,7 +112,7 @@ const Profil = () => {
                                                     onChange={handleImageUpload}
                                                     className="mt-2"
                                                 />
-                                                {isEditingImage ? (
+                                              
                                                     <i
                                                         className=" fas fa-check"
                                                         style={{
@@ -128,11 +120,9 @@ const Profil = () => {
                                                             margin: "0 0 0 400px",
                                                             fontSize: "20px",
                                                         }}
-                                                        onClick={() => handleEditClickImage(6)}
+                                                        onClick={() => handleEditClick(6)}
                                                     />
-                                                ) : (
-                                                    <></>
-                                                )}
+                                              
                                             </React.Fragment>
                                         ) : (
                                             <>
@@ -143,7 +133,7 @@ const Profil = () => {
                                                 />
                                                 <i
                                                     className="fa-sharp fa-regular fa-pen-to-square"
-                                                    onClick={() => handleEditClickImage(6)}
+                                                    onClick={() => handleEditClick(6)}
                                                     style={{cursor: "pointer"}}
                                                 />
                                             </>

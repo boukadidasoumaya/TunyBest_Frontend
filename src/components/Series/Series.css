@@ -1,16 +1,15 @@
-.movies {
+.series {
   background-color: rgb(15, 19, 30);
   color: white;
 }
-
-.movies .select-options {
+.series .select-options{
   position: absolute;
   top: 2%;
   left: 120px;
   z-index: 99;
 }
 
-.movies .pagination {
+.series .pagination {
 
   z-index: 99;
 
@@ -21,26 +20,26 @@
 
 }
 
-.movies .page-item {
+.series .page-item {
   margin: 0 5px;
   cursor: pointer;
 
 }
-.movies .page-item.active .page-link {
+.series .page-item.active .page-link {
   background-color: white !important;
   color: rgb(15, 19, 30) !important;
   border-color: white !important;
 }
 
 
-.movies .page-link {
+.series .page-link {
   color: white !important;
   background-color: rgb(15, 19, 30) !important;
   border-color: white !important;
 
 }
 
-.movies .page-link:hover {
+.series .page-link:hover {
   background-color: white !important;
   color: rgb(15, 19, 30) !important;
   border-color: white !important;

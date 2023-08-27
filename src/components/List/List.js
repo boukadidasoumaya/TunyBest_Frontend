@@ -81,7 +81,7 @@ const List = () => {
     <div className="list">
       <div className="list-container row ">
         {listData.map((item, index) => (
-          <div className="latest col-lg-2 col-md-3 col-sm-6" key={index}>
+          <div className="latest col-lg-2 col-md-3 col-sm-6 mb-4" key={index}>
             <div className="box">
               <NavLink to="/details/1">
                 <div className="card">
