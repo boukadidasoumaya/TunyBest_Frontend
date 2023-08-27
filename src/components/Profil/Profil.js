@@ -11,6 +11,10 @@ const Profil = () => {
 
     const [profileImage, setProfileImage] = useState(''); // State for profile image
     const [imageUrl, setImageUrl] = useState(require("../../assets/avatar.png"));
+
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [previewImage, setPreviewImage] = useState(null);
+
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [birthDate, setBirthDate] = useState("");
@@ -34,18 +38,17 @@ const Profil = () => {
                 ? `http://localhost:5000/uploads/${profileImage}`
                 : require("../../assets/avatar.png")
         );
-        setEmail(user ? user.email : "");
-        setFirstname(user ? user.firstname : "");
-        setLastname(user ? user.lastname : "");
-        const date = user ? formatDate(user.birthdate) : "";
+        setEmail(user?.email ?? "");
+        setFirstname(user?.firstname ?? "");
+        setLastname(user?.lastname ?? "");
+        const date = user?.birthdate ? formatDate(user.birthdate) : "";
         setBirthDate(date);
-        setAddress(user ? user.country : "");
+        setAddress(user?.country ?? "");
 
     }, [profileImage,user]);
 
 
 
-    const [isEditingImage, setIsEditingImage] = useState(false);
     const [isEditing, setIsEditing] = useState([
         false,
         false,
@@ -53,49 +56,39 @@ const Profil = () => {
         false,
         false,
         false,
-        false,
-        false,
+        false
     ]);
-    const handleEditClickImage = (index) => {
-        if (index === 6) {
-            setIsEditingImage(!isEditingImage);
-        } else {
-            const updatedIsEditing = [...isEditing];
-            updatedIsEditing[index] = !updatedIsEditing[index];
-            setIsEditing(updatedIsEditing);
-        }
-    };
-    const handleImageUpload = (e) => {
-        const file = e.target.files[0]; // Get the selected image file
-        const reader = new FileReader(); // Create a FileReader to read the image
-        reader.onload = (event) => {
-            // When the reader finishes loading the image
-            const imageDataURL = event.target.result; // Get the data URL of the image
-            // Update the profile image with the selected image data
-            setProfileImage(imageDataURL);
-            handleEditClick(6); // Automatically switch out of editing mode after image upload
-        };
+
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        setSelectedImage(file);
+
         if (file) {
-            reader.readAsDataURL(file); // Read the selected image as a data URL
+            const reader = new FileReader();
+            reader.onload = () => {
+                setPreviewImage(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
     };
+
     const handleEditClick = (index) => {
-        const updatedIsEditing = [...isEditing];
-        console.log(updatedIsEditing[index]);
-        updatedIsEditing[index] = !updatedIsEditing[index];
-        console.log(updatedIsEditing[index]);
-        setIsEditing(updatedIsEditing);
+        setIsEditing(prevIsEditing => {
+            const updatedIsEditing = [...prevIsEditing];
+            updatedIsEditing[index] = !updatedIsEditing[index];
+            return updatedIsEditing;
+        });
+        if(index === 6){
+            setPreviewImage(null);
+        }
     };
+
 
     const handleConfirmClick = (index) => {
         handleEditClick(index);
     };
 
-    const handleBlur = (index) => {
-        setIsEditing((prevEditing) =>
-            prevEditing.map((value, idx) => (idx === index ? false : value))
-        );
-    };
 
     return (
         <div>
@@ -107,11 +100,11 @@ const Profil = () => {
                             <div className="col-lg-3 col-md-4 col-sm-12 ">
                                 <div className="cadre d-flex flex-column align-items-center justify-content-center">
                                     <div className="row d-flex justify-content-center">
-                                        {isEditingImage ? (
+                                        {isEditing[6] ? (
                                             <React.Fragment>
                                                 <img
                                                     className="profileImage p-0 m-2"
-                                                    src={profileImage || require("../../assets/rym.jpg")}
+                                                    src={previewImage || imageUrl}
                                                     alt="Profile"
                                                 />
                                                 <input
@@ -120,7 +113,7 @@ const Profil = () => {
                                                     onChange={handleImageUpload}
                                                     className="mt-2"
                                                 />
-                                                {isEditingImage ? (
+                                                {isEditing[6] ? (
                                                     <i
                                                         className=" fas fa-check"
                                                         style={{
@@ -128,7 +121,7 @@ const Profil = () => {
                                                             margin: "0 0 0 400px",
                                                             fontSize: "20px",
                                                         }}
-                                                        onClick={() => handleEditClickImage(6)}
+                                                        onClick={() => handleEditClick(6)}
                                                     />
                                                 ) : (
                                                     <></>
@@ -142,8 +135,8 @@ const Profil = () => {
                                                     alt="Profile"
                                                 />
                                                 <i
-                                                    className="fa-sharp fa-regular fa-pen-to-square"
-                                                    onClick={() => handleEditClickImage(6)}
+                                                    className="fa-sharp fa-regular fa-pen-to-square p-0"
+                                                    onClick={() => handleEditClick(6)}
                                                     style={{cursor: "pointer"}}
                                                 />
                                             </>
@@ -163,15 +156,17 @@ const Profil = () => {
                                                         className="input-username ms-2 me-2"
                                                         type="text"
                                                         value={firstname}
-                                                        onChange={(e) => setFirstname(e.target.value)}
-                                                        onBlur={() => handleBlur(0)}
+                                                        onChange={
+                                                        (e) => {
+                                                            setFirstname(e.target.value)
+                                                        }}
+
                                                     />
                                                         <input
                                                             className="input-username ms-2 me-2 mb-3"
                                                             type="text"
                                                             value={lastname}
                                                             onChange={(e) => setLastname(e.target.value)}
-                                                            onBlur={() => handleBlur(0)}
                                                         /></div>
                                                 ) : (
                                                     <p className="username">{firstname + " " + lastname}</p>
@@ -209,7 +204,6 @@ const Profil = () => {
                                                         type="date"
                                                         value={birthDate}
                                                         onChange={(e) => setBirthDate(e.target.value)}
-                                                        onBlur={() => handleBlur(1)}
                                                     />
                                                 ) : (
                                                     <div className="birthday">
@@ -247,7 +241,6 @@ const Profil = () => {
                                                         className="input-address ms-2 me-2"
                                                         value={address}
                                                         onChange={(e) => setAddress(e.target.value)}
-                                                        onBlur={() => handleBlur(2)}
                                                     />
                                                 ) : (
                                                     <p className="address">{address}</p>
@@ -299,7 +292,6 @@ const Profil = () => {
                                                             className="col-8 input-email ms-2"
                                                             value={email}
                                                             onChange={(e) => setEmail(e.target.value)}
-                                                            onBlur={() => handleBlur(3)}
                                                         />
                                                     ) : (
                                                         <span
@@ -386,7 +378,6 @@ const Profil = () => {
                                       onChange={(e) =>
                                           setNumAccount(e.target.value)
                                       }
-                                      onBlur={() => handleBlur(5)}
                                   />
                               ) : (
                                   <span>{numAccount}</span>

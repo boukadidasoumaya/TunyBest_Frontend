@@ -5,6 +5,7 @@ import slides from "../mock.json";
 import Footer from "../Footer/Footer";
 import SelectOptions from "../SelectOptions/SelectOptions";
 import List from "../List/List";
+import "./Series.css";
 const Series = () => {
   const options = [
     "adventure",

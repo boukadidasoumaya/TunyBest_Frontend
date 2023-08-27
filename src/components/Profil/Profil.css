@@ -1,6 +1,4 @@
 .profil-content {
-
-    background-color: rgb(15, 19, 30);
     color: white;
     padding: 17vh 0 20px;
 }
@@ -19,7 +17,8 @@
 
 .profil-content .fa-pen-to-square {
     position: relative;
-    left: 85%
+    /*left: 85%*/
+    text-align: right;
 }
 
 .profil-content .container {

@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import "./NavBarre.css";
 import { NavLink } from "react-router-dom";
 import {authContext} from "../../helpers/authContext";
+import axios from "axios";
 
 const NavBar = () => {
   const { user, setUser } = useContext(authContext);
@@ -17,7 +18,14 @@ const NavBar = () => {
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
-  }
+    axios.delete("http://localhost:5000/logout", {
+        withCredentials: true,
+  }).then((response) => {
+        console.log(response.data);
+    }).catch((error) => {
+        console.log(error);
+    });
+    };
   return (
     <nav className="nav">
       <div className="container1">
@@ -78,7 +86,7 @@ const NavBar = () => {
             ) : null}
             {user ? (
               <li className="snpl">
-                <NavLink className="profil" to="/profil/1">
+                <NavLink className="profil" to="/yourProfile">
                   Profil
                 </NavLink>
               </li>

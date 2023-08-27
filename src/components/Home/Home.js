@@ -16,7 +16,7 @@ const Home = () => {
       <div className="container">
         <div className="container">
           <div className="d-flex">
-            <h1>Trending</h1>
+            <h3>Trending</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -66,11 +66,11 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
         <div className="d-flex">
-            <h1>Popular</h1>
+            <h3>Popular</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -120,11 +120,11 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>New Movies</h1>
+            <h3>New Movies</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -174,11 +174,11 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>New Series</h1>
+            <h3>New Series</h3>
 
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -227,11 +227,11 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>Anime</h1>
+            <h3>Anime</h3>
             <span className="btn-container">
               <a className="btn-content" href="#">
                 <span className="btn-title">Explore More</span>
@@ -279,11 +279,11 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
-            <h1>K-Drama</h1>
+            <h3>K-Drama</h3>
             <span className="btn-container">
               <a className="btn-content" href="#">
                 <span className="btn-title">Explore More</span>
@@ -327,7 +327,7 @@ const Home = () => {
             </span>
           </div>
 
-          <div className="row">
+          <div className="row mb-5">
             <div className="col-12">
               <LittleSwiper />
             </div>

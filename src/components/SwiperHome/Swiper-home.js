@@ -21,7 +21,12 @@ const SwiperHome = (inHome) => {
                 >
                     {imagelist.map((slide) => (
                         <SwiperSlide key={slide.id} className="swipe-slide">
-                            <div className="slide-content ">
+                            <div className="slide-content "
+                            style={{
+                                backgroundImage: `linear-gradient(to top, rgba(15, 19, 30, 1), rgba(15, 19, 30, 0)),
+                                linear-gradient(to right, rgba(15, 19, 30, 0), rgba(15, 19, 30, 0.3), rgba(15, 19, 30, 0)),
+                                url(${require("../../assets/bigImages/series/winx.jpg")})`}}
+                            >
                                 <div className="slide-info container">
                                     <h1 className="slide-title">Peaky Blinders</h1>
                                     <div className="details">

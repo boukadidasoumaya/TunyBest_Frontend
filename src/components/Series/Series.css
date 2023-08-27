@@ -1,0 +1,9 @@
+.series {
+    color: white;
+}
+.series .select-options{
+    position: absolute;
+    top: 14%;
+    left: 90px;
+    z-index: 99;
+}

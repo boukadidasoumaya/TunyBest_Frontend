@@ -27,8 +27,27 @@ const SignUp = () => {
             marginTop: '20px',
             paddingLeft: '35px',
             border: 'none',
-
-
+            width:'390px',
+        }),
+        menu: (provided, state) => ({
+            ...provided,
+            marginTop: '25px',
+            zIndex: '1',
+            maxHeight: '212px',
+            background: '#e7ebee',
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            padding: '5px 25px', // Adjust the padding of the options here
+            backgroundColor: state.isFocused ? 'rgb(8,14,31)' : 'transparent',
+            color: state.isFocused ? '#dde1e7' : '#5e5e5e',
+        }),
+        menuList: (provided, state) => ({
+            ...provided,
+            maxHeight: '212px', // Adjust the max height of the menu here
+            overflowY: 'scroll',
+            scrollbarWidth: 'thin', // For Firefox
+            scrollbarColor: '#5e5e5e73 #dde1e7', // For supported browsers
         }),
     }
 
@@ -72,37 +91,10 @@ const SignUp = () => {
         setFormData({...formData, [name]: files[0]});
     };
 
-    // const validateForm = () => {
-    //   let newErrors = {};
-    //   let isValid = true;
-
-    //   Check for empty fields
-    //   for (const key in formData) {
-    //     if (key === "image" || key === "birthdate") {
-    //       continue;
-    //     }
-    //     if (formData[key].trim() === "") {
-    //       newErrors[key] = `${key} is required`;
-    //       isValid = false;
-    //     }
-    //   }
-
-    //   Check email validity
-    //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //   if (!emailRegex.test(formData.email)) {
-    //     newErrors.email = "Invalid email address";
-    //     isValid = false;
-    //   }
-
-    //   setErrors(newErrors);
-    //   return isValid;
-    // };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("Form data:", formData);
-        // if (validateForm()) {
-        // Form data is valid, perform form submission or other actions
+
         axios
             .post("http://localhost:5000/register", formData, config)
             .then((res) => {
@@ -137,7 +129,6 @@ const SignUp = () => {
                     toast.error(error.data);
                 }
             });
-        // }
     };
 
     return (
@@ -233,7 +224,7 @@ const SignUp = () => {
                                     errors.password.slice(1).toLowerCase()}
                             </div>
                         )}
-                        <Select
+                        <div className="select"><Select
                             options={options}
                             value={selectedOption}
                             onChange={changeHandler}
@@ -243,9 +234,9 @@ const SignUp = () => {
                         />
                             <span className="span ">
                   <i className="fa-sharp fa-solid fa-earth-americas"></i>
-                </span>
+                </span></div>
 
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between ">
                             <div className="field d-flex justify-content-evenly ">
                                 <label htmlFor="image" className="custom-label" style={{
                                     color: formData.image ? 'rgb(15,19,30)' : '#808080'
