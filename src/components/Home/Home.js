@@ -77,7 +77,7 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
         <div className="d-flex">
@@ -131,7 +131,7 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
@@ -185,7 +185,7 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
@@ -238,7 +238,7 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
@@ -290,7 +290,7 @@ const Home = () => {
               <LittleSwiper />
             </div>
           </div>
-          <hr className="mt-5 mb-5" />
+          <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
           <div className="d-flex">
@@ -338,7 +338,7 @@ const Home = () => {
             </span>
           </div>
 
-          <div className="row">
+          <div className="row mb-5">
             <div className="col-12">
               <LittleSwiper />
             </div>

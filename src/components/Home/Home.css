@@ -1,5 +1,4 @@
 .home {
-  background-color: rgb(15, 19, 30);
   color: white;
 }
 
@@ -41,20 +40,19 @@
 
 .home .btn-content .icon-arrow {
   transition: 0.5s;
-  margin-right: 0px;
+  margin-right: 0;
   transform: scale(0.6);
+  margin-top: -5px;
 
 }
 
 .home .btn-content .btn-title {
   position: relative;
-  bottom: 0px;
+  bottom: 5px;
   left: -100%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.5s;
-
-
 
 }
 

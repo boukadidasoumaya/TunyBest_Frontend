@@ -1,8 +1,15 @@
-.sign-in {
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+.sign-in {
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 0;
+    height: 100%;
+    flex: 1;
 }
 
 .sign-in::before {
@@ -36,7 +43,6 @@
     box-shadow: -3px -3px 7px #84848473,
     2px 2px 5px rgba(94, 104, 121, 0.288);
     top: 20%;
-    position: fixed;
 }
 
 .sign-in .content .texte {
@@ -219,4 +225,8 @@
 
 .sign-in .error-text {
     color: rgb(210, 74, 74)
+}
+
+.sign-in-container .footer {
+    z-index: 1;
 }

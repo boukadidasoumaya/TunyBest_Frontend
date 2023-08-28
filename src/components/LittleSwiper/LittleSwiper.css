@@ -13,7 +13,7 @@
   height: 50%;
   width: 90%;
   border-radius: 5px;
-  margin-top: 5px;
+  margin: 5px 0 0 10px;
   box-shadow: inset 0 0 54px rgba(52, 58, 62, 0.7), 0 0 5px 0.2px rgba(226, 230, 232, 0.6);
 }
 
@@ -26,21 +26,6 @@
   position: relative;
   transition: transform 0.3s ease-in-out;
 }
-
-
-
-.littleswiper .slide.hovered::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-  transition: background-color 0.3s ease-in-out;
-}
-
 
 
 .littleswiper .ep-number {
@@ -79,7 +64,6 @@
   position: absolute !important;
   top: 38% !important;
   left: 40% !important;
-  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -137,18 +121,18 @@
   cursor: pointer;
 }
 
-.littleswiper.details img:hover {
-  box-shadow: 0 0 5px 3px rgba(226, 230, 232, 0.6);
+.littleswiper.details img:hover,.littleswiper .slide.list img:hover {
+  box-shadow: 0 0 4px 3px rgba(226, 230, 232, 0.5);
   transform: scale(1.01);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
-.littleswiper.details .slider-item-content::before {
+.littleswiper.details .slider-item-content:hover::before,.littleswiper .slide.list:hover::before {
   content: "";
   position: absolute;
   top: 1.2%;
-  left: -0.1%;
+  left: 4.2%;
   right: 0;
   bottom: 0;
   height: 89.3%;
@@ -157,12 +141,8 @@
   border-radius: 5px;
   z-index: 1;
   transition: background-color 0.3s ease-in-out;
-}
-
-.littleswiper.details .slider-item-content:hover::before {
   background-image: linear-gradient(to top, rgba(15, 19, 30, 0.1), rgba(15, 19, 30, 0.4), rgba(15, 19, 30, 0.2)),
-    linear-gradient(to bottom, rgba(15, 19, 30, 0.1), rgba(15, 19, 30, 0.4), rgba(15, 19, 30, 0.2));
-
+  linear-gradient(to bottom, rgba(15, 19, 30, 0.1), rgba(15, 19, 30, 0.4), rgba(15, 19, 30, 0.2));
 }
 
 .littleswiper.details .slider-item {
@@ -218,6 +198,8 @@
   border-radius: 8px;
   transition: 0.3s;
   opacity: 0;
+  left: 4.4%
+
 }
 
 .littleswiper .slider .slide:hover .details {
@@ -344,4 +326,75 @@
   cursor: pointer;
   color: #282931;
 
+}
+
+
+
+
+
+.button.profil {
+  width: 70%;
+  border-radius: 20px;
+  height: 13%;
+  background-color: rgba(15, 19, 30, 0.93);
+  /*background-color: transparent;*/
+  border:  1px solid #6d6d6d;
+  font-weight: 600;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px  #6d6d6d;
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: absolute;
+  top: 73%;
+  left: 15%;
+  z-index: 1;
+}
+.littleswiper .slider .slide:hover .button {
+  display: flex;
+}
+.button.profil .svgIcon {
+  width: 17px;
+  transition-duration: .3s;
+}
+
+.button.profil .svgIcon path {
+  fill: white;
+}
+
+.button.profil:hover {
+  transition-duration: .3s;
+  background-color: #fb6363;
+  align-items: center;
+  border: none;
+
+}
+.button.profil:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 #dedede;
+}
+.button.profil:hover .svgIcon {
+  width: 48px;
+  transition-duration: .3s;
+  margin-top: 2px;
+  transform: translateY(55%);
+}
+
+.button.profil::before {
+  position: absolute;
+  top: -50px;
+  content: "Remove from list";
+  color: white;
+  transition-duration: .3s;
+  font-size: 16px;
+}
+
+.button.profil:hover::before {
+  font-size: 13px;
+  top: -27px;
+  opacity: 1;
+  transform: translateY(30px);
+  transition-duration: .3s;
 }

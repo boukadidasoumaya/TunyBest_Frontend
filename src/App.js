@@ -1,67 +1,114 @@
 import "./App.css";
 
-import {Provider, useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {login, store} from "./store";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "./components/Home/Home";
 import MediaDetails from "./components/MediaDetails/MediaDetails";
 import Movies from "./components/Movies/Movies";
 import Series from "./components/Series/Series";
 import Offer from "./components/Offers/Offer";
-import Profil from "./components/Profil/Profil";
+import Profile from "./components/Profil/Profil";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import Error404 from "./components/Error404/Error404";
-import { authContext } from "./helpers/authContext";
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home/>,
-    },
-    {
-        path: "/details/:id",
-        element: <MediaDetails/>,
-    },
-    {
-        path: "/movies",
-        element: <Movies/>,
-    },
-    {
-        path: "/series",
-        element: <Series/>,
-    },
-    {
-        path: "/offers",
-        element: <Offer/>,
-    },
-    {
-        path: "profil/:id",
-        element: <Profil/>,
-    },
-    {
-        path: "/login",
-        element: <SignIn/>,
-    },
-    {
-        path: "/signup",
-        element: <SignUp/>,
-
-    },
-    {
-        path: "*",
-        element: <Error404/>,
-    }
-]);
+import {authContext} from "./helpers/authContext";
+import jwt_decode from "jwt-decode";
+import RequireAuth from "./helpers/requireAuth";
+import LoggedIn from "./helpers/loggedIn";
 
 function App() {
     const [user, setUser] = useState(null);
-    // const user = useSelector(state => state.user.value);
-    useEffect(() => {
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home/>,
+        },
+        {
+            path: "/details/:id",
+            element: <MediaDetails/>,
+        },
+        {
+            path: "/movies",
+            element: <Movies/>,
+        },
+        {
+            path: "/series",
+            element: <Series/>,
+        },
+        {
+            path: "/offers",
+            element: <Offer/>,
+        },
+        {
+            element: <LoggedIn />,
+            children: [
+                {
+                    path: "/login",
+                    element: <SignIn/>,
+                },
+                {
+                    path: "/signup",
+                    element: <SignUp/>,
+
+                },
+            ],
+        },
+        {
+            element: <RequireAuth />,
+            children: [
+                {
+                    path: "/yourProfile",
+                    element: <Profile/>,
+                },
+            ],
+        },
+        {
+            path: "*",
+            element: <Error404/>,
+        },
+
+
+    ]);
+    const refreshToken = async (token) => {
+        try {
+            const res = await axios.post('http://localhost:5000/refresh',null,{
+                withCredentials: true,
+            });
+            localStorage.removeItem('token');
+            localStorage.setItem('token', res.data.token);
+            console.log("Token refresh successful");
+            return res.data.token;
+        } catch (err) {
+            localStorage.removeItem('token');
+            console.log(err);
+            return null;
+        }
+    };
+
+    const axiosJWT = axios.create();
+
+    axiosJWT.interceptors.request.use(
+        async config => {
+            let currentDate = new Date();
+            console.log("currentDate", currentDate.getTime());
+            const token = localStorage.getItem('token');
+            if (token) {
+                const decoded = jwt_decode(token);
+                if (decoded.exp * 1000 < currentDate.getTime()) {
+                    config.headers["authorization"] = await refreshToken();
+                }
+            }
+            return config;
+        } , error => {
+            Promise.reject(error);
+        }
+    );
+
+    useEffect( () => {
         // Check if a token is present in storage
         const token = localStorage.getItem('token');
-
         if (token) {
             axios.get('http://localhost:5000/user/authUser', {
                 headers: {
@@ -73,8 +120,9 @@ function App() {
                     console.log(response.data[0]);
                     console.log("new ", user);
                 })
-                .catch(error => {
+                .catch( error => {
                     setUser(null);
+                    localStorage.removeItem('token');
                     console.log('Error fetching user: ', error);
                 });
         }

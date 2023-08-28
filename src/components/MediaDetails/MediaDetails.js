@@ -65,7 +65,12 @@ const MediaDetails = () => {
     <>
       <NavBar />
       <div className="media-details">
-        <div className="main-header">
+        <div className="main-header"
+             style={{
+          backgroundImage: `linear-gradient(to top, rgba(15, 19, 30, 1), rgba(15, 19, 30, 0)),
+                                linear-gradient(to right, rgba(15, 19, 30, 0), rgba(15, 19, 30, 0.3), rgba(15, 19, 30, 0)),
+                                url(${require("../../assets/bigImages/series/thelastkingdom.jpg")})`}}
+        >>
         <label className="play-button">
               <input type="checkbox" />
               <svg

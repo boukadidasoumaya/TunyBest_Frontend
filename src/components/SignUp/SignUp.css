@@ -51,7 +51,7 @@
     color: white;
 }
 
-.field {
+.field, .select {
     height: 45px;
     width: 100%;
     display: flex;
@@ -59,10 +59,11 @@
 }
 
 .sign-up .field:nth-child(2),
-
-.sign-up .field:nth-child(4),
-.sign-up .field:nth-child(5) {
+.sign-up .field:nth-child(4){
     margin-top: 20px;
+}
+.sign-up .select {
+    margin-bottom: 20px;
 }
 .sign-up .field:nth-child(3){
     margin-top: 12px;
@@ -78,7 +79,7 @@
     outline: none;
     border: none;
     font-size: 15px;
-    background: #dde1e7;
+    background: #e7ebee;
     color: rgb(15, 19, 30);
     border-radius: 25px;
     box-shadow: inset 2px 2px 5px #838aa4,
@@ -119,7 +120,7 @@
     height: 35px;
     width: 135px;
     border: none;
-    background: #dde1e7;
+    background: #e7ebee;
     border-radius: 25px;
     box-shadow: inset 2px 2px 5px #838aa4,
     inset -5px -5px 10px #5e5e5e73;
@@ -179,7 +180,7 @@ i.fa-eye {
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 0;
     transition: all .8s;
 }
 
@@ -263,15 +264,14 @@ i.fa-eye {
     position: absolute;
     color: #434343;
     margin-left: 20px;
-    top: 62.5%;
+    top: 75%;
+    left: 0;
     font-size: 20px;
 }
-
 
 .custom-input {
     display: none;
 }
-
 
 .custom-label {
     display: inline-flex;
@@ -284,7 +284,7 @@ i.fa-eye {
     overflow: hidden;
     white-space: nowrap;
     font-size: 15px;
-    background: #dde1e7;
+    background: #e7ebee;
     border-radius: 25px;
     box-shadow: inset 2px 2px 5px #838aa4,
     inset -5px -5px 10px #5e5e5e73;
@@ -297,6 +297,6 @@ i.fa-eye {
     box-shadow: inset 1px 1px 2px #BABECC,
     inset -1px -1px 2px #5e5e5e73;
 }
-/*.custom-icon {*/
-/*    margin-right: 10px;*/
-/*}*/
+.sign-up-container .footer {
+     z-index: 0;
+}
