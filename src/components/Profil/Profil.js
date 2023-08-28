@@ -24,10 +24,10 @@ const Profil = () => {
     const [numAccount, setNumAccount] = useState(" **** **** **** 2061");
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
         const year = date.getFullYear();
-        return `${day}-${month}-${year}`;
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
     };
 
     useEffect(() => {
@@ -73,7 +73,11 @@ const Profil = () => {
         }
     };
 
-    const handleEditClick = (index) => {
+    const handleEditClick = (index, key,value) => {
+        const updatedUser = {
+            ...user,
+            [key]: value
+        };
         setIsEditing(prevIsEditing => {
             const updatedIsEditing = [...prevIsEditing];
             updatedIsEditing[index] = !updatedIsEditing[index];
@@ -100,47 +104,41 @@ const Profil = () => {
                             <div className="col-lg-3 col-md-4 col-sm-12 ">
                                 <div className="cadre d-flex flex-column align-items-center justify-content-center">
                                     <div className="row d-flex justify-content-center">
-                                        {isEditing[6] ? (
-                                            <React.Fragment>
-                                                <img
-                                                    className="profileImage p-0 m-2"
-                                                    src={previewImage || imageUrl}
-                                                    alt="Profile"
+                                        <img
+                                            className="profileImage p-0 m-2"
+                                            src={previewImage || imageUrl}
+                                            alt="Profile"
+                                        />
+
+                                            <input
+                                            id="file"
+                                            type="file"
+                                            accept="image/*"
+                                            onChange={handleImageUpload}
+                                            className="mt-2"
+                                            style={{display: "none"}}
+                                        />
+                                        <div className="d-flex justify-content-end p-0">
+                                            {isEditing[6] && (
+
+                                                <i
+                                                    className=" fas fa-check p-0 mt-1"
+                                                    style={{
+                                                        color: "#ffffff",
+                                                        textAlign: "end",
+                                                        fontSize: "20px",
+                                                    }}
+                                                    onClick={() => handleEditClick(6)}
                                                 />
-                                                <input
-                                                    type="file"
-                                                    accept="image/*"
-                                                    onChange={handleImageUpload}
-                                                    className="mt-2"
-                                                />
-                                                {isEditing[6] ? (
-                                                    <i
-                                                        className=" fas fa-check"
-                                                        style={{
-                                                            color: "#ffffff",
-                                                            margin: "0 0 0 400px",
-                                                            fontSize: "20px",
-                                                        }}
-                                                        onClick={() => handleEditClick(6)}
-                                                    />
-                                                ) : (
-                                                    <></>
-                                                )}
-                                            </React.Fragment>
-                                        ) : (
-                                            <>
-                                                <img
-                                                    className="profileImage p-0 m-2"
-                                                    src={imageUrl}
-                                                    alt="Profile"
-                                                />
+                                            )}
+                                            <label htmlFor="file">
                                                 <i
                                                     className="fa-sharp fa-regular fa-pen-to-square p-0"
                                                     onClick={() => handleEditClick(6)}
                                                     style={{cursor: "pointer"}}
                                                 />
-                                            </>
-                                        )}
+                                            </label>
+                                        </div>
                                         <hr className="mt-4 mb-4 "/>
                                     </div>
 
@@ -152,7 +150,8 @@ const Profil = () => {
                                                     style={{color: "#ffffff"}}
                                                 />
                                                 {isEditing[0] ? (
-                                                    <div className="d-flex flex-column"><input
+                                                    <div className="d-flex flex-column" style={{width: "100%"}}>
+                                                        <input
                                                         className="input-username ms-2 me-2"
                                                         type="text"
                                                         value={firstname}
@@ -178,7 +177,7 @@ const Profil = () => {
                                             >
                                                 {isEditing[0] ? (
                                                     <i
-                                                        className="fas fa-check"
+                                                        className="fas fa-check ms-1"
                                                         style={{color: "#ffffff"}}
                                                     />
                                                 ) : (

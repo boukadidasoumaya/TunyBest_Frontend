@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import "./CastSection.css";
 import { useState } from "react";
 const CastSection = () => {
@@ -10,13 +10,36 @@ const CastSection = () => {
   const shownArray = Array.from({ length: 6 }, (_, index) => index + 1);
   const hiddenArray = Array.from({ length: 6 }, (_, index) => index + 1);
 
+
+    const revealElementRef = useRef(null);
+
+    useEffect(() => {
+        const revealElement = revealElementRef.current;
+
+        const handleScroll = () => {
+            const viewportTop = window.scrollY;
+            const viewportBottom = viewportTop + window.innerHeight/1.2;
+            const elementTop = revealElement.getBoundingClientRect().top + viewportTop;
+            const elementBottom = elementTop + revealElement.offsetHeight;
+
+            const isElementVisible = elementBottom > viewportTop && elementTop < viewportBottom;
+            revealElement.classList.toggle("reveal", isElementVisible);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
   return (
     <div className="cast-section">
       <span>Cast</span>
       <hr className="custom-hr"/>
       <div className="container big">
-        <div className="container">
-          <div className="row">
+        <div ref={revealElementRef} className="container">
+          <div  className="row">
             {shownArray.map((divNumber) => (
               <div
                 key={divNumber}

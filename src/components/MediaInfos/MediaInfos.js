@@ -1,6 +1,6 @@
 import React from 'react';
 import './MediaInfos.css';
-const MediaInfos = () => {
+const MediaInfos = ({media}) => {
   return (
     <div className='media-infos'>
       <span>Details</span>
@@ -11,7 +11,12 @@ const MediaInfos = () => {
             Country
           </div>
           <div className="col-7 info">
-            United Kingdom
+            {media?.country
+                ? media.country
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(" ")
+                : ""}
           </div>
         </div>
         <hr className='mt-3 mb-3'/>
@@ -22,7 +27,12 @@ const MediaInfos = () => {
             Language
           </div>
           <div className="col-7 info">
-            English
+            {media?.language
+                ? media.language
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(" ")
+                : ""}
           </div>
         </div>
         <hr className='mt-3 mb-3'/>
@@ -33,7 +43,11 @@ const MediaInfos = () => {
             Original release
           </div>
           <div className="col-7 info">
-            12 September 2013 –3 April 2022
+            {media?.releasedate && new Date(media.releasedate).toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
           </div>
         </div>
         <hr className='mt-3 mb-3'/>
@@ -44,7 +58,7 @@ const MediaInfos = () => {
             Number of seasons
           </div>
           <div className="col-7 info">
-            6
+            {media?.nbseason}
           </div>
         </div>
         <hr className='mt-3 mb-3'/>
@@ -66,7 +80,12 @@ const MediaInfos = () => {
             Created by
           </div>
           <div className="col-7 info">
-            Steven Knight
+            {media?.creator
+                ? media.creator
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                    .join(" ")
+                : ""}
           </div>
         </div>
         <hr className='mt-3 mb-3'/>
@@ -77,7 +96,7 @@ const MediaInfos = () => {
             Running time
           </div>
           <div className="col-7 info">
-            55–73 minutes
+            {media?.runningtime} minutes
           </div>
         </div>
         <hr className='mt-3 mb-3'/>

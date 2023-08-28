@@ -26,7 +26,7 @@ const SimilarSection = () => {
     }, [id]);
     var settings = {
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 4,
@@ -42,7 +42,6 @@ const SimilarSection = () => {
                     slidesToShow: 3,
                     slidesToScroll: 4,
                     infinite: true,
-                    dots: true,
                     vertical: true,
                     verticalSwiping: true,
                 },

@@ -8,7 +8,6 @@
   width: 120px;
   border-radius: 50%;
   /* border: 2px solid #7eacda ; */
-  box-shadow: rgba(255, 255, 255, .2) 0 4px 15px inset, rgba(0, 0, 0, .1) 0 4px 5px, rgba(0, 0, 0, .1) 0 10px 15px;
   box-shadow: 2px 2px 2px 2px rgba(0, 7, 27, 0.9);
 }
 
@@ -16,6 +15,15 @@
   padding: 0 !important;
   padding-right: 120px !important;
   padding-left: 120px !important;
+}
+.cast-section .big .container {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:  transform 0.5s ease-out,opacity 0.5s ease-in-out;
+}
+.cast-section .big .container.reveal {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cast-section .actor {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -23,7 +23,6 @@ const LittleSwiper = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -43,9 +42,28 @@ const LittleSwiper = () => {
       },
     ],
   };
+  const revealElementRef = useRef(null);
 
+  useEffect(() => {
+    const revealElement = revealElementRef.current;
+
+    const handleScroll = () => {
+      const viewportTop = window.scrollY;
+      const viewportBottom = viewportTop + window.innerHeight/1.2;
+      const elementTop = revealElement.getBoundingClientRect().top + viewportTop;
+      const elementBottom = elementTop + revealElement.offsetHeight;
+
+      const isElementVisible = elementBottom > viewportTop && elementTop < viewportBottom;
+      revealElement.classList.toggle("reveal", isElementVisible);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="littleswiper">
+    <div ref={revealElementRef} className="littleswiper home">
       <Slider className="slider" {...settings}>
         {Array.from({ length: 8 }, (_, index) => (
           <div
