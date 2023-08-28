@@ -26,8 +26,12 @@ function App() {
             element: <Home/>,
         },
         {
-            path: "/details/:id",
-            element: <MediaDetails/>,
+            path: "/details/series/:id",
+            element: <MediaDetails mediaType = "series"/>,
+        },
+        {
+            path: "/details/movies/:id",
+            element: <MediaDetails mediaType = "movies"/>,
         },
         {
             path: "/movies",
@@ -110,7 +114,8 @@ function App() {
         // Check if a token is present in storage
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:5000/user/authUser', {
+            axiosJWT.get('http://localhost:5000/user/authUser', {
+                withCredentials: true,
                 headers: {
                     Authorization: token,
                 },

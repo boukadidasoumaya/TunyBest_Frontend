@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import "./MediaDetails.css";
@@ -11,6 +11,8 @@ import SimilarSection from "../SimilarSection/SimilarSection";
 import Modal from "react-modal";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import {useParams} from "react-router-dom";
+import axios from "axios";
 Chart.register(CategoryScale);
 const customStyles = {
   content: {
@@ -30,7 +32,18 @@ const customStyles = {
 };
 Modal.setAppElement("#root");
 
-const MediaDetails = () => {
+const MediaDetails = ({mediaType}) => {
+  const [media, setMedia] = useState(null);
+  const  {id} = useParams();
+  useEffect ( () => {
+    axios.get(`http://localhost:5000/${mediaType}/${id}`)
+        .then((response) => {
+          console.log(response.data);
+            setMedia(response.data);
+        }).catch((err) => {
+      console.log(err);
+    })
+    },[]);
   const [modalIsOpen, setModalOpen] = React.useState(false);
 
   function openModal() {
@@ -51,7 +64,6 @@ const MediaDetails = () => {
     labels: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1], // Numerical values representing the data points on the X-axis
     datasets: [
       {
-        // label: 'Dataset 1',
         data: [10, 20, 15, 30, 25, 60, 10, 10, 40, 50], // Numerical values representing the data points on the Y-axis
         backgroundColor: "rgba(255,255,255,1)",
         borderColor: "rgba(255,255,255,1)",
@@ -65,55 +77,61 @@ const MediaDetails = () => {
     <>
       <NavBar />
       <div className="media-details">
-        <div className="main-header"
-             style={{
-          backgroundImage: `linear-gradient(to top, rgba(15, 19, 30, 1), rgba(15, 19, 30, 0)),
+        {media &&(<div className="main-header"
+                       style={{
+                         backgroundImage: `linear-gradient(to top, rgba(15, 19, 30, 1), rgba(15, 19, 30, 0)),
                                 linear-gradient(to right, rgba(15, 19, 30, 0), rgba(15, 19, 30, 0.3), rgba(15, 19, 30, 0)),
-                                url(${require("../../assets/bigImages/series/thelastkingdom.jpg")})`}}
-        >>
-        <label className="play-button">
-              <input type="checkbox" />
-              <svg
+                                url(${require(`../../assets/bigImages/${media?.bigimage}`)})`,
+                       }}>
+          >
+          <label className="play-button">
+            <input type="checkbox"/>
+            <svg
                 viewBox="0 0 384 512"
                 height="1em"
                 xmlns="http://www.w3.org/2000/svg"
                 className="play"
-              >
-                <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-              </svg>
-              <svg
+            >
+              <path
+                  d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
+            </svg>
+            <svg
                 viewBox="0 0 320 512"
                 height="1em"
                 xmlns="http://www.w3.org/2000/svg"
                 className="pause"
-              >
-                <path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z" />
-              </svg>
-            </label>
+            >
+              <path
+                  d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/>
+            </svg>
+          </label>
           <div className="header-content">
 
 
-            <h1 className="media-title ">Peaky Blinders</h1>
+            <h1 className="media-title ">{media?.title}</h1>
             <div className="container rating">
               <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-4 our-rating d-flex flex-column align-items-center align-items-lg-start">
+                <div
+                    className="col-lg-4 col-md-4 col-sm-4 our-rating d-flex flex-column align-items-center align-items-lg-start">
                   <div className="label">Our Rating</div>
                   <div className="icon d-flex justify-content-center align-items-start">
                     <i className="fa-sharp fa-solid fa-star"></i>
-                    <span>9/10</span>
+                    <span>{media?.rating}/10</span>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-4 col-sm-4 your-rating d-flex flex-column align-items-center align-items-lg-start">
+                <div
+                    className="col-lg-4 col-md-4 col-sm-4 your-rating d-flex flex-column align-items-center align-items-lg-start">
                   <div className="label">Your rating</div>
                   <div className="icon d-flex justify-content-center align-items-start">
                     <i
-                      onClick={openModal}
-                      className="fa-sharp fa-regular fa-star"
+                        onClick={openModal}
+                        className="fa-sharp fa-regular fa-star"
                     ></i>
                     <span>Rate</span>
                   </div>
                 </div>
-                <div className="col-lg-3 col-md-4 col-sm-4 add-list d-flex flex-column align-items-center align-items-lg-start">
+                <div
+                    className="col-lg-3 col-md-4 col-sm-4 add-list d-flex flex-column align-items-center align-items-lg-start">
                   <button className="Btn d-flex justify-content-start align-items-center">
                     <div className="sign">+</div>
                     <div className="text">Add list</div>
@@ -122,44 +140,34 @@ const MediaDetails = () => {
               </div>
             </div>
             <div className="date-seasons">
-              <span className="date">2013</span>
-              <span className="num-seasons">6 seasons</span>
+              <span className="date">{media?.year}</span>
+              { mediaType === "series" &&(<span className="num-seasons">{media?.nbseason} season{media?.nbseason > 1 && (<>s</>)}</span>)}
             </div>
 
             <div className="genre">Genres: Tv Dramas, Crime, British</div>
             <div className="synopsis">
               <div className="custom-scrollbar">
                 <p className="clamp-lines">
-                  Peaky Blinders is a crime drama centred on a family of mixed
-                  Irish Traveller and Romani origins based in Birmingham,
-                  England, starting in 1919, several months after the end of the
-                  First World War. It centres on the Peaky Blinders street gang
-                  and their ambitious, cunning crime boss Tommy Shelby. The gang
-                  comes to the attention of Major Chester Campbell, a detective
-                  chief inspector in the Royal Irish Constabulary sent over by
-                  Winston Churchill from Belfast, where he had been sent to
-                  clean up the city of the Irish Republican Army flying columns,
-                  the Communist Party of Great Britain, street gangs, and common
-                  criminals.
+                  {media?.description}
                 </p>
               </div>
             </div>
           </div>
-        </div>
+        </div>)}
         <div className="container main-content mt-5">
           <div className="row  ">
             <div className="content col-12">
-              <EpisodesSection />
+              { mediaType === "series" && ( <EpisodesSection media={media}/> )}
               <div className="mt-5">
-                <CastSection />
+                <CastSection media={media}/>
               </div>
               <div className="container">
                 <div className="row mt-5">
                   <div className="col-lg-5 col-md-12 col-sm-12 infos">
-                    <MediaInfos />
+                    <MediaInfos media={media} />
                   </div>
                   <div className="col-lg-7 mt-sm-5 mt-md-5 mt-lg-0 col-md-12 col-sm-12 statistics ">
-                    <MediaStatistics chartData={chartData} />
+                    <MediaStatistics chartData={chartData} media={media} />
                   </div>
                 </div>
               </div>

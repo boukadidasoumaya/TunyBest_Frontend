@@ -29,7 +29,6 @@ const LittleSwiper = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -62,13 +61,6 @@ const LittleSwiper = () => {
               src={require("../../assets/peakyblinderssmall.jpg")}
               alt={`${index + 1}`}
             />
-            {/*<p*/}
-            {/*  onClick={() => handleRemoveClick(index)}*/}
-            {/*  className={`r ${hoveredSlide === index ? "remove" : ""}`}*/}
-            {/*>*/}
-            {/*  <i className="fa-solid fa-minus" style={{ color: "#fafafa" }}></i>*/}
-            {/*  Remove From List*/}
-            {/*</p>*/}
 
               <button className="button profil">
                 <svg viewBox="0 0 448 512" className="svgIcon">

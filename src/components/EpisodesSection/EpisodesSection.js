@@ -3,56 +3,47 @@ import "./EpisodesSection.css";
 import Slider from "react-slick";
 import SelectOptions from "../SelectOptions/SelectOptions";
 import LittleSwiper from "../LittleSwiper/LittleSwiperDetails";
-const EpisodesSection = () => {
-  const options = [
-    "Season 1",
-    "Season 2",
-    "Season 3",
-    "Season 4",
-    "Season 5",
-    "Season 6",
-    "Season 7",
-  ];
+const EpisodesSection = ({media}) => {
 
-  const numberOfImages = 8;
-
-  const [isOpen, setIsOpen] = useState(false);
-  const selectRef = useRef();
-
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  // const numberOfImages = 8;
+  //
+  // const [isOpen, setIsOpen] = useState(false);
+  // const selectRef = useRef();
+  //
+  // var settings = {
+  //   dots: true,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 6,
+  //   slidesToScroll: 4,
+  //   initialSlide: 0,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 3,
+  //         slidesToScroll: 3,
+  //         infinite: true,
+  //         dots: true,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 600,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 2,
+  //         initialSlide: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //   ],
+  // };
 
   return (
     <div className="episodes-section">
@@ -61,10 +52,10 @@ const EpisodesSection = () => {
           Episodes (6)
         </div>
         <div className="col-7 d-flex flex-column justify-content-end align-items-end">
-          {options.length > 0 ? (
+          {media?.nbseason > 1 ? (
             <SelectOptions
-              options={options}
-              byDefault={"Season 1"}
+              seasons={media?.nbseason}
+              byDefault={1}
               isCategories={false}
             />
           ) : null}

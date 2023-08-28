@@ -26,7 +26,7 @@ const Home = () => {
       <SwiperHome slides={slides} inHome={true}  />
       <div className="container">
         <div className="container">
-          <div className="d-flex">
+          <div className="d-flex ps-2">
             <h3>Trending</h3>
 
             <span className="btn-container">
@@ -80,7 +80,7 @@ const Home = () => {
           <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
-        <div className="d-flex">
+        <div className="d-flex ps-2">
             <h3>Popular</h3>
           
             <span className="btn-container">
@@ -134,7 +134,7 @@ const Home = () => {
           <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
-          <div className="d-flex">
+          <div className="d-flex ps-2">
             <h3>New Movies</h3>
 
             <span className="btn-container">
@@ -188,7 +188,7 @@ const Home = () => {
           <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
-          <div className="d-flex">
+          <div className="d-flex ps-2">
             <h3>New Series</h3>
 
             <span className="btn-container">
@@ -241,7 +241,7 @@ const Home = () => {
           <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
-          <div className="d-flex">
+          <div className="d-flex ps-2">
             <h3>Anime</h3>
             <span className="btn-container">
               <a className="btn-content" href="#">
@@ -293,7 +293,7 @@ const Home = () => {
           <hr className="mt-4 mb-4" />
         </div>
         <div className="container">
-          <div className="d-flex">
+          <div className="d-flex ps-2">
             <h3>K-Drama</h3>
             <span className="btn-container">
               <a className="btn-content" href="#">

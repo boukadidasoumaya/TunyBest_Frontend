@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./SelectOptions.css";
 
-const SelectOptions = ({ options, byDefault, isCategories }) => {
+const SelectOptions = ({ seasons, byDefault, isCategories }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(byDefault);
   const selectRef = useRef();
@@ -37,7 +37,7 @@ const SelectOptions = ({ options, byDefault, isCategories }) => {
       ref={selectRef}
     >
       <div className={`selected-option  ${isOpen ? "open" : ""}`}>
-        {selectedOption}
+        Season {selectedOption}
       </div>
       {isOpen && (
         <div
@@ -45,16 +45,15 @@ const SelectOptions = ({ options, byDefault, isCategories }) => {
             isCategories ? "categories" : "custom-scrollbar"
           } `}
         >
-          {options &&
-            options.map((option) => (
+          {seasons && Array.from({ length: seasons }, (_, index) => index + 1).map((option) => (
               <div
-                key={option}
-                className="option"
-                onClick={() => handleOptionClick(option)}
+                  key={option}
+                  className="option"
+                  onClick={() => handleOptionClick(option)}
               >
-                {option}
+                Season {option}
               </div>
-            ))}
+          ))}
         </div>
       )}
       <div
