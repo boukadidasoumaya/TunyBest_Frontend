@@ -63,7 +63,7 @@ function App() {
         const token = localStorage.getItem('token');
 
         if (token) {
-            axios.get('http://localhost:5000/authUser', {
+            axios.get('http://localhost:5000/user/authUser', {
                 headers: {
                     Authorization: token,
                 },
