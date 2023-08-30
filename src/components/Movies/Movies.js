@@ -39,13 +39,17 @@ const Movies = () => {
       <NavBar />
 
       <SwiperHome slides={slides} inmovies={true} inseries={false} inHome={false} />
-      <div className="select-options">
-        <SelectOptions
-          options={options}
-          byDefault={"Category"}
-          isCategories={true}
-        />{" "}
+  <div className="container">
+      <div className="row">
+          <div className="select-options col-5 col-md-5 col-sm-5">
+            <SelectOptions
+              options={options}
+              byDefault={"Category"}
+              isCategories={true}
+            />{" "}
+          </div>
       </div>
+  </div>
 
       <div className="container d-flex flex-column align-items-center">
         <div className="row">

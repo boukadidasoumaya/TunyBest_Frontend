@@ -89,7 +89,7 @@
 }
 
 .list .latest .box .card .details .left {
-  top: 10%;
+  top: 15%;
   color: #fff;
   transform: translateX(-100px);
   transition: 0.4s;
@@ -99,6 +99,7 @@
 .list .latest .box .card:hover .details .left {
   opacity: 1;
   transform: translateX(0);
+  
 }
 
 .list .latest .box .card .details .left p.name {

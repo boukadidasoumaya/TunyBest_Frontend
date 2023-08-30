@@ -87,7 +87,7 @@ const List = () => {
                 <div className="card">
                   <div className="details d-flex flex-column justify-content-end">
                     <div className="details-content row d-flex">
-                      <div className="left col-8 ">
+                      <div className="left col-8 p-0 mt-1  ">
                         <div className="date_quality">
                           <p className="quality">{item.quality}</p>
                           <p className="date">{item.date}</p>
@@ -104,7 +104,7 @@ const List = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="right col-4 p-0 ">
+                      <div className="right col-4 p-0 mt-1  ">
                         <i className="mt-4 fa-solid fa-play" />
                       </div>
                     </div>

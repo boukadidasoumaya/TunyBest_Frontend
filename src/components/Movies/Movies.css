@@ -3,10 +3,10 @@
 }
 
 .movies .select-options {
-  position: absolute;
-  top: 2%;
-  left: 120px;
+  position: relative;
+  top: -85vh;
   z-index: 99;
+  width: 35vh;
 }
 
 .movies .pagination {
@@ -25,6 +25,7 @@
   cursor: pointer;
 
 }
+
 .movies .page-item.active .page-link {
   background-color: white !important;
   color: rgb(15, 19, 30) !important;
@@ -45,5 +46,3 @@
   border-color: white !important;
 
 }
-
-
