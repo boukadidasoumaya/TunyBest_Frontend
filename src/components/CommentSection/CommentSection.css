@@ -208,3 +208,52 @@
   padding: 8px;
   border-radius: 15px;
 }
+
+
+.comment-section .btn {
+  background-color: transparent;
+  position: relative;
+  border: none;
+  margin-right: 5px;
+  height: 36px;
+}
+.comment-section .btn::after {
+  content: 'delete';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  height: fit-content;
+  background-color: #fb6363;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: .2s linear;
+  transition-delay: .2s;
+  color: white;
+  text-transform: uppercase;
+  font-size: 11px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.comment-section .btn i {
+  transition: .2s linear;
+  color: #a8a8a8;
+}
+
+.comment-section .btn i:hover {
+  transform: scale(1.5);
+  color: #fb6363;
+}
+
+.comment-section .btn:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: -65%;
+}
+
+.reply-box.disabled {
+  opacity: 0.5;
+    pointer-events: none;
+}

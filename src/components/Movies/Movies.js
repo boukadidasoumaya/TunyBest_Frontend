@@ -8,22 +8,7 @@ import "./Movies.css";
 import List from "../List/List";
 import PaginatedItems from "../PaginatedItems/PaginatedItems";
 const Movies = () => {
-  const options = [
-    "adventure",
-    "sci-fi",
-    "horror",
-    "romantic",
-    "drama",
-    "documentaire",
-    "anime",
-    "adventure",
-    "sci-fi",
-    "horror",
-    "romantic",
-    "drama",
-    "documentaire",
-    "anime",
-  ];
+
   return (
     <div className="movies">
       <NavBar />
@@ -31,7 +16,6 @@ const Movies = () => {
       <SwiperHome slides={slides} inHome={false} />
       <div className="select-options">
         <SelectOptions
-          options={options}
           byDefault={"Category"}
           isCategories={true}
         />{" "}
@@ -74,7 +58,7 @@ const Movies = () => {
             </li>
           </ul>
         </nav>
-      <PaginatedItems itemsPerPage={4}/>
+      {/*<PaginatedItems itemsPerPage={4}/>*/}
 
       </div>
 

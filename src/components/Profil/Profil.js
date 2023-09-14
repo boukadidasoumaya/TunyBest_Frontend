@@ -63,21 +63,19 @@ const Profil = () => {
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
         setSelectedImage(file);
-
+        console.log(file.name)
+        event.target.value = null;
         if (file) {
             const reader = new FileReader();
             reader.onload = () => {
                 setPreviewImage(reader.result);
+                console.log(reader.result)
             };
             reader.readAsDataURL(file);
         }
     };
 
     const handleEditClick = (index, key,value) => {
-        const updatedUser = {
-            ...user,
-            [key]: value
-        };
         setIsEditing(prevIsEditing => {
             const updatedIsEditing = [...prevIsEditing];
             updatedIsEditing[index] = !updatedIsEditing[index];
@@ -110,14 +108,7 @@ const Profil = () => {
                                             alt="Profile"
                                         />
 
-                                            <input
-                                            id="file"
-                                            type="file"
-                                            accept="image/*"
-                                            onChange={handleImageUpload}
-                                            className="mt-2"
-                                            style={{display: "none"}}
-                                        />
+
                                         <div className="d-flex justify-content-end p-0">
                                             {isEditing[6] && (
 
@@ -131,6 +122,14 @@ const Profil = () => {
                                                     onClick={() => handleEditClick(6)}
                                                 />
                                             )}
+                                            <input
+                                                id="file"
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={handleImageUpload}
+                                                className="mt-2"
+                                                style={{display: "none"}}
+                                            />
                                             <label htmlFor="file">
                                                 <i
                                                     className="fa-sharp fa-regular fa-pen-to-square p-0"

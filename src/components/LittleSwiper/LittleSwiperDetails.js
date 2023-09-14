@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./LittleSwiper.css";
 import { NavLink } from "react-router-dom";
 
-const LittleSwiper = () => {
+const LittleSwiper = ({nbepisodes,littleImage}) => {
   const sliderRef = useRef(null);
 
   var settings = {
@@ -82,11 +82,11 @@ const LittleSwiper = () => {
   return (
     <div ref={revealElementRef} className="littleswiper details">
       <Slider className="slider" {...settings}>
-        {Array.from({ length: 8 }, (_, index) => (
+        {Array.from({ length: nbepisodes }, (_, index) => (
           <div key={index} className="slider-item">
             <div className="slider-item-content">
               <img
-                src={require("../../assets/peakyblinderssmall.jpg")}
+                src={require("../../assets/smallImages/" + littleImage)}
                 alt={`${index + 1}`}
                 className="slider-image"
               />

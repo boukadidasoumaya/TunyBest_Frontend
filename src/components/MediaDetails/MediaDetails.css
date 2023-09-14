@@ -7,9 +7,9 @@
   height: 100vh;
   margin: 70px 0 0 0;
   color: #ffffff;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .media-details .header-content {

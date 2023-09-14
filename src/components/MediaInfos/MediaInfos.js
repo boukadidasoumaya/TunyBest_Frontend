@@ -76,9 +76,9 @@ const MediaInfos = ({media}) => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-5">
-            Created by
-          </div>
+            {media?.creator &&(<div className="col-5">
+                Created by
+            </div>)}
           <div className="col-7 info">
             {media?.creator
                 ? media.creator
@@ -88,7 +88,7 @@ const MediaInfos = ({media}) => {
                 : ""}
           </div>
         </div>
-        <hr className='mt-3 mb-3'/>
+          {media?.creator && (<hr className='mt-3 mb-3'/>)}
       </div>
       <div className="container">
         <div className="row">

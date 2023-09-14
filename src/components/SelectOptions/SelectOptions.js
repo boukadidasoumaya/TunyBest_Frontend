@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./SelectOptions.css";
+import axios from "axios";
 
-const SelectOptions = ({ seasons, byDefault, isCategories }) => {
+const SelectOptions = ({ seasons, byDefault, isCategories,getEpisodesFromSeason }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(byDefault);
   const selectRef = useRef();
+  const [categories, setCategories] = useState(null);
 
   const toggleOptions = () => {
     setIsOpen(!isOpen);
@@ -12,6 +14,7 @@ const SelectOptions = ({ seasons, byDefault, isCategories }) => {
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
+    getEpisodesFromSeason(option)
     setIsOpen(false);
   };
 
@@ -30,6 +33,18 @@ const SelectOptions = ({ seasons, byDefault, isCategories }) => {
       document.removeEventListener("click", handleDocumentClick);
     };
   }, []);
+
+  useEffect(() => {
+    if(isCategories){
+      axios.get("http://localhost:5000/category/all").then((response) => {
+        console.log(response.data);
+        setCategories(response.data);
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+
+  },[]);
   return (
     <div
       className="custom-select d-flex align-items-start"
@@ -37,15 +52,15 @@ const SelectOptions = ({ seasons, byDefault, isCategories }) => {
       ref={selectRef}
     >
       <div className={`selected-option  ${isOpen ? "open" : ""}`}>
-        Season {selectedOption}
+        {!isCategories && (<>Season </>)}{selectedOption}
       </div>
       {isOpen && (
         <div
           className={`options  ${
             isCategories ? "categories" : "custom-scrollbar"
-          } `}
+          }`}
         >
-          {seasons && Array.from({ length: seasons }, (_, index) => index + 1).map((option) => (
+          { !isCategories && seasons && Array.from({ length: seasons }, (_, index) => index + 1).map((option) => (
               <div
                   key={option}
                   className="option"
@@ -54,6 +69,17 @@ const SelectOptions = ({ seasons, byDefault, isCategories }) => {
                 Season {option}
               </div>
           ))}
+            { isCategories && categories && categories.sort((a, b) => a.name.localeCompare(b.name))
+                .map((category) => (
+                <div
+                    key={category.name}
+                    className="option"
+                    onClick={() => handleOptionClick(category.name)}
+                >
+                    {category.name}
+                </div>
+            ))}
+
         </div>
       )}
       <div

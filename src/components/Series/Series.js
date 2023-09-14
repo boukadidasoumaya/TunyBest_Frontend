@@ -7,22 +7,6 @@ import SelectOptions from "../SelectOptions/SelectOptions";
 import List from "../List/List";
 import "./Series.css";
 const Series = () => {
-  const options = [
-    "adventure",
-    "sci-fi",
-    "horror",
-    "romantic",
-    "drama",
-    "documentaire",
-    "anime",
-    "adventure",
-    "sci-fi",
-    "horror",
-    "romantic",
-    "drama",
-    "documentaire",
-    "anime",
-  ];
   return (
     <div className="series">
       <NavBar />
@@ -30,10 +14,9 @@ const Series = () => {
       <SwiperHome slides={slides} inHome={false} />
       <div className="select-options">
         <SelectOptions
-          options={options}
           byDefault={"Category"}
           isCategories={true}
-        />{" "}
+        />
       </div>
 
       <div className="container">

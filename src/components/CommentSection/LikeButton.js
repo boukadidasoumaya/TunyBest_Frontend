@@ -1,11 +1,53 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./CommentSection.css";
-const LikeButton = () => {
+import axios from "axios";
+const LikeButton = ({commentId, userId}) => {
+    const [likes, setLikes] = useState(0);
+    const [liked, setLiked] = useState(false);
+    useEffect(() => {
+        getLikes();
+        getLike();
+    }, [commentId, userId]);
+
+    const getLikes = () => {
+        axios.get(`http://localhost:5000/comment/getLikes/${commentId}`)
+            .then((res) => {
+                console.log(res);
+                setLikes(res.data.length);
+            }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+    const getLike = () => {
+        axios.get(`http://localhost:5000/comment/getLike/${commentId}/${userId}`)
+            .then((res) => {
+                console.log(res);
+                setLiked(res.data.length > 0);
+            }).catch((err) => {
+            console.log(err);
+        });
+    }
+    const handleLike = () => {
+        const token = localStorage.getItem("token");
+        if(token)
+            {
+                axios.post(`http://localhost:5000/comment/handleLike`, {comment_id: commentId, user_id: userId})
+                    .then((res) => {
+                        console.log(res);
+                        getLikes();
+                        getLike();
+                    }).catch((err) => {
+                    console.log(err);
+                });
+            }
+    }
+
   return (
     <div className="row">
       <div className="col-4">
         <label className="container p-0 like-button d-flex flex-column align-items-end">
-          <input type="checkbox" />
+          <input type="checkbox" checked={liked} onChange={handleLike} />
           <div className="checkmark">
             <svg viewBox="0 0 256 256">
               <rect fill="none" height="256" width="256"></rect>
@@ -20,7 +62,7 @@ const LikeButton = () => {
         </label>
       </div>
       <div className="col-8 p-1 d-flex flex-column justify-content-end ">
-        5 likes
+          {likes === 0 ? "" : (likes === 1 ? "1 like" : `${likes} likes`)}
       </div>
     </div>
   );

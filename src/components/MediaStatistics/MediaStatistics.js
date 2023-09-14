@@ -12,9 +12,9 @@ const MediaStatistics = ({ chartData }) => {
       tooltip: {
         callbacks: {
           label: (context) => {
-            const value = Number(context.parsed);
-            return value.toFixed(1) + "%";
-          },
+            const value = parseFloat(context.dataset.data[context.dataIndex]);
+              return `${value.toFixed(1)}%`;
+              },
         },
       },
     },
