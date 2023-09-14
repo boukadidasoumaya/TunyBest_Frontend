@@ -3,10 +3,10 @@
   color: white;
 }
 .series .select-options{
-  position: absolute;
-  top: 2%;
-  left: 120px;
+  position: relative;
+  top: -85vh;
   z-index: 99;
+  width: 35vh;
 }
 
 .series .pagination {

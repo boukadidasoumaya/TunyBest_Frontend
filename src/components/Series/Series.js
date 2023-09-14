@@ -14,8 +14,6 @@ const Series = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/series").then((response) => {
       setSlides(response.data);
-      
-    
     });
   }, []);
   const options = [
@@ -38,19 +36,23 @@ const Series = () => {
     <div className="series">
       <NavBar />
 
-      <SwiperHome slides={slides} inmovies={false} inseries={true} inHome={false} />
-      <div className="select-options">
-        <SelectOptions
-          options={options}
-          byDefault={"Category"}
-          isCategories={true}
-        />{" "}
-      </div>
-
+      <SwiperHome slides={slides} />
       <div className="container">
         <div className="row">
+          <div className="select-options col-5 col-md-5 col-sm-5">
+            <SelectOptions
+              options={options}
+              byDefault={"Category"}
+              isCategories={true}
+            />{" "}
+          </div>
+        </div>
+      </div>
+
+      <div className="container d-flex flex-column align-items-center">
+        <div className="row">
           <div className="col-12">
-            <List />
+            <List slides={slides} />
           </div>
         </div>
         <nav aria-label="Page navigation example">
@@ -85,6 +87,7 @@ const Series = () => {
           </ul>
         </nav>
       </div>
+
       <Footer />
     </div>
   );

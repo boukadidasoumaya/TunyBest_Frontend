@@ -38,7 +38,7 @@ const Movies = () => {
     <div className="movies">
       <NavBar />
 
-      <SwiperHome slides={slides} inmovies={true} inseries={false} inHome={false} />
+      <SwiperHome slides={slides} />
   <div className="container">
       <div className="row">
           <div className="select-options col-5 col-md-5 col-sm-5">
@@ -54,7 +54,7 @@ const Movies = () => {
       <div className="container d-flex flex-column align-items-center">
         <div className="row">
           <div className="col-12">
-            <List />
+            <List slides={slides} />
           </div>
         </div>
         <nav aria-label="Page navigation example">

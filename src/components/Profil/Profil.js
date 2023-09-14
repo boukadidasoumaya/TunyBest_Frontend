@@ -17,7 +17,7 @@ const Profil = () => {
 
   const [profileImage, setProfileImage] = useState(""); // State for profile image base de donne
   const [imageUrl, setImageUrl] = useState(require("../../assets/avatar.png")); //yafficheha feha path kemel
-
+  const [id, setId] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null); //eli yiteqra min aand el reader
 
@@ -45,10 +45,11 @@ const Profil = () => {
     password: "",
     ActualPassword: "",
   });
+  const [mylist, setMylist] = useState([]);
 
   useEffect(() => {
     setProfileImage(user ? user.image : "");
-
+    console.log(user?.id);
     setImageUrl(
       profileImage
         ? `http://localhost:5000/uploads/${profileImage}`
@@ -62,6 +63,14 @@ const Profil = () => {
     setBirthDate(date);
     setAddress(user?.country ?? "");
   }, [profileImage, user, imageUrl]);
+  useEffect(() => {
+    // axios
+    // .get(`http://localhost:5000/user/mylist/${user?.id}`)
+    // .then((response) => {
+    //   setMylist(response.data);
+    //   console.log(mylist);
+    // });
+  });
 
   const [isEditing, setIsEditing] = useState([
     false,
@@ -119,18 +128,22 @@ const Profil = () => {
       }
     } else if (index === 4) {
       handleEditClick(index);
-    } else if (index === 0) {
+    } else if (index === 0 || index === 7) {
+      //last first name
       if (isEditing[0]) {
-        
-        
-        if ( handleName(key, value)) {
-          handleEditClick(index);
+        if (errors.firstname || errors.lastname) {
+          if (handleName(key, value)) {
+            handleEditClick(index); //taskira mtaa check
+            return;
+          }
+        }
+      } else if (isEditing[7]) {
+        if (handleName(key, value)) {
+          handleEditClick(index); //taskira mtaa check
           return;
         }
-      
-        
       } else {
-        handleEditClick(index);
+        handleEditClick(index); //el halla mtaa check
         console.log("hello");
         return;
       }
@@ -142,21 +155,18 @@ const Profil = () => {
   const handleName = (key, value) => {
     const updatedUser = { ...user };
     updatedUser[key] = value;
-    
-  
-    if (
-      updatedUser["firstname"] === user["firstname"] &&
-      updatedUser["lastname"] === user["lastname"]
-    ) {
-      setUser(updatedUser);
+    const samefirst = updatedUser["firstname"] === user["firstname"];
+    const samelast = updatedUser["lastname"] === user["lastname"];
+
+    if (samefirst && samelast) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        firstname:"",
-        lastname:"",
+        firstname: "",
+        lastname: "",
       }));
       return 1;
     }
-  
+
     axios
       .post("http://localhost:5000/user/update", updatedUser, config)
       .then((res) => {
@@ -164,8 +174,8 @@ const Profil = () => {
         setUser(updatedUser);
         setErrors((prevErrors) => ({
           ...prevErrors,
-          firstname:"",
-          lastname:"",
+          firstname: "",
+          lastname: "",
         }));
         return 1;
       })
@@ -175,28 +185,23 @@ const Profil = () => {
         const error = err.response;
         console.log(error);
         if (error.status === 500) {
-           
-        
           if (key === "firstname") {
             setErrors((prevErrors) => ({
               ...prevErrors,
-              firstname:error.data.details[0].message,
-      
+              firstname: error.data.details[0].message,
             }));
-            return 0;
+            return;
           } else if (key === "lastname") {
             setErrors((prevErrors) => ({
               ...prevErrors,
-              lastname:error.data.details[0].message,
+              lastname: error.data.details[0].message,
             }));
-            return 0;
+            return;
           }
-          
-        
         }
       });
   };
-  
+
   const handleNewConfirmPassword = (newPassword, confirmPassword) => {
     if (newPassword === confirmPassword) {
       setNewPassword(newPassword);
@@ -356,7 +361,7 @@ const Profil = () => {
                           className="fa-solid fa-user"
                           style={{ color: "#ffffff" }}
                         />
-                        {isEditing[0] ? (
+                        {isEditing[0] || isEditing[7] ? (
                           <React.Fragment>
                             {" "}
                             <div
@@ -401,27 +406,23 @@ const Profil = () => {
                           </p>
                         )}
                       </div>
-                      <div className="edit" >
-                        {isEditing[0] ? (
+                      <div className="edit">
+                        {isEditing[0] || isEditing[7] ? (
                           <React.Fragment>
-                          
-                              <i
-                                className="fas fa-check ms-1"
-                                style={{ color: "#ffffff" }}
-                                onClick={() => {
-                                  handleConfirmClick(0, "firstname", firstname);
-
-                                }}
-                              />
-                          
                             <i
                               className="fas fa-check ms-1"
                               style={{ color: "#ffffff" }}
                               onClick={() => {
-                                handleConfirmClick(0, "lastname", lastname);
+                                handleConfirmClick(0, "firstname", firstname);
                               }}
                             />
-                          
+                            <i
+                              className="fas fa-check ms-1"
+                              style={{ color: "#ffffff" }}
+                              onClick={() => {
+                                handleConfirmClick(7, "lastname", lastname);
+                              }}
+                            />
                           </React.Fragment>
                         ) : (
                           <i
@@ -723,7 +724,7 @@ const Profil = () => {
                 <p className="fs-3 ">My List:</p>
               </div>
               <hr className="custom-hr" />
-              <LittleSwiper />
+              <LittleSwiper littleslides={mylist} />
             </div>
           </div>
         </div>
