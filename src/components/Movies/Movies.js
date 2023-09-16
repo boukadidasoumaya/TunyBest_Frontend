@@ -1,30 +1,43 @@
-import React, { useRef, useState } from "react";
+import React, { useRef,useEffect, useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import SwiperHome from "../SwiperHome/Swiper-home";
-import slides from "../mock.json";
 import Footer from "../Footer/Footer";
 import SelectOptions from "../SelectOptions/SelectOptions";
 import "./Movies.css";
 import List from "../List/List";
-import PaginatedItems from "../PaginatedItems/PaginatedItems";
+import axios from "axios";
+
 const Movies = () => {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/movies").then((response) => {
+      setSlides(response.data);
+
+
+    });
+  }, []);
 
   return (
     <div className="movies">
       <NavBar />
 
       <SwiperHome slides={slides} inHome={false} />
-      <div className="select-options">
-        <SelectOptions
-          byDefault={"Category"}
-          isCategories={true}
-        />{" "}
+  <div className="container">
+      <div className="row">
+          <div className="select-options col-5 col-md-5 col-sm-5">
+            <SelectOptions
+              byDefault={"Category"}
+              isCategories={true}
+            />{" "}
+          </div>
       </div>
+  </div>
 
       <div className="container d-flex flex-column align-items-center">
         <div className="row">
           <div className="col-12">
-            <List />
+            <List slides={slides} />
           </div>
         </div>
         <nav aria-label="Page navigation example">
@@ -58,8 +71,6 @@ const Movies = () => {
             </li>
           </ul>
         </nav>
-      {/*<PaginatedItems itemsPerPage={4}/>*/}
-
       </div>
 
       <Footer />
