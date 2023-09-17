@@ -1,0 +1,207 @@
+.offer-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+.offer-container .offers {
+  overflow: hidden;
+  z-index: 0;
+  height: 100%;
+  flex: 1;
+}
+.offer-container .offers-content{
+padding: 50px;
+}
+.offer-container .offers::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, rgba(15, 19, 30, 0.9), rgba(15, 19, 30, 0.2)),
+    linear-gradient(to bottom, rgba(15, 19, 30, 0.9), rgba(15, 19, 30, 0.2)),
+    url("../../assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+
+}
+
+.offer-container .offers .plans {
+  color: white;
+}
+
+.offer-container .offers .cards {
+  flex-wrap: wrap;
+  align-items: center;
+  align-items: center;
+}
+
+.offer-container .offers .card-title {
+  color: #00071b;
+  font-size: 1.4em;
+  line-height: normal;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.offer-container .offers .small-desc {
+  font-size: 1.1em ;
+  font-weight: 500 ;
+  line-height: 1.4em;
+  color: rgb(15, 19, 30);
+  text-align: center;
+  margin: 1em 1.2em;
+}
+
+
+.offer-container .offers .go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #6293c8, #2b4753);
+  border-radius: 0 4px 0 32px;
+  border: white 2px ;
+}
+
+.offer-container .offers .go-arrow {
+  margin-top: -8px;
+  margin-right: -6px;
+  color: white;
+  font-family: courier, sans;
+  font-size: 30px;
+}
+
+.offer-container .offers .card {
+  position: relative;
+  width: 250px;
+  height: 280px !important;
+  border-radius: 10px;
+  padding: 34px 0 0 0;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #dcedf0b1,#f2f8f9e7);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: .5s all;
+}
+
+.offer-container .offers .card:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: rgba(0, 6, 24,0.73);
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform .5s ease-out;
+}
+
+.offer-container .offers .card:hover:before {
+  transform: scale(28);
+}
+
+.offer-container .offers .card:hover .small-desc {
+  transition: all 0.5s ease-out;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.offer-container .offers .card:hover .card-title {
+  transition: all 0.5s ease-out;
+  color: #ffffff;
+}
+
+
+.offer-container .offers .cards:hover .card {
+  /* filter: blur(.5px); */
+  opacity: .5;
+  transform: scale(.98);
+  box-shadow: none;
+}
+
+.offer-container .offers .cards:hover .card:hover {
+  transform: scale(1.05);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+  background: transparent;
+}
+
+
+.offer-container .offers .card-footer {
+  padding: 0.5rem;
+  border: 1px solid #452c2c;
+  border-radius: 0 0 10px 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+}
+
+.offer-container .offers .tag {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 8px;
+  color: rgb(15, 19, 30);
+  transition: .5s all;
+}
+
+.offer-container .offers button {
+  cursor: pointer;
+  width: 130px !important;
+  margin: 5px 0 5px 0;
+  padding: .5em 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .9rem;
+  border-radius: 25px !important;
+  border: 1px solid #fca5a5;
+  outline: none;
+  background: #fca5a5;
+  color: #fff;
+  transition-duration: .5s;
+}
+.offer-container .offers button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.offer-container .offers button:hover {
+  border: 1px solid #fb6363;
+  background: #fb6363;
+  box-shadow: rgba(255, 255, 255, .2) 0 4px 15px inset, rgba(0, 0, 0, .1) 0 4px 5px, rgba(0, 0, 0, .1) 0 10px 15px;
+  transform: scale(1.04);
+}
+
+.offer-container .offers .cards:hover .card:hover .tag{
+  color: white;
+}
+
+.offer-container .offers .cards:hover .card:hover .card-footer{
+  border: 1px solid white;
+  
+}
+
+.offer-container .footer {
+  z-index: 1;
+}
+
+
+
+

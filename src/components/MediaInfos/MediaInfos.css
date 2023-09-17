@@ -1,0 +1,10 @@
+.media-infos span {
+  font-size: 24px;
+  font-weight: 500;
+}
+.media-infos .info {
+  text-align: right;
+}
+.media-infos .container {
+  font-size: 17px;
+}
