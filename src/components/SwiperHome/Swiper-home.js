@@ -1,16 +1,12 @@
 import "/node_modules/swiper/swiper.min.css";
 import { Navigation, Pagination, Scrollbar, A11y ,Autoplay} from "swiper/modules";
 import "/node_modules/swiper/swiper-bundle.min.css";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import data from "../mock.json";
 import "./Swiper-home.css";
-import axios from "axios";
-import { useEffect } from "react";
 
 const SwiperHome = ({ slides, inHome }) => {
   const [currentconponent, setCurrentComponent] = useState();
-
   return (
     <div>
       <div className="swipe-container">
@@ -27,8 +23,8 @@ const SwiperHome = ({ slides, inHome }) => {
           }}
         >
           {slides &&
-            slides.map((slide) => (
-              <SwiperSlide key={slide.id} className="swipe-slide">
+            slides.map((slide,index) => (
+              <SwiperSlide key={index} className="swipe-slide">
                 <div
                   className="slide-content "
                   style={{

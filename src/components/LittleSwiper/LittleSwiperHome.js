@@ -126,7 +126,7 @@ const LittleSwiper = ({ littleslides }) => {
 
                 <img
                   id="imghomeandprofil"
-                  src={require(`../../assets/littleImages/${slide?.littleimage}`)}
+                  src={require(`../../assets/smallImages/${slide?.littleimage}`)}
                   alt={`Item ${slide.id}`}
                 />
               </NavLink>

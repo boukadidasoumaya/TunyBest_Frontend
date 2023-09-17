@@ -57,7 +57,7 @@ const LittleSwiper = ({ littleslides }) => {
             <div key={slide.id} className="slide list">
               <img
                 id="imghomeandprofil"
-                src={require(`../../assets/littleImages/${slide?.littleimage}`)}
+                src={require(`../../assets/smallImages/${slide?.littleimage}`)}
                 alt={`Item ${slide.id}`}
               />
 
