@@ -17,6 +17,7 @@ import jwt_decode from "jwt-decode";
 import RequireAuth from "./helpers/requireAuth";
 import LoggedIn from "./helpers/loggedIn";
 import Search from "./components/Search/Search";
+//import Admin from "./components/AdminVersion/Dashbord/Admin";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -26,6 +27,7 @@ function App() {
             path: "/",
             element: <Home/>,
         },
+      
         {
             path: "/details/series/:id",
             element: <MediaDetails mediaType = "series"/>,

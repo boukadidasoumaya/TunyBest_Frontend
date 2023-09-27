@@ -1,55 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import ReactPaginate from 'react-paginate';
-import "./PaginatedItems.css";
+import React from "react";
+import "./PaginatedItems.css"
+const Pagination = ({ itemsPerPage, totalItems, currentPage, paginate }) => {
+  const pageNumbers = [];
 
-// Example items, to simulate fetching from another resources.
-const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
-function Items({ currentItems }) {
   return (
-    <>
-      {currentItems &&
-        currentItems.map((item) => (
-          <div>
-            <h3>Item #{item}</h3>
-          </div>
+    <nav aria-label="Page navigation example">
+      <ul className="pagination">
+        <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+          <a
+            className="page-link"
+            href="#"
+            onClick={() => paginate(currentPage - 1)}
+          >
+            Previous
+          </a>
+        </li>
+        {pageNumbers.map((number) => (
+          <li
+            key={number}
+            className={`page-item ${currentPage === number ? "active" : ""}`}
+          >
+            <a
+              className="page-link"
+              href="#"
+              onClick={() => paginate(number)}
+            >
+              {number}
+            </a>
+          </li>
         ))}
-    </>
+        <li
+          className={`page-item ${
+            currentPage === Math.ceil(totalItems / itemsPerPage)
+              ? "disabled"
+              : ""
+          }`}
+        >
+          <a
+            className="page-link"
+            href="#"
+            onClick={() => paginate(currentPage + 1)}
+          >
+            Next
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
-}
+};
 
-const PaginatedItems=({ itemsPerPage })=> {
-
-  const [itemOffset, setItemOffset] = useState(0);
-  const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-
-  const currentItems = items.slice(itemOffset, endOffset);
-  
-  const pageCount = Math.ceil(items.length / itemsPerPage);
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
-    setItemOffset(newOffset);
-  };
-
-  return (
-    <>
-      <Items currentItems={currentItems} />
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-      />
-    </>
-  );
-}
-
-export default PaginatedItems;
+export default Pagination;

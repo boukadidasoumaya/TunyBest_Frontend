@@ -63,17 +63,17 @@ const Profil = () => {
     setAddress(user?.country ?? "");
   }, [profileImage, user, imageUrl]);
 
-const getMyList = () => {
-  axios
+  const getMyList = () => {
+    axios
       .get(`http://localhost:5000/user/mylist/${user?.id}`)
       .then((response) => {
         setMylist(response.data);
         console.log(mylist);
       });
-}
+  };
   useEffect(() => {
     getMyList();
-  },[user]);
+  }, [user]);
 
   const [isEditing, setIsEditing] = useState([
     false,
@@ -309,7 +309,7 @@ const getMyList = () => {
 
   return (
     <div>
-      <NavBar searched = {""}/>
+      <NavBar searched={""} />
       <div className="profil-content">
         <div className="content">
           <div className="container">
@@ -727,7 +727,7 @@ const getMyList = () => {
                 <p className="fs-3 ">My List:</p>
               </div>
               <hr className="custom-hr" />
-              <LittleSwiper littleSlides = {mylist} setLittleSlides = {getMyList} />
+              <LittleSwiper littleSlides={mylist} setLittleSlides={getMyList} />
             </div>
           </div>
         </div>

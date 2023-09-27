@@ -9,43 +9,6 @@
   width: 35vh;
 }
 
-.movies .pagination {
-
-  z-index: 99;
-
-  width: fit-content !important;
-  background-color: rgb(15, 19, 30) !important;
-  padding: 10px;
-  border-radius: 8px;
-
-}
-
-.movies .page-item {
-  margin: 0 5px;
-  cursor: pointer;
-
-}
-
-.movies .page-item.active .page-link {
-  background-color: white !important;
-  color: rgb(15, 19, 30) !important;
-  border-color: white !important;
-}
-
-
-.movies .page-link {
-  color: white !important;
-  background-color: rgb(15, 19, 30) !important;
-  border-color: white !important;
-
-}
-
-.movies .page-link:hover {
-  background-color: white !important;
-  color: rgb(15, 19, 30) !important;
-  border-color: white !important;
-
-}
 
 .movies .buttn {
   display: block;
