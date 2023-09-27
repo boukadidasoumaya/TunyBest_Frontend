@@ -5,8 +5,8 @@ import LittleSwiper from "../LittleSwiper/LittleSwiperHome";
 import LearnMoreButton from "../LearnMoreButton/LearnMoreButton";
 import Footer from "../Footer/Footer";
 import "./Home.css";
-import {useParams} from "react-router-dom";
 import axios from "axios";
+import {useLocation} from "react-router-dom";
 
 
 const Home = () => {
@@ -46,9 +46,13 @@ const [kdrama,setKdrama]=useState([]);
 
   }, []);
 
+
+  const location = useLocation();
+  const { isSearchBoxActive } = location.state || {};
+
   return (
     <div className="home">
-      <NavBar />
+      <NavBar searched = {""} searchBoxActive={isSearchBoxActive}/>
       <SwiperHome slides={slides} inHome={true}  />
       <div className="container">
         <div className="container">

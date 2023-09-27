@@ -75,7 +75,7 @@ const LittleSwiper = ({ littleslides }) => {
               onMouseEnter={() => setHoveredSlide(slide.id)}
               onMouseLeave={() => setHoveredSlide(null)}
             >
-              <NavLink to="/details/1">
+              <NavLink to={`details/${slide.type}/${slide.id}`}>
                 <div className="details d-flex flex-column justify-content-end">
                   <div className="details-content row d-flex">
                     <div className="left col-8 ">
@@ -125,6 +125,7 @@ const LittleSwiper = ({ littleslides }) => {
                 </div>
 
                 <img
+
                   id="imghomeandprofil"
                   src={require(`../../assets/smallImages/${slide?.littleimage}`)}
                   alt={`Item ${slide.id}`}

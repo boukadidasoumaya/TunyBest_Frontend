@@ -9,27 +9,60 @@ import axios from "axios";
 
 const Movies = () => {
   const [slides, setSlides] = useState([]);
+  const [selectCategory, setSelectCategory] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("Category");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/movies").then((response) => {
-      setSlides(response.data);
-
-
-    });
+    getSlides();
   }, []);
+const getSlides = () => {
+  axios.get("http://localhost:5000/movies").then((response) => {
+    setSlides(response.data);
+  });
+}
+  const getMediaByCategory = (category) => {
+    let newSlides = slides.filter((slide) => slide.categories.includes(category));
+    setSlides(newSlides);
+    setSelectCategory(true);
+  }
+  const returnToAll = () => {
+    getSlides();
+    setSelectCategory(false);
+    setSelectedOption("Category");
+  }
 
   return (
     <div className="movies">
-      <NavBar />
+      <NavBar searched = {""} />
 
       <SwiperHome slides={slides} inHome={false} />
   <div className="container">
       <div className="row">
-          <div className="select-options col-5 col-md-5 col-sm-5">
+        {selectCategory && (<div className="col-1 col-md-1 col-sm-1 pe-5 pe-lg-0 d-lg-flex justify-content-lg-end">
+          <button className="buttn" onClick={returnToAll}>
+            <div className="button-box">
+    <span className="button-elem">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 40">
+        <path
+            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+      </svg>
+    </span>
+              <span className="button-elem">
+      <svg viewBox="0 0 46 40">
+        <path
+            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+      </svg>
+    </span>
+            </div>
+          </button>
+        </div>)}
+          <div className="select-options col-5 col-md-5 col-sm-5 ps-lg-2">
             <SelectOptions
-              byDefault={"Category"}
+              getMediaByCategory={getMediaByCategory}
               isCategories={true}
-            />{" "}
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
+            />
           </div>
       </div>
   </div>

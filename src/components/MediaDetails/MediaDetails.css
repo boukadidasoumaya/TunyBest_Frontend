@@ -131,6 +131,7 @@
   opacity: 0;
   color: white;
   font-weight: 500;
+  line-height: 1.2em;
   transition-duration: .3s;
 }
 
@@ -382,3 +383,5 @@
     transform: rotate(-10deg) scale(1.2);
   }
 }
+
+

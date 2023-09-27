@@ -6,13 +6,14 @@
   padding: 8px 20px;
   cursor: pointer;
   background-color: #f1f1f1;
+  width: fit-content;
 }
 
 /* Style for the selected option */
 .custom-select .selected-option {
   color: rgb(15, 19, 30);
-    font-weight: 400;
-    font-size: 1.1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
   margin-right: 15px;
 }
 
@@ -33,7 +34,7 @@
 
 }
 .custom-select .categories {
-  width: 350px;
+  width: 400px;
   columns: 3;
   column-gap: 0;
 }

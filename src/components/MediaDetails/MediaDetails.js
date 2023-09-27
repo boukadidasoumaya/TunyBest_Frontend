@@ -42,28 +42,30 @@ const MediaDetails = ({mediaType}) => {
     const {user} = useContext(authContext);
     const [rating, setRating] = useState(null);
     const [data, setData] = useState([]);
+    const [isFromMyList, setIsFromMyList] = useState(null);
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/rating/getPercentages/${id}/${mediaType}`)
+        getPercentage();
+        axios.get(`http://localhost:5000/${mediaType}/${id}/${user?.id}`)
             .then((response) => {
-                console.log("ratings",response.data);
-                setData(response.data);
-            }).catch((err) => {
-            console.log(err);
-        })
-
-        axios.get(`http://localhost:5000/${mediaType}/${id}`)
-            .then((response) => {
-                console.log(response.data);
+                console.log("data media", response.data);
                 setMedia(response.data);
                 setRating(response.data.rating);
+                setIsFromMyList(response.data.isFromMyList?.id);
             }).catch((err) => {
             console.log(err);
         })
 
-    }, [id, mediaType]);
-
+    }, [id, mediaType, user]);
+const getPercentage = () => {
+    axios.get(`http://localhost:5000/rating/getPercentages/${id}/${mediaType}`)
+        .then((response) => {
+            setData(response.data);
+        }).catch((err) => {
+        console.log(err);
+    })
+}
 
     const [modalIsOpen, setModalOpen] = React.useState(false);
 
@@ -85,6 +87,7 @@ const MediaDetails = ({mediaType}) => {
         }).then((response) => {
             console.log(response.data);
             setRating(response.data.rating)
+            getPercentage();
         }).catch((err) => {
             console.log(err);
         })
@@ -111,6 +114,30 @@ setChartData({
 })
 },[data])
 
+    const handleMyList = () => {
+    if(isFromMyList){
+        axios.post(`http://localhost:5000/user/mylist/delete/${isFromMyList}`).then((response) => {
+            console.log(response);
+            setIsFromMyList(null);
+
+        }).catch((error) => {
+            console.log(error);
+        });
+    } else {
+        axios.post(`http://localhost:5000/user/mylist/add`, {
+            userId: user?.id,
+            mediaType: mediaType,
+            mediaId: media?.id,
+        }).then((response) => {
+            console.log(response.data);
+            setIsFromMyList(response.data.id);
+
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    };
     return (
         <>
             <NavBar/>
@@ -174,9 +201,32 @@ setChartData({
                                         </div>
                                         <div
                                             className="col-lg-3 col-md-4 col-sm-4 add-list d-flex flex-column align-items-center align-items-lg-start">
-                                            <button className="Btn d-flex justify-content-start align-items-center">
-                                                <div className="sign">+</div>
-                                                <div className="text">Add list</div>
+                                            <button className="Btn d-flex justify-content-start align-items-center" onClick={handleMyList}>
+                                                {isFromMyList ? (
+                                                    <>
+                                                        <div className="sign">
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="-3 0 30 24"
+                                                                fill="none"
+                                                                stroke="currentColor"
+                                                                strokeWidth="3"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                            >
+                                                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                                                <line x1="6" y1="6" x2="18" y2="18"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div className="text">Remove from list</div>
+                                                    </>
+                                                    ) : (
+                                                    <>
+                                                        <div className="sign"> + </div>
+                                                        <div className="text">Add list</div>
+                                                    </>
+                                                    )}
+
                                             </button>
                                         </div>
                                     </>

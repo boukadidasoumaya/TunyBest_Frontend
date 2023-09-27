@@ -2,20 +2,18 @@ import React from "react";
 import "./List.css";
 import { NavLink } from "react-router-dom";
 const List = ({ slides }) => {
-  console.log(slides);
 
-  
   return (
     <div className="list">
       <div className="list-container row ">
         {slides &&
-          slides.map((slide) => (
+          slides.map((slide,index) => (
             <div
-              className="latest col-lg-2 col-md-3 col-sm-6 mb-4"
-              key={slide.id}
+              className="latest col-lg-2 col-md-3 col-sm-6 mb-4 "
+              key={index}
             >
-              <div className="box">
-                <NavLink to="/details/1">
+              <div className="box d-flex justify-content-center">
+                  <NavLink to={`/details/${slide.type}/${slide.id}`}>
                   <div className="card">
                     <div className="details d-flex flex-column justify-content-end">
                       <div className="details-content row d-flex">

@@ -62,6 +62,7 @@ const SignIn = () => {
                     console.log(res);
                     console.log(res.data);
                     navigate('/');
+
                     localStorage.removeItem('token')
                     localStorage.setItem('token', res.data.token);
                     setUser(res.data.user);

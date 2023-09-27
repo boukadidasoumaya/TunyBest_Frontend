@@ -81,7 +81,7 @@ const [imageUrl, setImageUrl ] = useState(null);
     });
   }
 
-  const [modalIsOpen, setModalOpen] = React.useState(false);
+  const [modalIsOpen, setModalOpen] = useState(false);
 
   function openModal() {
     setModalOpen(true);

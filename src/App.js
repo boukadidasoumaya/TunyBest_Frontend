@@ -16,6 +16,7 @@ import {authContext} from "./helpers/authContext";
 import jwt_decode from "jwt-decode";
 import RequireAuth from "./helpers/requireAuth";
 import LoggedIn from "./helpers/loggedIn";
+import Search from "./components/Search/Search";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -44,6 +45,10 @@ function App() {
         {
             path: "/offers",
             element: <Offer/>,
+        },
+        {
+            path: "/search",
+            element: <Search/>,
         },
         {
             element: <LoggedIn />,

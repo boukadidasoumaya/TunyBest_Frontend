@@ -4,8 +4,9 @@ import "/node_modules/swiper/swiper-bundle.min.css";
 import React, {useEffect, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Swiper-home.css";
+import {NavLink} from "react-router-dom";
 
-const SwiperHome = ({ slides, inHome }) => {
+const SwiperHome = ({ slides, inHome,mediaType}) => {
   const [currentconponent, setCurrentComponent] = useState();
   return (
     <div>
@@ -39,12 +40,14 @@ const SwiperHome = ({ slides, inHome }) => {
                       <p>{slide.description}</p>
                     </div>
 
-                    <button className=" learn-more">
+                      <NavLink to={`/details/${slide.type}/${slide.id}`}>
+                          <button className=" learn-more">
                       <span className="circle" aria-hidden="true">
                         <span className="icon arrow"></span>
                       </span>
-                      <span className="button-text">Learn More</span>
-                    </button>
+                              <span className="button-text">Learn More</span>
+                          </button>
+                      </NavLink>
                   </div>
                 </div>
               </SwiperSlide>

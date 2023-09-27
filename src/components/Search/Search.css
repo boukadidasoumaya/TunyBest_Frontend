@@ -1,0 +1,14 @@
+.search-container{
+    min-height: 100vh;
+}
+
+.search {
+    color: white;
+    padding: 17vh 0 20px;
+}
+
+.search-container .hr {
+    color: white !important;
+    border: 1px solid white;
+    width: 15vw;
+}

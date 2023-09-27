@@ -4,6 +4,7 @@ import SelectOptions from "../SelectOptions/SelectOptions";
 import LittleSwiper from "../LittleSwiper/LittleSwiperDetails";
 const EpisodesSection = ({media}) => {
     const [episodes, setEpisodes] = useState();
+    const [selectedOption, setSelectedOption] = useState(1);
     const getEpisodesFromSeason = (season) => {
         setEpisodes(media?.seasons[season - 1]?.nb_episodes);
     }
@@ -17,9 +18,11 @@ const EpisodesSection = ({media}) => {
           {media?.nbseason > 1 ? (
             <SelectOptions
               seasons={media?.nbseason}
-              byDefault={1}
               isCategories={false}
               getEpisodesFromSeason={getEpisodesFromSeason}
+
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
             />
           ) : null}
         </div>

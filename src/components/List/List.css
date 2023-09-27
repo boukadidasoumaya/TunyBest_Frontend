@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  width: 100%;
 }
 
 .list .latest .box .card {
@@ -25,11 +25,11 @@
   border-radius: 8px;
   position: relative;
   transition: 0.3s;
+  width: 100%;
 }
 
 .list .latest .box .card img {
-  height: 100%;
-  width: 100%;
+  height: 40vh;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
@@ -213,4 +213,27 @@
   cursor: pointer;
   color: #282931;
   
+}
+
+@media (min-width: 992px) {
+  .list .latest .box .card img {
+    width: 13vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .list .latest .box .card img {
+    width: 17.5vw;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .list .latest .box .card img {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .list .latest .box .card img {
+    width: 40vw;
+  }
 }

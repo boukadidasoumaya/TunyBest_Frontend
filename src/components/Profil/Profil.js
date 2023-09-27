@@ -17,7 +17,6 @@ const Profil = () => {
 
   const [profileImage, setProfileImage] = useState(""); // State for profile image base de donne
   const [imageUrl, setImageUrl] = useState(require("../../assets/avatar.png")); //yafficheha feha path kemel
-  const [id, setId] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null); //eli yiteqra min aand el reader
 
@@ -63,14 +62,18 @@ const Profil = () => {
     setBirthDate(date);
     setAddress(user?.country ?? "");
   }, [profileImage, user, imageUrl]);
+
+const getMyList = () => {
+  axios
+      .get(`http://localhost:5000/user/mylist/${user?.id}`)
+      .then((response) => {
+        setMylist(response.data);
+        console.log(mylist);
+      });
+}
   useEffect(() => {
-    // axios
-    // .get(`http://localhost:5000/user/mylist/${user?.id}`)
-    // .then((response) => {
-    //   setMylist(response.data);
-    //   console.log(mylist);
-    // });
-  });
+    getMyList();
+  },[user]);
 
   const [isEditing, setIsEditing] = useState([
     false,
@@ -306,7 +309,7 @@ const Profil = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar searched = {""}/>
       <div className="profil-content">
         <div className="content">
           <div className="container">
@@ -724,7 +727,7 @@ const Profil = () => {
                 <p className="fs-3 ">My List:</p>
               </div>
               <hr className="custom-hr" />
-              <LittleSwiper littleslides={mylist} />
+              <LittleSwiper littleSlides = {mylist} setLittleSlides = {getMyList} />
             </div>
           </div>
         </div>

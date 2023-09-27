@@ -1,15 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, {useState, useContext, useEffect, useRef} from "react";
 import "./NavBarre.css";
-import { NavLink } from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {authContext} from "../../helpers/authContext";
 import axios from "axios";
 
-const NavBar = () => {
+const NavBar = ({searched, searchBoxActive}) => {
   const { user, setUser } = useContext(authContext);
-  const [isSearchBoxActive, setSearchBoxActive] = useState(false);
+  const [isSearchBoxActive, setSearchBoxActive] = useState(searchBoxActive || false);
   const [clicked, setClicked] = useState(false);
   const handleSearchButtonClick = () => {
     setSearchBoxActive((prevState) => !prevState);
+    setSearchedMedia('');
+
   };
 
   const handleToggleClick = () => {
@@ -26,6 +28,28 @@ const NavBar = () => {
         console.log(error);
     });
     };
+const navigate = useNavigate();
+const [searchedMedia, setSearchedMedia] = useState('');
+const inputRef = useRef(null);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const newValue = event.target.value;
+    if(newValue === '') {
+        navigate('/', {state: { isSearchBoxActive: true }});
+    } else {
+      navigate('/search', {state: {searchedMedia: newValue, isSearchBoxActive}});
+    }
+  };
+
+  useEffect(() => {
+    // Focus the input element when searchedMedia changes (after navigation)
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [searchedMedia]);
+
+
   return (
     <nav className="nav">
       <div className="container1">
@@ -46,6 +70,9 @@ const NavBar = () => {
                   type="text"
                   placeholder="Search"
                   className={`search-txt`}
+                  onChange={handleSearch}
+                  value={searchedMedia || searched}
+                  ref={inputRef}
                 />
                 <a className="search-btn" onClick={handleSearchButtonClick}>
                   <i className="fas fa-search" />
@@ -69,6 +96,9 @@ const NavBar = () => {
                   type="text"
                   placeholder="Search"
                   className={`search-txt`}
+                  onChange={handleSearch}
+                  value={searchedMedia || searched}
+                  ref={inputRef}
                 />
                 <a className="search-btn" onClick={handleSearchButtonClick}>
                   <i className="fas fa-search" />
