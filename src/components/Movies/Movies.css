@@ -1,5 +1,7 @@
 .movies {
   color: white;
+  min-height: 100vh;
+
 }
 
 .movies .select-options {
@@ -8,6 +10,10 @@
   z-index: 99;
   width: 35vh;
 }
+.movies .select-options.no-result{
+  top: 0;
+}
+
 
 .movies .pagination {
 
@@ -60,7 +66,9 @@
   background-color: transparent;
   border: 0;
 }
-
+.movies .buttn.no-result {
+  top: -1vh;
+}
 .movies .buttn:before,
 .movies .buttn:after {
   content: "";

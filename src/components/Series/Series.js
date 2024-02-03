@@ -11,20 +11,23 @@ import axios from "axios";
 
 const Series = () => {
     const [slides, setSlides] = useState([]);
+    const [filteredSlides, setFilteredSlides] = useState([]);
+
     const [selectCategory, setSelectCategory] = useState(false);
     const [selectedOption, setSelectedOption] = useState("Category");
 
     const getSlides = () => {
         axios.get("http://localhost:5000/series").then((response) => {
             setSlides(response.data);
+            setFilteredSlides(response.data)
         });
     }
     useEffect(() => {
         getSlides();
     }, []);
     const getMediaByCategory = (category) => {
-        let newSlides = slides.filter((slide) => slide.categories.includes(category));
-        setSlides(newSlides);
+        setFilteredSlides(slides);
+        setFilteredSlides(slides.filter((slide) => slide.categories.includes(category)));
         setSelectCategory(true);
     }
     const returnToAll = () => {
@@ -33,14 +36,14 @@ const Series = () => {
         setSelectedOption("Category");
     }
     return (
-        <div className="series">
+        <div className="series d-flex flex-column justify-content-between">
             <NavBar searched = {""}/>
 
-            <SwiperHome slides={slides} inHome={false}/>
+            <SwiperHome slides={filteredSlides} inHome={false}/>
             <div className="container">
                 <div className="row">
                     {selectCategory && (<div className="col-1 col-md-1 col-sm-1  pe-5 pe-lg-0 d-lg-flex justify-content-lg-end">
-                        <button className="buttn" onClick={returnToAll}>
+                        <button className={`buttn ${filteredSlides?.length>0 ? '': 'no-result'}`} onClick={returnToAll}>
                             <div className="button-box">
     <span className="button-elem">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 40">
@@ -57,7 +60,7 @@ const Series = () => {
                             </div>
                         </button>
                     </div>)}
-                    <div className="select-options col-5 col-md-5 col-sm-5 ps-lg-2">
+                    <div className={`select-options ${filteredSlides?.length>0 ? '': 'no-result'} col-5 col-md-5 col-sm-5 ps-lg-2`}>
                         <SelectOptions
                             getMediaByCategory={getMediaByCategory}
                             selectedOption={selectedOption}
@@ -71,7 +74,7 @@ const Series = () => {
             <div className="container d-flex flex-column align-items-center">
                 <div className="row">
                     <div className="col-12">
-                        <List slides={slides}/>
+                        {filteredSlides?.length>0 ?(<List slides={filteredSlides}/>) : (<div className="text-center mt-3 fs-3" style={{color:"#4b4e56"}}>No Result Found</div>)}
                     </div>
                 </div>
                 <nav aria-label="Page navigation example">

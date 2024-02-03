@@ -1,6 +1,7 @@
 .series {
   background-color: rgb(15, 19, 30);
   color: white;
+  min-height: 100vh;
 }
 .series .select-options{
   position: relative;
@@ -8,7 +9,9 @@
   z-index: 99;
   width: 35vh;
 }
-
+.series .select-options.no-result{
+  top: 0;
+}
 .series .pagination {
 
   z-index: 99;
@@ -59,7 +62,9 @@
   background-color: transparent;
   border: 0;
 }
-
+.series .buttn.no-result {
+  top: -1vh;
+}
 .series .buttn:before,
 .series .buttn:after {
   content: "";

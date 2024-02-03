@@ -28,7 +28,6 @@ const LittleSwiper = ({ littleSlides, setLittleSlides }) => {
 
   const handleRemoveClick = (id) => {
     axios.post(`http://localhost:5000/user/mylist/delete/${id}`).then((response) => {
-        console.log(response);
          setLittleSlides();
          closeModal();
     }).catch((error) => {
@@ -116,7 +115,7 @@ const LittleSwiper = ({ littleSlides, setLittleSlides }) => {
           <p className="text-center">Are you sure you want to delete this { mediaToDelete?.type === 'series' ? (<> serie </>):(<> movie </>)} from your list ?</p>
           <div className="confirm row">
             <div className="col-md-6 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-center ">
-              <button onClick={() => handleRemoveClick(mediaToDelete)}>
+              <button onClick={() => handleRemoveClick(mediaToDelete?.id)}>
                 <span>Delete</span>
               </button>
             </div>

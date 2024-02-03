@@ -7,7 +7,6 @@ import "./Swiper-home.css";
 import {NavLink} from "react-router-dom";
 
 const SwiperHome = ({ slides, inHome,mediaType}) => {
-  const [currentconponent, setCurrentComponent] = useState();
   return (
     <div>
       <div className="swipe-container">

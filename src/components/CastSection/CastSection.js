@@ -3,7 +3,6 @@ import "./CastSection.css";
 import { useState } from "react";
 const CastSection = ({media}) => {
   const [showMoreCast, setShowMoreCast] = useState(false);
-
   const handleViewMoreButtonClick = () => {
     setShowMoreCast((prevShowMoreCast) => !prevShowMoreCast);
   };

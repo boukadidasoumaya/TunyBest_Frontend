@@ -47,7 +47,7 @@ const Search = () => {
                 <hr className="hr ms-1" />
                 <div className="row">
                     <div className="col-12">
-                        <List slides={filteredMedia} />
+                        {filteredMedia?.length > 0 ?(<List slides={filteredMedia}/>) : (<div className="text-center mt-5 fs-3" style={{color:"#4b4e56"}}>No Result Found</div>)}
                     </div>
                 </div>
             </div>
